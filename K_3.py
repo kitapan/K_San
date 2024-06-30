@@ -8,14 +8,8 @@ from java_courses import java_course_options
 # ウィンドウテーマ
 sg.theme('TealMono')
 
-java_course = [
-    '',
-    'ベーシック',
-    'スタンダード',
-    'アドバンスド'
-]
-
-font = (1)
+java_course = ['', 'ベーシック', 'スタンダード', 'アドバンスド']
+font = ('Helvetica', 12)
 
 # today
 now = datetime.date.today()
@@ -28,7 +22,7 @@ lis = ['{:02d}'.format(i + 1) for i in range(70)]
 period = [str(p + 1) for p in range(8)]
 
 # 1on1
-Number7 = ['', '1', '2', '3', '4', '5', '6', '7']
+one_on_one_numbers = ['', '1', '2', '3', '4', '5', '6', '7']
 
 # Tab A layout
 tab_a_layout = [
@@ -51,7 +45,7 @@ tab_b_layout = [
      sg.InputText(size=(9, 1), font=font, key='DiscordInput'),
      sg.Radio('1on1', '1', key='1on1', enable_events=True, size=(3, 1)),
      sg.Spin(java_course, size=(11, 1), key='1on1Course', font=font),
-     sg.Spin(Number7, size=(2, 1), key='1on1Input', font=font),
+     sg.Spin(one_on_one_numbers, size=(2, 1), key='1on1Input', font=font),
      sg.Radio('BuildUp', '1', key='BuildUp', enable_events=True)],
     [sg.Text('Java', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='detail', font=font)]
@@ -72,18 +66,16 @@ col1 = [
      sg.Checkbox('巡回不要', key='noFollow', default=False, size=(9, 1), font=font)],
 ]
 
-col2=[
-    [sg.Button('COPY', size=(10, 1), key='COPY', button_color=('white', '#001480')),
-     sg.Button('CODE', size=(10, 1), key='CODE', button_color=('white', '#001480')),
-     sg.Button('CLEAR', size=(10, 1), key='CLEAR', button_color=('white', '#dc143c'))]    
+col2 =[
+    sg.Button('COPY', size=(10, 1), key='COPY', button_color=('white', '#001480')),
+    sg.Button('CODE', size=(10, 1), key='CODE', button_color=('white', '#001480')),
+    sg.Button('CLEAR', size=(10, 1), key='CLEAR', button_color=('white', '#dc143c'))
 ]
-
-
 
 # Main layout with tabs
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('アクション', tab_a_layout), sg.Tab('Java', tab_b_layout)]], key="tabgroup")],
+    [sg.TabGroup([[sg.Tab('アクション', tab_a_layout), sg.Tab('Java', tab_b_layout)]], key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
 ]
@@ -97,12 +89,56 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_3', layout, keep_on_top=True, size=(490, 330), resizable=True, icon=icon_path)
+window = sg.Window('K_3', layout, keep_on_top=True, size=(450, 305), resizable=True, icon=icon_path)
+
+def get_greeting_data(values):
+    data = ""
+    if values['wakaba']:
+        data += '☆'
+    if values['subject']:
+        data += f"【初VU期間サポート対象】{values['seven']}回目\n"
+    data += f"{now}_{values['jyugyou']}_{values['jigen']}限_Room{values['room']}\n"
+    data += f"挨拶:{values['greeting']}\n注意事項:"
+    if values['noFollow']:
+        data += '★巡回不要　'
+    if values['promotionTrue']:
+        data += f'受講促進○ {now} {values["jigen"]}限'
+    if values['promotionFalse']:
+        data += '受講促進×'
+ 
+    data += f"\n{values['remarks']}" if values['noFollow'] or values['promotionTrue'] or values['promotionFalse'] else values['remarks']
+       
+    return data
+
+def get_course_data(values, course_name):
+    data = ""
+    if values['wakaba']:
+        data += '☆'
+    if values['subject']:
+        data += f"【初VU期間サポート対象】{values['seven']}回目\n"
+    data += f"{now}_{values['jyugyou']}_{values['jigen']}限_Room{values['room']}\n"
+    data += f"挨拶:{course_name}\n{values['detail']}\n注意事項:"
+    if values['noFollow']:
+        data += '★巡回不要　'
+    if values['promotionTrue']:
+        data += f'受講促進○ {now} {values["jigen"]}限'
+    if values['promotionFalse']:
+        data += '受講促進×'
+        
+    data += f"\n{values['remarks']}" if values['noFollow'] or values['promotionTrue'] or values['promotionFalse'] else values['remarks']
+
+    return data
 
 # メイン処理
 while True:
     event, values = window.read()
-
+    
+    # タブの選択イベント処理
+    if event == 'tabgroup':
+        selected_tab = window['tabgroup'].get()
+        if selected_tab == 'アクション':
+            window['fast'].update(value=True)
+            
     # Java コースの選択イベント
     if event in ('JavaBasic', 'JavaStandard', 'JavaAdvance'):
         selected_type = event
@@ -111,156 +147,59 @@ while True:
     # COPY ボタンの処理
     if event == 'COPY':
         data = ""
-
         if values['fast']:
-            if values['wakaba']:
-                data += '☆'
-
-            if values['subject']:
-                data += f"【初VU期間サポート対象】{values['seven']}回目\n"
-
-            data += f"{now}_{values['jyugyou']}_{values['jigen']}限_Room{values['room']}\n"
-            data += f"挨拶:{values['greeting']}\n注意事項:"
-
-            if values['noFollow']:
-                data += '★巡回不要　'
-            if values['promotionTrue']:
-                data += '受講促進○' + ' ' + now + ' ' + values['jigen'] + '限'
-            if values['promotionFalse']:
-                data += '受講促進×'
-                
-            if values['noFollow'] or values['promotionTrue'] or values['promotionFalse']:
-                data += f"\n{values['remarks']}"
-            else:
-                data += values['remarks']      
-
+            data = get_greeting_data(values)
         elif values['help']:
             data = f"ヘルプ対応:{values['remarks']}"
-
         elif values['follow']:
             data = f"フォロー対応:{values['remarks']}"
-
         elif values['cs']:
             data = f"【面談依頼】\n内容：{values['remarks']}"
-
         elif values['vu']:
             data = f"【VUサポート】\n内容：{values['remarks']}"
-
         elif values['fastVu']:
             data = f"【初VU期間サポート】{values['seven']}回目\nヘルプ：0回　フォロー：0回\n内容：{values['remarks']}"
-
         elif values['BuildUp']:
             data = "BuildUp済"
-
         elif values['Discord']:
             data = f"Discord名：{values['DiscordInput']}"
-
         elif values['1on1']:
-            data = f"1on1:{values['1on1Course']}　{values['1on1Input']}回"
+            data = f"1on1:{values['1on1Course']} {values['1on1Input']}回"
 
         if values['JavaBasic']:
-            
-            if values['wakaba']:
-                data += '☆'
-
-            if values['subject']:
-                data += f"【初VU期間サポート対象】{values['seven']}回目\n"
-
-            data += f"{now}_{values['jyugyou']}_{values['jigen']}限_Room{values['room']}\n"
-            data += f"挨拶:Javaエンジニア ベーシック\n{values['detail']}\n注意事項:"
-            
-            if values['noFollow']:
-                data += '★巡回不要　'
-            if values['promotionTrue']:
-                data += '受講促進○' + ' ' + now + ' ' + values['jigen'] + '限'
-            if values['promotionFalse']:
-                data += '受講促進×'
-            
-            if values['noFollow'] or values['promotionTrue'] or values['promotionFalse']:
-                data += f"\n{values['remarks']}"
-            else:
-                data += values['remarks']             
-
+            data = get_course_data(values, 'Javaエンジニア ベーシック')
         elif values['JavaStandard']:
-            
-            if values['wakaba']:
-                data += '☆'
-
-            if values['subject']:
-                data += f"【初VU期間サポート対象】{values['seven']}回目\n"
-
-            data += f"{now}_{values['jyugyou']}_{values['jigen']}限_Room{values['room']}\n"
-            data += f"挨拶:Javaエンジニア スタンダード\n{values['detail']}\n注意事項:"
-            
-            if values['noFollow']:
-                data += '★巡回不要　'
-            if values['promotionTrue']:
-                data += '受講促進○' + ' ' + now + ' ' + values['jigen'] + '限'
-            if values['promotionFalse']:
-                data += '受講促進×'
-
-            if values['noFollow'] or values['promotionTrue'] or values['promotionFalse']:
-                data += f"\n{values['remarks']}"
-            else:
-                data += values['remarks']             
-
+            data = get_course_data(values, 'Javaエンジニア スタンダード')
         elif values['JavaAdvance']:
-            
-            if values['wakaba']:
-                data += '☆'
+            data = get_course_data(values, 'Javaエンジニア アドバンスド')
 
-            if values['subject']:
-                data += f"【初VU期間サポート対象】{values['seven']}回目\n"
+        pyperclip.copy(data)
 
-            data += f"{now}_{values['jyugyou']}_{values['jigen']}限_Room{values['room']}\n"
-            data += f"挨拶:Javaエンジニア アドバンスド\n{values['detail']}\n注意事項:"
-            
-            if values['noFollow']:
-                data += '★巡回不要　'
-            if values['promotionTrue']:
-                data += '受講促進○' + ' ' + now + ' ' + values['jigen'] + '限'
-            if values['promotionFalse']:
-                data += '受講促進×'
-            
-            if values['noFollow'] or values['promotionTrue'] or values['promotionFalse']:
-                data += f"\n{values['remarks']}"
-            else:
-                data += values['remarks']
-                
-        pyperclip.copy(data)     
-            
     # CODEボタン
     if event == 'CODE':
         data = f"{now}_{values['jyugyou']}_{values['jigen']}限_Room00"
-
         pyperclip.copy(data)
 
     # CLEARボタン
     if event == 'CLEAR':
+        window['greeting'].update('')
+        window['remarks'].update('')
+        window['noFollow'].update(False)
+        window['promotionTrue'].update(False)
+        window['promotionFalse'].update(False)
         if values['wakaba']:
-            window['greeting'].update('')
-            window['remarks'].update('')
-            window['noFollow'].update(False)
-            window['promotionTrue'].update(False)
-            window['promotionFalse'].update(False)
+            window['seven'].update('1')
+            window['subject'].update(False)
         else:
-            window['greeting'].update('')
             window['detail'].update('')
             window['DiscordInput'].update('')
             window['1on1Input'].update('')
             window['1on1Course'].update('')
-            window['remarks'].update('')
-            window['greeting'].update('')
-            window['seven'].update('1')
-            window['subject'].update(False)
-            window['noFollow'].update(False)
-            window['promotionTrue'].update(False)
-            window['promotionFalse'].update(False)
-            
-        if values['JavaBasic'] or values['JavaStandard'] or values['JavaAdvance'] or values['BuildUp'] or values['1on1'] or values['Discord']:
+
+        if any(values[key] for key in ('JavaBasic', 'JavaStandard', 'JavaAdvance', 'BuildUp', '1on1', 'Discord')):
             window['fast'].update(True)
             window['tabgroup'].Widget.select(0)
-                        
+
     # ウィンドウ終了処理
     if event == sg.WINDOW_CLOSED:
         break
