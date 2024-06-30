@@ -58,12 +58,9 @@ tab_b_layout = [
 ]
 
 col1 = [
-    sg.Checkbox('わかばROOM', key='wakaba', default=False),
+    [sg.Checkbox('わかばROOM', key='wakaba', default=False),
     sg.Checkbox('初VU期間サポート対象', key='subject', default=False),
-    sg.Spin(period, size=(2, 1), font=font, key='seven'),
-]
-
-col2 = [
+    sg.Spin(period, size=(2, 1), font=font, key='seven')],
     [sg.Text('授業', size=(4, 1), font=font),
     sg.Spin(lis, size=(2, 1), font=font, key='jyugyou'),
     sg.Text('時限', size=(4, 1), font=font),
@@ -75,17 +72,20 @@ col2 = [
      sg.Checkbox('巡回不要', key='noFollow', default=False, size=(9, 1), font=font)],
 ]
 
+col2=[
+    [sg.Button('COPY', size=(10, 1), key='COPY', button_color=('white', '#001480')),
+     sg.Button('CODE', size=(10, 1), key='CODE', button_color=('white', '#001480')),
+     sg.Button('CLEAR', size=(10, 1), key='CLEAR', button_color=('white', '#dc143c'))]    
+]
+
 
 
 # Main layout with tabs
 layout = [
     [col1],
-    [col2],
     [sg.TabGroup([[sg.Tab('アクション', tab_a_layout), sg.Tab('Java', tab_b_layout)]], key="tabgroup")],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
-    [sg.Button('COPY', size=(10, 1), key='COPY', button_color=('white', '#001480')),
-     sg.Button('CODE', size=(10, 1), key='CODE', button_color=('white', '#001480')),
-     sg.Button('CLEAR', size=(10, 1), key='CLEAR', button_color=('white', '#dc143c'))]
+    [col2]
 ]
 
 # アイコンのパス設定
