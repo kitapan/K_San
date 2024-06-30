@@ -5,6 +5,7 @@ import os
 import sys
 from java_courses import java_course_options
 from programming_courses import programming_course_options
+from office_courses import office_course_options
 
 # ウィンドウテーマ
 sg.theme('TealMono')
@@ -48,7 +49,7 @@ tab_b_layout = [
      sg.Spin(java_course, size=(11, 1), key='1on1Course', font=font),
      sg.Spin(one_on_one_numbers, size=(2, 1), key='1on1Input', font=font),
      sg.Radio('BuildUp', '1', key='BuildUp', enable_events=True)],
-    [sg.Combo([], size=(150, 1), key='detail', font=font)]
+    [sg.Combo([], size=(150, 1), key='javaDetail', font=font)]
 ]
 
 # Tab C layout
@@ -59,6 +60,19 @@ tab_c_layout = [
      sg.Radio('実践Java技術者試験', '1', key='javaSpecialist', enable_events=True)],
     [sg.Radio('Pythonベーシック', '1', key='pyhonBasic', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
+]
+
+# Tab D layout
+tab_d_layout = [
+    [sg.Radio('Word1-2', '1', key='wordBasic', enable_events=True),
+     sg.Radio('Word3-4', '1', key='wordAdvance', enable_events=True),
+     sg.Radio('Excel1-2', '1', key='excelBasic', enable_events=True),
+     sg.Radio('Excel3-4', '1', key='excelAdvance', enable_events=True)],
+    [sg.Radio('PowerPoint1-2', '1', key='powerPointBasic', enable_events=True),
+     sg.Radio('PowerPoint3-4', '1', key='powerPointAdvance', enable_events=True),
+     sg.Radio('Access1-2', '1', key='accessBasic', enable_events=True),
+     sg.Radio('Access3-4', '1', key='accessAdvance', enable_events=True)],
+    [sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
 
 col1 = [
@@ -85,7 +99,8 @@ col2 =[
 # Main layout with tabs
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tab_a_layout), sg.Tab('Java', tab_b_layout), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tab_c_layout)]],
+    [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tab_a_layout), sg.Tab('Java', tab_b_layout), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tab_c_layout), 
+                   sg.Tab('office', tab_d_layout)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -121,14 +136,14 @@ def get_greeting_data(values):
        
     return data
 
-def get_course_data(values, course_name):
+def get_course_data(values, course_name, detail):
     data = ""
     if values['wakaba']:
         data += '☆'
     if values['subject']:
         data += f"【初VU期間サポート対象】{values['seven']}回目\n"
     data += f"{now}_{values['jyugyou']}_{values['jigen']}限_Room{values['room']}\n"
-    data += f"挨拶:{course_name}\n{values['detail']}\n注意事項:"
+    data += f"挨拶:{course_name}\n{values[detail]}\n注意事項:"
     if values['noFollow']:
         data += '★巡回不要　'
     if values['promotionTrue']:
@@ -153,12 +168,17 @@ while True:
     # Java コースの選択イベント
     if event in ('JavaBasic', 'JavaStandard', 'JavaAdvance'):
         selected_type = event
-        window['detail'].update(values=java_course_options[selected_type])
+        window['javaDetail'].update(values=java_course_options[selected_type])
         
     # programming コースの選択イベント
     if event in ('phpBasic', 'phpAdvance', 'wordpress', 'pythonBasic', 'javaSpecialist'):
         selected_type = event
         window['programmingDetail'].update(values=programming_course_options[selected_type])
+        
+    # office コースの選択イベント
+    if event in ('wordBasic', 'wordAdvance', 'excelBasic', 'excelAdvance', 'powerPointBasic', 'powerPointAdvance', 'accessBasic', 'accessAdvance'):
+        selected_type = event
+        window['officeDetail'].update(values=office_course_options[selected_type])
 
     # COPY ボタンの処理
     if event == 'COPY':
@@ -183,23 +203,38 @@ while True:
             data = f"1on1:{values['1on1Course']} {values['1on1Input']}回"
 
         if values['JavaBasic']:
-            data = get_course_data(values, 'Javaエンジニア ベーシック')
+            data = get_course_data(values, 'Javaエンジニア ベーシック', 'javaDetail')
         elif values['JavaStandard']:
-            data = get_course_data(values, 'Javaエンジニア スタンダード')
+            data = get_course_data(values, 'Javaエンジニア スタンダード', 'javaDetail')
         elif values['JavaAdvance']:
-            data = get_course_data(values, 'Javaエンジニア アドバンスド')
+            data = get_course_data(values, 'Javaエンジニア アドバンスド', 'javaDetail')
         elif values['phpBasic']:
-            data = get_course_data(values, 'PHPベーシック')            
+            data = get_course_data(values, 'PHPベーシック', 'programmingDetail')            
         elif values['phpAdvance']:
-            data = get_course_data(values, 'PHPアドバンス')
+            data = get_course_data(values, 'PHPアドバンス', 'programmingDetail')
         elif values['wordpress']:
-            data = get_course_data(values, 'WordPress')
+            data = get_course_data(values, 'WordPress', 'programmingDetail')
         elif values['pyhonBasic']:
-            data = get_course_data(values, 'Pythonベーシック')
+            data = get_course_data(values, 'Pythonベーシック', 'programmingDetail')
         elif values['javaSpecialist']:
-            data = get_course_data(values, '実践Java技術者試験')           
-            
-            
+            data = get_course_data(values, '実践Java技術者試験', 'programmingDetail')
+        elif values['wordBasic']:
+            data = get_course_data(values, 'Wordベーシック', 'officeDetail')            
+        elif values['wordAdvance']:
+            data = get_course_data(values, 'Wordアドバンス', 'officeDetail')    
+        elif values['excelBasic']:
+            data = get_course_data(values, 'Excelベーシック', 'officeDetail')            
+        elif values['excelAdvance']:
+            data = get_course_data(values, 'Excelアドバンス', 'officeDetail')            
+        elif values['powerPointBasic']:
+            data = get_course_data(values, 'PowerPointベーシック', 'officeDetail')            
+        elif values['powerPointAdvance']:
+            data = get_course_data(values, 'PowerPointアドバンス', 'officeDetail')
+        elif values['accessBasic']:
+            data = get_course_data(values, 'Accessベーシック', 'officeDetail')            
+        elif values['accessAdvance']:
+            data = get_course_data(values, 'Accessアドバンス', 'officeDetail')            
+                     
         pyperclip.copy(data)
 
     # CODEボタン
@@ -218,7 +253,7 @@ while True:
             window['seven'].update('1')
             window['subject'].update(False)
         else:
-            window['detail'].update('')
+            window['javaDetail'].update('')
             window['DiscordInput'].update('')
             window['1on1Input'].update('')
             window['1on1Course'].update('')
