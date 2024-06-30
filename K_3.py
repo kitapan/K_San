@@ -6,6 +6,7 @@ import sys
 from java_courses import java_course_options
 from programming_courses import programming_course_options
 from office_courses import office_course_options
+from creative_courses import creative_course_options
 
 # ウィンドウテーマ
 sg.theme('TealMono')
@@ -75,6 +76,16 @@ tab_d_layout = [
     [sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
 
+# Tab E layout
+tab_e_layout = [
+    [sg.Radio('HTML/CSSﾍﾞｰｼｯｸ', '1', key='htmlCssBasic', enable_events=True),
+     sg.Radio('MEB P1', '1', key='webCoding', enable_events=True),
+     sg.Radio('MEB P2', '1', key='responsiveWebDesign', enable_events=True),
+     sg.Radio('HTML/CSSﾄﾚｰﾆﾝｸﾞ', '1', key='htmlCssTraining', enable_events=True)],
+    [sg.Radio('JSB', '1', key='javaScript', enable_events=True)],
+    [sg.Combo([], size=(150, 1), key='creativeDetail', font=font)]
+]
+
 col1 = [
     [sg.Checkbox('わかばROOM', key='wakaba', default=False),
     sg.Checkbox('初VU期間サポート対象', key='subject', default=False),
@@ -99,8 +110,8 @@ col2 =[
 # Main layout with tabs
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tab_a_layout), sg.Tab('Java', tab_b_layout), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tab_c_layout), 
-                   sg.Tab('office', tab_d_layout)]],
+    [sg.TabGroup([[sg.Tab('アクション', tab_a_layout), sg.Tab('Java', tab_b_layout), sg.Tab('プログラミング', tab_c_layout), 
+                   sg.Tab('office', tab_d_layout), sg.Tab('クリエイティブ', tab_e_layout)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -179,6 +190,11 @@ while True:
     if event in ('wordBasic', 'wordAdvance', 'excelBasic', 'excelAdvance', 'powerPointBasic', 'powerPointAdvance', 'accessBasic', 'accessAdvance'):
         selected_type = event
         window['officeDetail'].update(values=office_course_options[selected_type])
+    
+    # クリエイティブ コースの選択イベント
+    if event in ('htmlCssBasic', 'webCoding', 'responsiveWebDesign', 'htmlCssTraining', 'javaScript'):
+        selected_type = event
+        window['creativeDetail'].update(values=creative_course_options[selected_type])
 
     # COPY ボタンの処理
     if event == 'COPY':
@@ -209,7 +225,7 @@ while True:
         elif values['JavaAdvance']:
             data = get_course_data(values, 'Javaエンジニア アドバンスド', 'javaDetail')
         elif values['phpBasic']:
-            data = get_course_data(values, 'PHPベーシック', 'programmingDetail')            
+            data = get_course_data(values, 'PHPベーシック', 'programmingDetail')
         elif values['phpAdvance']:
             data = get_course_data(values, 'PHPアドバンス', 'programmingDetail')
         elif values['wordpress']:
@@ -219,21 +235,31 @@ while True:
         elif values['javaSpecialist']:
             data = get_course_data(values, '実践Java技術者試験', 'programmingDetail')
         elif values['wordBasic']:
-            data = get_course_data(values, 'Wordベーシック', 'officeDetail')            
+            data = get_course_data(values, 'Wordベーシック', 'officeDetail')
         elif values['wordAdvance']:
-            data = get_course_data(values, 'Wordアドバンス', 'officeDetail')    
+            data = get_course_data(values, 'Wordアドバンス', 'officeDetail')
         elif values['excelBasic']:
-            data = get_course_data(values, 'Excelベーシック', 'officeDetail')            
+            data = get_course_data(values, 'Excelベーシック', 'officeDetail')
         elif values['excelAdvance']:
-            data = get_course_data(values, 'Excelアドバンス', 'officeDetail')            
+            data = get_course_data(values, 'Excelアドバンス', 'officeDetail')
         elif values['powerPointBasic']:
-            data = get_course_data(values, 'PowerPointベーシック', 'officeDetail')            
+            data = get_course_data(values, 'PowerPointベーシック', 'officeDetail')
         elif values['powerPointAdvance']:
             data = get_course_data(values, 'PowerPointアドバンス', 'officeDetail')
         elif values['accessBasic']:
-            data = get_course_data(values, 'Accessベーシック', 'officeDetail')            
+            data = get_course_data(values, 'Accessベーシック', 'officeDetail')
         elif values['accessAdvance']:
-            data = get_course_data(values, 'Accessアドバンス', 'officeDetail')            
+            data = get_course_data(values, 'Accessアドバンス', 'officeDetail')
+        elif values['htmlCssBasic']:
+            data = get_course_data(values, 'HTML/CSSベーシック', 'creativeDetail')
+        elif values['webCoding']:
+            data = get_course_data(values, 'MEB コーティングベーシック', 'creativeDetail')
+        elif values['responsiveWebDesign']:
+            data = get_course_data(values, 'MEB レスポンシブWebデザインベーシック', 'creativeDetail')
+        elif values['htmlCssTraining']:
+            data = get_course_data(values, 'HTML/CSSトレーニングブック', 'creativeDetail')
+        elif values['javaScript']:
+            data = get_course_data(values, 'JSB', 'creativeDetail')        
                      
         pyperclip.copy(data)
 
