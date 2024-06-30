@@ -7,6 +7,7 @@ from java_courses import java_course_options
 from programming_courses import programming_course_options
 from office_courses import office_course_options
 from creative_courses import creative_course_options
+from cad_courses import cad_course_options
 
 # ウィンドウテーマ
 sg.theme('TealMono')
@@ -86,6 +87,16 @@ tab_e_layout = [
     [sg.Combo([], size=(150, 1), key='creativeDetail', font=font)]
 ]
 
+# Tab F layout
+tab_f_layout = [
+    [sg.Radio('AutoCAD1-2', '1', key='autoCadBasic', enable_events=True),
+     sg.Radio('AutoCAD3-4(建築)', '1', key='autoCadAdvancedArchitecture', enable_events=True),
+     sg.Radio('AutoCAD3-4(機械)', '1', key='autoCadAdvancedMechanical', enable_events=True),
+     sg.Radio('JwCAD1-2', '1', key='jwCadBasic', enable_events=True)],
+    [sg.Radio('JwCAD3-4', '1', key='jwCadAdvanced', enable_events=True)],
+    [sg.Combo([], size=(150, 1), key='cadDetail', font=font)]
+]
+
 col1 = [
     [sg.Checkbox('わかばROOM', key='wakaba', default=False),
     sg.Checkbox('初VU期間サポート対象', key='subject', default=False),
@@ -111,7 +122,7 @@ col2 =[
 layout = [
     [col1],
     [sg.TabGroup([[sg.Tab('アクション', tab_a_layout), sg.Tab('Java', tab_b_layout), sg.Tab('プログラミング', tab_c_layout), 
-                   sg.Tab('office', tab_d_layout), sg.Tab('クリエイティブ', tab_e_layout)]],
+                   sg.Tab('office', tab_d_layout), sg.Tab('クリエイティブ', tab_e_layout), sg.Tab('CAD', tab_f_layout)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -195,6 +206,11 @@ while True:
     if event in ('htmlCssBasic', 'webCoding', 'responsiveWebDesign', 'htmlCssTraining', 'javaScript'):
         selected_type = event
         window['creativeDetail'].update(values=creative_course_options[selected_type])
+        
+    # CAD コースの選択イベント
+    if event in ('autoCadBasic', 'autoCadAdvancedArchitecture', 'autoCadAdvancedMechanical', 'jwCadBasic', 'jwCadAdvanced'):
+        selected_type = event
+        window['cadDetail'].update(values=cad_course_options[selected_type])
 
     # COPY ボタンの処理
     if event == 'COPY':
@@ -259,7 +275,17 @@ while True:
         elif values['htmlCssTraining']:
             data = get_course_data(values, 'HTML/CSSトレーニングブック', 'creativeDetail')
         elif values['javaScript']:
-            data = get_course_data(values, 'JSB', 'creativeDetail')        
+            data = get_course_data(values, 'JSB', 'creativeDetail')
+        elif values['autoCadBasic']:
+            data = get_course_data(values, 'AutoCADベーシック', 'cadDetail')
+        elif values['autoCadAdvancedArchitecture']:
+            data = get_course_data(values, 'AutoCADアドバンス（建築）', 'cadDetail')
+        elif values['autoCadAdvancedMechanical']:
+            data = get_course_data(values, 'AutoCADアドバンス（機械）', 'cadDetail')
+        elif values['jwCadBasic']:
+            data = get_course_data(values, 'JwCADベーシック', 'cadDetail')
+        elif values['jwCadAdvanced']:
+            data = get_course_data(values, 'JwCADベーシック', 'cadDetail')
                      
         pyperclip.copy(data)
 
