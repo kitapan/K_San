@@ -4,6 +4,7 @@ import datetime
 import os
 import sys
 from java_courses import java_course_options
+from programming_courses import programming_course_options
 
 # ウィンドウテーマ
 sg.theme('TealMono')
@@ -47,8 +48,17 @@ tab_b_layout = [
      sg.Spin(java_course, size=(11, 1), key='1on1Course', font=font),
      sg.Spin(one_on_one_numbers, size=(2, 1), key='1on1Input', font=font),
      sg.Radio('BuildUp', '1', key='BuildUp', enable_events=True)],
-    [sg.Text('Java', size=(4, 1), font=font),
-     sg.Combo([], size=(150, 1), key='detail', font=font)]
+    [sg.Combo([], size=(150, 1), key='detail', font=font)]
+]
+
+# Tab C layout
+tab_c_layout = [
+    [sg.Radio('PHPベーシック', '1', key='phpBasic', enable_events=True),
+     sg.Radio('PHPアドバンス', '1', key='phpAdvance', enable_events=True),
+     sg.Radio('WordPress', '1', key='wordpress', enable_events=True),
+     sg.Radio('実践Java技術者試験', '1', key='javaSpecialist', enable_events=True)],
+    [sg.Radio('Pythonベーシック', '1', key='pyhonBasic', enable_events=True)],
+    [sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
 
 col1 = [
@@ -75,7 +85,8 @@ col2 =[
 # Main layout with tabs
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('アクション', tab_a_layout), sg.Tab('Java', tab_b_layout)]], key="tabgroup", enable_events=True)],
+    [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tab_a_layout), sg.Tab('Java', tab_b_layout), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tab_c_layout)]],
+                 key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
 ]
@@ -89,7 +100,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_3', layout, keep_on_top=True, size=(450, 305), resizable=True, icon=icon_path)
+window = sg.Window('K_3', layout, keep_on_top=True, size=(560, 305), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -143,6 +154,11 @@ while True:
     if event in ('JavaBasic', 'JavaStandard', 'JavaAdvance'):
         selected_type = event
         window['detail'].update(values=java_course_options[selected_type])
+        
+    # programming コースの選択イベント
+    if event in ('phpBasic', 'phpAdvance', 'wordpress', 'pythonBasic', 'javaSpecialist'):
+        selected_type = event
+        window['programmingDetail'].update(values=programming_course_options[selected_type])
 
     # COPY ボタンの処理
     if event == 'COPY':
@@ -172,7 +188,18 @@ while True:
             data = get_course_data(values, 'Javaエンジニア スタンダード')
         elif values['JavaAdvance']:
             data = get_course_data(values, 'Javaエンジニア アドバンスド')
-
+        elif values['phpBasic']:
+            data = get_course_data(values, 'PHPベーシック')            
+        elif values['phpAdvance']:
+            data = get_course_data(values, 'PHPアドバンス')
+        elif values['wordpress']:
+            data = get_course_data(values, 'WordPress')
+        elif values['pyhonBasic']:
+            data = get_course_data(values, 'Pythonベーシック')
+        elif values['javaSpecialist']:
+            data = get_course_data(values, '実践Java技術者試験')           
+            
+            
         pyperclip.copy(data)
 
     # CODEボタン
