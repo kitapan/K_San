@@ -8,6 +8,7 @@ from programming_courses import programming_course_options
 from office_courses import office_course_options
 from creative_courses import creative_course_options
 from cad_courses import cad_course_options
+from google_courses import google_course_options
 
 # ウィンドウテーマ
 sg.theme('TealMono')
@@ -28,7 +29,7 @@ period = [str(p + 1) for p in range(8)]
 # 1on1
 one_on_one_numbers = ['', '1', '2', '3', '4', '5', '6', '7']
 
-# Tab A layout
+# 通常
 tab_a_layout = [
     [sg.Radio('挨拶', '1', default=True, key='fast'),
      sg.Radio('ヘルプ', '1', key='help'),
@@ -40,7 +41,7 @@ tab_a_layout = [
      sg.InputText(size=(150, 1), key='greeting', font=font)]
 ]
 
-# Tab B layout
+# Javaエンジニアタブ
 tab_b_layout = [
     [sg.Radio('ベーシック', '1', key='JavaBasic', enable_events=True),
      sg.Radio('スタンダード', '1', key='JavaStandard', enable_events=True),
@@ -54,7 +55,7 @@ tab_b_layout = [
     [sg.Combo([], size=(150, 1), key='javaDetail', font=font)]
 ]
 
-# Tab C layout
+# プログラミングタブ
 tab_c_layout = [
     [sg.Radio('PHPベーシック', '1', key='phpBasic', enable_events=True),
      sg.Radio('PHPアドバンス', '1', key='phpAdvance', enable_events=True),
@@ -64,7 +65,7 @@ tab_c_layout = [
     [sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
 
-# Tab D layout
+# officeタブ
 tab_d_layout = [
     [sg.Radio('Word1-2', '1', key='wordBasic', enable_events=True),
      sg.Radio('Word3-4', '1', key='wordAdvance', enable_events=True),
@@ -77,7 +78,7 @@ tab_d_layout = [
     [sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
 
-# Tab E layout
+# クリエイティブタブ
 tab_e_layout = [
     [sg.Radio('HTML/CSSﾍﾞｰｼｯｸ', '1', key='htmlCssBasic', enable_events=True),
      sg.Radio('MEB P1', '1', key='webCoding', enable_events=True),
@@ -87,7 +88,7 @@ tab_e_layout = [
     [sg.Combo([], size=(150, 1), key='creativeDetail', font=font)]
 ]
 
-# Tab F layout
+# CADタブ
 tab_f_layout = [
     [sg.Radio('AutoCAD1-2', '1', key='autoCadBasic', enable_events=True),
      sg.Radio('AutoCAD3-4(建築)', '1', key='autoCadAdvancedArchitecture', enable_events=True),
@@ -95,6 +96,16 @@ tab_f_layout = [
      sg.Radio('JwCAD1-2', '1', key='jwCadBasic', enable_events=True)],
     [sg.Radio('JwCAD3-4', '1', key='jwCadAdvanced', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='cadDetail', font=font)]
+]
+
+# googleタブ
+tab_g_layout = [
+    [sg.Radio('GAT', '1', key='gat', enable_events=True),
+     sg.Radio('GSS', '1', key='gss', enable_events=True),
+     sg.Radio('GASトライアル', '1', key='gasTrial', enable_events=True),
+     sg.Radio('GASベーシック', '1', key='gasBasic', enable_events=True)],
+    [sg.Radio('GASスタンダード', '1', key='gasStandard', enable_events=True)],
+    [sg.Combo([], size=(150, 1), key='googleDetail', font=font)]
 ]
 
 col1 = [
@@ -118,11 +129,12 @@ col2 =[
     sg.Button('CLEAR', size=(10, 1), key='CLEAR', button_color=('white', '#dc143c'))
 ]
 
-# Main layout with tabs
+# Main tabs
 layout = [
     [col1],
     [sg.TabGroup([[sg.Tab('アクション', tab_a_layout), sg.Tab('Java', tab_b_layout), sg.Tab('プログラミング', tab_c_layout), 
-                   sg.Tab('office', tab_d_layout), sg.Tab('クリエイティブ', tab_e_layout), sg.Tab('CAD', tab_f_layout)]],
+                   sg.Tab('office', tab_d_layout), sg.Tab('クリエイティブ', tab_e_layout), sg.Tab('CAD', tab_f_layout),
+                   sg.Tab('Google', tab_g_layout)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -211,6 +223,11 @@ while True:
     if event in ('autoCadBasic', 'autoCadAdvancedArchitecture', 'autoCadAdvancedMechanical', 'jwCadBasic', 'jwCadAdvanced'):
         selected_type = event
         window['cadDetail'].update(values=cad_course_options[selected_type])
+        
+    # Google コースの選択イベント
+    if event in ('gat', 'gss', 'gasTrial', 'gasBasic', 'gasStandard'):
+        selected_type = event
+        window['googleDetail'].update(values=google_course_options[selected_type])
 
     # COPY ボタンの処理
     if event == 'COPY':
@@ -233,13 +250,16 @@ while True:
             data = f"Discord名：{values['DiscordInput']}"
         elif values['1on1']:
             data = f"1on1:{values['1on1Course']} {values['1on1Input']}回"
-
+            
+        # Javaエンジニアタブ作成
         if values['JavaBasic']:
             data = get_course_data(values, 'Javaエンジニア ベーシック', 'javaDetail')
         elif values['JavaStandard']:
             data = get_course_data(values, 'Javaエンジニア スタンダード', 'javaDetail')
         elif values['JavaAdvance']:
             data = get_course_data(values, 'Javaエンジニア アドバンスド', 'javaDetail')
+            
+        # プログラミングタブ作成    
         elif values['phpBasic']:
             data = get_course_data(values, 'PHPベーシック', 'programmingDetail')
         elif values['phpAdvance']:
@@ -250,6 +270,8 @@ while True:
             data = get_course_data(values, 'Pythonベーシック', 'programmingDetail')
         elif values['javaSpecialist']:
             data = get_course_data(values, '実践Java技術者試験', 'programmingDetail')
+            
+        # Officeタブ作成    
         elif values['wordBasic']:
             data = get_course_data(values, 'Wordベーシック', 'officeDetail')
         elif values['wordAdvance']:
@@ -266,6 +288,8 @@ while True:
             data = get_course_data(values, 'Accessベーシック', 'officeDetail')
         elif values['accessAdvance']:
             data = get_course_data(values, 'Accessアドバンス', 'officeDetail')
+            
+        #　クリエイティブタブ作成    
         elif values['htmlCssBasic']:
             data = get_course_data(values, 'HTML/CSSベーシック', 'creativeDetail')
         elif values['webCoding']:
@@ -276,6 +300,8 @@ while True:
             data = get_course_data(values, 'HTML/CSSトレーニングブック', 'creativeDetail')
         elif values['javaScript']:
             data = get_course_data(values, 'JSB', 'creativeDetail')
+            
+        #　CADタブ作成
         elif values['autoCadBasic']:
             data = get_course_data(values, 'AutoCADベーシック', 'cadDetail')
         elif values['autoCadAdvancedArchitecture']:
@@ -286,6 +312,18 @@ while True:
             data = get_course_data(values, 'JwCADベーシック', 'cadDetail')
         elif values['jwCadAdvanced']:
             data = get_course_data(values, 'JwCADベーシック', 'cadDetail')
+            
+        #　googleタブ作成
+        elif values['gat']:
+            data = get_course_data(values, 'Googleアプリ トライアル', 'googleDetail')
+        elif values['gss']:
+            data = get_course_data(values, 'Googleスプレッドシート スタンダード', 'googleDetail')
+        elif values['gasTrial']:
+            data = get_course_data(values, 'GASトライアル', 'googleDetail')
+        elif values['gasBasic']:
+            data = get_course_data(values, 'GASベーシック', 'googleDetail')
+        elif values['gasStandard']:
+            data = get_course_data(values, 'GASスタンダード', 'googleDetail')
                      
         pyperclip.copy(data)
 
