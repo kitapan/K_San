@@ -30,7 +30,7 @@ period = [str(p + 1) for p in range(8)]
 one_on_one_numbers = ['', '1', '2', '3', '4', '5', '6', '7']
 
 # 通常
-tab_a_layout = [
+tabAction = [
     [sg.Radio('挨拶', '1', default=True, key='fast'),
      sg.Radio('ヘルプ', '1', key='help'),
      sg.Radio('フォロー', '1', key='follow')],
@@ -42,7 +42,7 @@ tab_a_layout = [
 ]
 
 # Javaエンジニアタブ
-tab_b_layout = [
+tabJava = [
     [sg.Radio('ベーシック', '1', key='JavaBasic', enable_events=True),
      sg.Radio('スタンダード', '1', key='JavaStandard', enable_events=True),
      sg.Radio('アドバンスド', '1', key='JavaAdvance', enable_events=True)],
@@ -56,7 +56,7 @@ tab_b_layout = [
 ]
 
 # プログラミングタブ
-tab_c_layout = [
+tabProgramming = [
     [sg.Radio('PHPベーシック', '1', key='phpBasic', enable_events=True),
      sg.Radio('PHPアドバンス', '1', key='phpAdvance', enable_events=True),
      sg.Radio('WordPress', '1', key='wordpress', enable_events=True),
@@ -66,7 +66,7 @@ tab_c_layout = [
 ]
 
 # officeタブ
-tab_d_layout = [
+tabOffice = [
     [sg.Radio('Word1-2', '1', key='wordBasic', enable_events=True),
      sg.Radio('Word3-4', '1', key='wordAdvance', enable_events=True),
      sg.Radio('Excel1-2', '1', key='excelBasic', enable_events=True),
@@ -79,7 +79,7 @@ tab_d_layout = [
 ]
 
 # クリエイティブタブ
-tab_e_layout = [
+tabCreative = [
     [sg.Radio('HTML/CSSﾍﾞｰｼｯｸ', '1', key='htmlCssBasic', enable_events=True),
      sg.Radio('MEB P1', '1', key='webCoding', enable_events=True),
      sg.Radio('MEB P2', '1', key='responsiveWebDesign', enable_events=True),
@@ -89,7 +89,7 @@ tab_e_layout = [
 ]
 
 # CADタブ
-tab_f_layout = [
+tabCad = [
     [sg.Radio('AutoCAD1-2', '1', key='autoCadBasic', enable_events=True),
      sg.Radio('AutoCAD3-4(建築)', '1', key='autoCadAdvancedArchitecture', enable_events=True),
      sg.Radio('AutoCAD3-4(機械)', '1', key='autoCadAdvancedMechanical', enable_events=True),
@@ -99,7 +99,7 @@ tab_f_layout = [
 ]
 
 # googleタブ
-tab_g_layout = [
+tabGoogle = [
     [sg.Radio('GAT', '1', key='gat', enable_events=True),
      sg.Radio('GSS', '1', key='gss', enable_events=True),
      sg.Radio('GASトライアル', '1', key='gasTrial', enable_events=True),
@@ -132,9 +132,9 @@ col2 =[
 # Main tabs
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('アクション', tab_a_layout), sg.Tab('Java', tab_b_layout), sg.Tab('プログラミング', tab_c_layout), 
-                   sg.Tab('office', tab_d_layout), sg.Tab('クリエイティブ', tab_e_layout), sg.Tab('CAD', tab_f_layout),
-                   sg.Tab('Google', tab_g_layout)]],
+    [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tabAction), sg.Tab('Java', tabJava), sg.Tab('Office', tabOffice), 
+                   sg.Tab('CAD', tabCad), sg.Tab('Google', tabGoogle), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tabProgramming),
+                   sg.Tab('ｸﾘｴｲﾃｨﾌﾞ', tabCreative)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
