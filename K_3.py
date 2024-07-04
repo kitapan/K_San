@@ -43,9 +43,9 @@ tabAction = [
 
 # Javaエンジニアタブ
 tabJava = [
-    [sg.Radio('ベーシック', '1', key='JavaBasic', enable_events=True),
-     sg.Radio('スタンダード', '1', key='JavaStandard', enable_events=True),
-     sg.Radio('アドバンスド', '1', key='JavaAdvance', enable_events=True)],
+    [sg.Radio('ベーシック', '1', key='java_basic', enable_events=True),
+     sg.Radio('スタンダード', '1', key='java_standard', enable_events=True),
+     sg.Radio('アドバンスド', '1', key='java_advance', enable_events=True)],
     [sg.Radio('Discord', '1', key='Discord', enable_events=True, size=(5, 1)),
      sg.InputText(size=(9, 1), font=font, key='DiscordInput'),
      sg.Radio('1on1', '1', key='1on1', enable_events=True, size=(3, 1)),
@@ -61,40 +61,40 @@ tabProgramming = [
      sg.Radio('PHPアドバンス', '1', key='phpAdvance', enable_events=True),
      sg.Radio('WordPress', '1', key='wordpress', enable_events=True),
      sg.Radio('実践Java技術者試験', '1', key='javaSpecialist', enable_events=True)],
-    [sg.Radio('Pythonベーシック', '1', key='pyhonBasic', enable_events=True)],
+    [sg.Radio('Pythonベーシック', '1', key='pythonBasic', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
 
 # officeタブ
 tabOffice = [
-    [sg.Radio('Word1-2', '1', key='wordBasic', enable_events=True),
-     sg.Radio('Word3-4', '1', key='wordAdvance', enable_events=True),
-     sg.Radio('Excel1-2', '1', key='excelBasic', enable_events=True),
-     sg.Radio('Excel3-4', '1', key='excelAdvance', enable_events=True)],
-    [sg.Radio('PowerPoint1-2', '1', key='powerPointBasic', enable_events=True),
-     sg.Radio('PowerPoint3-4', '1', key='powerPointAdvance', enable_events=True),
-     sg.Radio('Access1-2', '1', key='accessBasic', enable_events=True),
-     sg.Radio('Access3-4', '1', key='accessAdvance', enable_events=True)],
+    [sg.Radio('Word1-2', '1', key='word_basic', enable_events=True),
+     sg.Radio('Word3-4', '1', key='word_advance', enable_events=True),
+     sg.Radio('Excel1-2', '1', key='excel_basic', enable_events=True),
+     sg.Radio('Excel3-4', '1', key='excel_advance', enable_events=True)],
+    [sg.Radio('PowerPoint1-2', '1', key='powerpoint_basic', enable_events=True),
+     sg.Radio('PowerPoint3-4', '1', key='powerpoint_advance', enable_events=True),
+     sg.Radio('Access1-2', '1', key='access_basic', enable_events=True),
+     sg.Radio('Access3-4', '1', key='access_advance', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
 
 # クリエイティブタブ
 tabCreative = [
-    [sg.Radio('HTML/CSSﾍﾞｰｼｯｸ', '1', key='htmlCssBasic', enable_events=True),
-     sg.Radio('MEB P1', '1', key='webCoding', enable_events=True),
-     sg.Radio('MEB P2', '1', key='responsiveWebDesign', enable_events=True),
-     sg.Radio('HTML/CSSﾄﾚｰﾆﾝｸﾞ', '1', key='htmlCssTraining', enable_events=True)],
-    [sg.Radio('JSB', '1', key='javaScript', enable_events=True)],
+    [sg.Radio('HTML/CSSﾍﾞｰｼｯｸ', '1', key='html_css_basic', enable_events=True),
+     sg.Radio('MEB P1', '1', key='web_coding', enable_events=True),
+     sg.Radio('MEB P2', '1', key='responsive_web_design', enable_events=True),
+     sg.Radio('HTML/CSSﾄﾚｰﾆﾝｸﾞ', '1', key='html_css_training', enable_events=True)],
+    [sg.Radio('JSB', '1', key='java_script', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='creativeDetail', font=font)]
 ]
 
 # CADタブ
 tabCad = [
-    [sg.Radio('AutoCAD1-2', '1', key='autoCadBasic', enable_events=True),
-     sg.Radio('AutoCAD3-4(建築)', '1', key='autoCadAdvancedArchitecture', enable_events=True),
-     sg.Radio('AutoCAD3-4(機械)', '1', key='autoCadAdvancedMechanical', enable_events=True),
-     sg.Radio('JwCAD1-2', '1', key='jwCadBasic', enable_events=True)],
-    [sg.Radio('JwCAD3-4', '1', key='jwCadAdvanced', enable_events=True)],
+    [sg.Radio('AutoCAD1-2', '1', key='auto_cad_basic', enable_events=True),
+     sg.Radio('AutoCAD3-4(建築)', '1', key='auto_cad_advanced_architecture', enable_events=True),
+     sg.Radio('AutoCAD3-4(機械)', '1', key='auto_cad_advanced_mechanical', enable_events=True),
+     sg.Radio('JwCAD1-2', '1', key='jw_cad_basic', enable_events=True)],
+    [sg.Radio('JwCAD3-4', '1', key='jw_cad_advanced', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='cadDetail', font=font)]
 ]
 
@@ -102,9 +102,9 @@ tabCad = [
 tabGoogle = [
     [sg.Radio('GAT', '1', key='gat', enable_events=True),
      sg.Radio('GSS', '1', key='gss', enable_events=True),
-     sg.Radio('GASトライアル', '1', key='gasTrial', enable_events=True),
-     sg.Radio('GASベーシック', '1', key='gasBasic', enable_events=True)],
-    [sg.Radio('GASスタンダード', '1', key='gasStandard', enable_events=True)],
+     sg.Radio('GASトライアル', '1', key='gas_trial', enable_events=True),
+     sg.Radio('GASベーシック', '1', key='gas_basic', enable_events=True)],
+    [sg.Radio('GASスタンダード', '1', key='gas_standard', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='googleDetail', font=font)]
 ]
 
@@ -200,32 +200,32 @@ while True:
             window['fast'].update(value=True)
             
     # Java コースの選択イベント
-    if event in ('JavaBasic', 'JavaStandard', 'JavaAdvance'):
+    if event in ('java_basic', 'java_standard', 'java_advance'):
         selected_type = event
         window['javaDetail'].update(values=java_course_options[selected_type])
         
     # programming コースの選択イベント
-    if event in ('phpBasic', 'phpAdvance', 'wordpress', 'pythonBasic', 'javaSpecialist'):
+    if event in ('phpBasic', 'phpAdvance', 'wordpress', 'javaSpecialist', 'pythonBasic'):
         selected_type = event
         window['programmingDetail'].update(values=programming_course_options[selected_type])
         
     # office コースの選択イベント
-    if event in ('wordBasic', 'wordAdvance', 'excelBasic', 'excelAdvance', 'powerPointBasic', 'powerPointAdvance', 'accessBasic', 'accessAdvance'):
+    if event in ('word_basic', 'word_advance', 'excel_basic', 'excel_advance', 'powerpoint_basic', 'powerpoint_advance', 'access_basic', 'access_advance'):
         selected_type = event
         window['officeDetail'].update(values=office_course_options[selected_type])
     
     # クリエイティブ コースの選択イベント
-    if event in ('htmlCssBasic', 'webCoding', 'responsiveWebDesign', 'htmlCssTraining', 'javaScript'):
+    if event in ('html_css_basic', 'web_coding', 'responsive_web_design', 'html_css_training', 'java_script'):
         selected_type = event
         window['creativeDetail'].update(values=creative_course_options[selected_type])
         
     # CAD コースの選択イベント
-    if event in ('autoCadBasic', 'autoCadAdvancedArchitecture', 'autoCadAdvancedMechanical', 'jwCadBasic', 'jwCadAdvanced'):
+    if event in ('auto_cad_basic', 'auto_cad_advanced_architecture', 'auto_cad_advanced_mechanical', 'jw_cad_basic', 'jw_cad_advanced'):
         selected_type = event
         window['cadDetail'].update(values=cad_course_options[selected_type])
         
     # Google コースの選択イベント
-    if event in ('gat', 'gss', 'gasTrial', 'gasBasic', 'gasStandard'):
+    if event in ('gat', 'gss', 'gas_trial', 'gas_basic', 'gas_standard'):
         selected_type = event
         window['googleDetail'].update(values=google_course_options[selected_type])
 
@@ -252,11 +252,11 @@ while True:
             data = f"1on1:{values['1on1Course']} {values['1on1Input']}回"
             
         # Javaエンジニアタブ作成
-        if values['JavaBasic']:
+        if values['java_basic']:
             data = get_course_data(values, 'Javaエンジニア ベーシック', 'javaDetail')
-        elif values['JavaStandard']:
+        elif values['java_standard']:
             data = get_course_data(values, 'Javaエンジニア スタンダード', 'javaDetail')
-        elif values['JavaAdvance']:
+        elif values['java_advance']:
             data = get_course_data(values, 'Javaエンジニア アドバンスド', 'javaDetail')
             
         # プログラミングタブ作成    
@@ -272,45 +272,45 @@ while True:
             data = get_course_data(values, '実践Java技術者試験', 'programmingDetail')
             
         # Officeタブ作成    
-        elif values['wordBasic']:
+        elif values['word_basic']:
             data = get_course_data(values, 'Wordベーシック', 'officeDetail')
-        elif values['wordAdvance']:
+        elif values['word_advance']:
             data = get_course_data(values, 'Wordアドバンス', 'officeDetail')
-        elif values['excelBasic']:
+        elif values['excel_basic']:
             data = get_course_data(values, 'Excelベーシック', 'officeDetail')
-        elif values['excelAdvance']:
+        elif values['excel_advance']:
             data = get_course_data(values, 'Excelアドバンス', 'officeDetail')
-        elif values['powerPointBasic']:
+        elif values['powerpoint_basic']:
             data = get_course_data(values, 'PowerPointベーシック', 'officeDetail')
-        elif values['powerPointAdvance']:
+        elif values['powerpoint_advance']:
             data = get_course_data(values, 'PowerPointアドバンス', 'officeDetail')
-        elif values['accessBasic']:
+        elif values['access_basic']:
             data = get_course_data(values, 'Accessベーシック', 'officeDetail')
-        elif values['accessAdvance']:
+        elif values['access_advance']:
             data = get_course_data(values, 'Accessアドバンス', 'officeDetail')
             
         #　クリエイティブタブ作成    
-        elif values['htmlCssBasic']:
+        elif values['html_css_basic']:
             data = get_course_data(values, 'HTML/CSSベーシック', 'creativeDetail')
-        elif values['webCoding']:
+        elif values['web_coding']:
             data = get_course_data(values, 'MEB コーティングベーシック', 'creativeDetail')
-        elif values['responsiveWebDesign']:
+        elif values['responsive_web_design']:
             data = get_course_data(values, 'MEB レスポンシブWebデザインベーシック', 'creativeDetail')
-        elif values['htmlCssTraining']:
+        elif values['html_css_training']:
             data = get_course_data(values, 'HTML/CSSトレーニングブック', 'creativeDetail')
-        elif values['javaScript']:
+        elif values['java_script']:
             data = get_course_data(values, 'JSB', 'creativeDetail')
             
         #　CADタブ作成
-        elif values['autoCadBasic']:
+        elif values['auto_cad_basic']:
             data = get_course_data(values, 'AutoCADベーシック', 'cadDetail')
-        elif values['autoCadAdvancedArchitecture']:
+        elif values['auto_cad_advanced_architecture']:
             data = get_course_data(values, 'AutoCADアドバンス（建築）', 'cadDetail')
-        elif values['autoCadAdvancedMechanical']:
+        elif values['auto_cad_advanced_mechanical']:
             data = get_course_data(values, 'AutoCADアドバンス（機械）', 'cadDetail')
-        elif values['jwCadBasic']:
+        elif values['jw_cad_basic']:
             data = get_course_data(values, 'JwCADベーシック', 'cadDetail')
-        elif values['jwCadAdvanced']:
+        elif values['jw_cad_advanced']:
             data = get_course_data(values, 'JwCADベーシック', 'cadDetail')
             
         #　googleタブ作成
@@ -318,11 +318,11 @@ while True:
             data = get_course_data(values, 'Googleアプリ トライアル', 'googleDetail')
         elif values['gss']:
             data = get_course_data(values, 'Googleスプレッドシート スタンダード', 'googleDetail')
-        elif values['gasTrial']:
+        elif values['gas_trial']:
             data = get_course_data(values, 'GASトライアル', 'googleDetail')
-        elif values['gasBasic']:
+        elif values['gas_basic']:
             data = get_course_data(values, 'GASベーシック', 'googleDetail')
-        elif values['gasStandard']:
+        elif values['gas_standard']:
             data = get_course_data(values, 'GASスタンダード', 'googleDetail')
                      
         pyperclip.copy(data)
@@ -339,16 +339,18 @@ while True:
         window['noFollow'].update(False)
         window['promotionTrue'].update(False)
         window['promotionFalse'].update(False)
+        
         if values['wakaba']:
             window['seven'].update('1')
-            window['subject'].update(False)
+            
         else:
             window['javaDetail'].update('')
             window['DiscordInput'].update('')
             window['1on1Input'].update('')
             window['1on1Course'].update('')
+            window['subject'].update(False)
 
-        if any(values[key] for key in ('JavaBasic', 'JavaStandard', 'JavaAdvance', 'BuildUp', '1on1', 'Discord')):
+        if any(values[key] for key in ('java_basic', 'java_standard', 'java_advance', 'BuildUp', '1on1', 'Discord')):
             window['fast'].update(True)
             window['tabgroup'].Widget.select(0)
 

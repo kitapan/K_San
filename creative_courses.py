@@ -1,6 +1,6 @@
 creative_course_options = {
     
-    'webCoding': [
+    'web_coding': [
         "第1回　ガイダンス",
         "第1回　HTMLの基礎知識",
         "第1回　メモ帳でHTMLを書いてみる",
@@ -27,7 +27,7 @@ creative_course_options = {
         "第13回　お問い合わせページの使いやすさを向上させる③（JS）"
     ],
     
-    'responsiveWebDesign': [
+    'responsive_web_design': [
         "第14回　完成例の確認をする",
         "第14回　トップページを作成する① (HTML)",
         "第15回　トップページを作成する② (HTML)",
@@ -46,7 +46,7 @@ creative_course_options = {
         "第25回　動画を取り入れたＷｅｂページの作成"
     ],
     
-    'htmlCssBasic': [
+    'html_css_basic': [
         "1-1 ウェブページ・ウェブサイトについて",
         "1-2 HTMLの基本の記述",
         "1-3 ファイルの保存・文字入力・コピー貼り付け・ブラウザでプレビュー",
@@ -77,7 +77,7 @@ creative_course_options = {
         "5 演習 大問1・大問2・大問3"
         ],
     
-    'htmlCssTraining': [
+    'html_css_training': [
         "1　はじめに／Webサイト制作・運用に関する基礎知識",
         "2　HTMLの基礎知識",
         "3　さまざまなリンク",
@@ -90,7 +90,7 @@ creative_course_options = {
         "10　総合演習"
     ],
     
-    'javaScript': [
+    'java_script': [
         "第1回　プログラミングとは？",
         "第1回　変数",
         "第2回　条件分岐　if",
@@ -102,7 +102,7 @@ creative_course_options = {
         "第6回　オブジェクト（プロパティ、メソッド）",
         "第7回　JQueryの基礎（1）",
         "第8回　jQueryの基礎（2）",
-        "第9回　JavaScriptの基礎を扱った最終課題",
+        "第9回　java_scriptの基礎を扱った最終課題",
         "第10回　jQueryの基礎を扱った最終課題"
     ],
     

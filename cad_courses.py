@@ -1,6 +1,6 @@
 cad_course_options = {
     
-    'autoCadBasic': [
+    'auto_cad_basic': [
         "1-1　AutoCADの基本操作とインターフェース",
         "1-2　画面操作",
         "1　やってみよう",
@@ -60,7 +60,7 @@ cad_course_options = {
         "12　やってみよう"
     ],
     
-    'autoCadAdvancedArchitecture': [
+    'auto_cad_advanced_architecture': [
         "1-1 様々な直線の作図",
         "1-2 複雑な曲線の作図",
         "1-3 多機能なポリラインコマンド",
@@ -116,7 +116,7 @@ cad_course_options = {
         "12　やってみよう"
     ],
     
-    'autoCadAdvancedMechanical': [
+    'auto_cad_advanced_mechanical': [
         "1-1　機械要素",
         "1-2　六角ボルト",
         "1-3　六角ボルトの作図",
@@ -161,7 +161,7 @@ cad_course_options = {
         "14　やってみよう"
     ],
     
-    'jwCadBasic': [
+    'jw_cad_basic': [
         "1-1　Jw_cadの起動とインターフェース",
         "1-2　画面の操作",
         "1-3　線を描く",
@@ -203,7 +203,7 @@ cad_course_options = {
         "12-2　仕上げと印刷"
     ],
     
-    'jwCadAdvanced': [
+    'jw_cad_advanced': [
         "13-1 さまざまな直線の作図",
         "13-2 複雑な曲線の作図",
         "13-3 直線と曲線の作図",

@@ -118,7 +118,7 @@ google_course_options = {
         "12 演習 大問3"
     ],
     
-    'gasTrial': [
+    'gas_trial': [
         "1-1 GASとは？",
         "1-2 GASからメールを送信",
         "1-3 Chatworkにメッセージを投稿",
@@ -165,7 +165,7 @@ google_course_options = {
         "6 演習 大問3"    
     ],
     
-    'gasBasic': [
+    'gas_basic': [
         "1-1 初めてのGAS",
         "1-2 プロジェクトとスクリプト",
         "1-3 ログとデバッグ",
@@ -276,7 +276,7 @@ google_course_options = {
         "12 演習 大問3"
     ],
 
-    'gasStandard': [
+    'gas_standard': [
         "1-1 Gmailサービス・GmailAppクラス",
         "1-2 スレッドを取得・GmailThreadクラス",
         "1-3 メッセージを取得する",

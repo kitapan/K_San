@@ -1,5 +1,5 @@
 java_course_options = {
-    'JavaBasic': [
+    'java_basic': [
         "第1回　01_Javaの歴史_意識してほしいこと_AI活用方法　※課題無し",
         "第2回　02_開発環境構築",
         "第3回　1on1",
@@ -20,7 +20,7 @@ java_course_options = {
         "第18回　13_デバッグの実践",
         "第19回　1on1"
     ],
-    'JavaStandard': [
+    'java_standard': [
         "第1回　01_Webアプリの仕組み　※課題無し",
         "第2回　02_SpringとSpringBootの違い",
         "第3回　1on1",
@@ -80,7 +80,7 @@ java_course_options = {
         "第57回　31_検索条件の追加と申込み状況機能の追加③",
         "第58回　1on1"
     ],
-    'JavaAdvance':[
+    'java_advance':[
     "第1回 01_クラウドとは_AWSアカウントの作成",
     "第2回 1on1",
     "第3回 02_EC2の構築",

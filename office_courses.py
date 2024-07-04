@@ -1,6 +1,6 @@
 office_course_options = {
     
-    'wordBasic': [
+    'word_basic': [
         "第1回　Wordの基本操作",
         "第2回　文書体裁を整える（１）",
         "第3回　文書体裁を整える（２）",
@@ -15,7 +15,7 @@ office_course_options = {
         "Lv2 定着テスト"	
     ],
     
-    'wordAdvance': [
+    'word_advance': [
         "第1回　見栄えの良い文書の作成（1）",
         "第2回　見栄えの良い文書の作成（2）",
         "第3回　レイアウトを意識した文書の作成（1）",
@@ -30,7 +30,7 @@ office_course_options = {
         "Lv4 定着テスト" 
     ],
     
-    'excelBasic': [
+    'excel_basic': [
         "第1回　Excelの基本操作",
         "第2回　書式設定1（リボン）",
         "第3回　書式設定2（ダイアログボックス）",
@@ -45,7 +45,7 @@ office_course_options = {
         "Lv2 定着テスト"
     ],
     
-    'excelAdvance': [
+    'excel_advance': [
         "第1回　論理関数と情報関数",
         "第2回　文字列操作関数",
         "第3回　日付/時刻関数",
@@ -60,7 +60,7 @@ office_course_options = {
         "Lv4 定着テスト"
     ],
     
-    'powerPointBasic': [
+    'powerpoint_basic': [
         "第1回　PowerPointの基本操作",
         "第2回　スライドの編集と画像の挿入",
         "第3回　図形の挿入と編集",
@@ -75,7 +75,7 @@ office_course_options = {
         "Lv2 定着テスト"
     ],
     
-    'powerPointAdvance': [
+    'powerpoint_advance': [
         "第1回　オリジナルレイアウトの作成とコメント機能",
         "第2回　高度な書式設定",
         "第3回　オブジェクトの編集",
@@ -90,7 +90,7 @@ office_course_options = {
         "Lv4 定着テスト"
     ],
     
-    'accessBasic': [
+    'access_basic': [
         "第1回　Access の基本",
         "第2回　テーブルの作成",
         "第3回　クエリの作成",
@@ -105,7 +105,7 @@ office_course_options = {
         "マイルストーンテスト Level4"
     ],
     
-    'accessAdvance': [
+    'access_advance': [
         "第1回　応用的なフォームの作成",
         "第2回　応用的なレポートの作成",
         "第3回　アクションクエリ",
