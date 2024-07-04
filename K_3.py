@@ -57,11 +57,11 @@ tabJava = [
 
 # プログラミングタブ
 tabProgramming = [
-    [sg.Radio('PHPベーシック', '1', key='phpBasic', enable_events=True),
-     sg.Radio('PHPアドバンス', '1', key='phpAdvance', enable_events=True),
+    [sg.Radio('PHPベーシック', '1', key='php_basic', enable_events=True),
+     sg.Radio('PHPアドバンス', '1', key='php_advance', enable_events=True),
      sg.Radio('WordPress', '1', key='wordpress', enable_events=True),
-     sg.Radio('実践Java技術者試験', '1', key='javaSpecialist', enable_events=True)],
-    [sg.Radio('Pythonベーシック', '1', key='pythonBasic', enable_events=True)],
+     sg.Radio('実践Java技術者試験', '1', key='java_specialist', enable_events=True)],
+    [sg.Radio('Pythonベーシック', '1', key='python_basic', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
 
@@ -205,7 +205,7 @@ while True:
         window['javaDetail'].update(values=java_course_options[selected_type])
         
     # programming コースの選択イベント
-    if event in ('phpBasic', 'phpAdvance', 'wordpress', 'javaSpecialist', 'pythonBasic'):
+    if event in ('php_basic', 'php_advance', 'wordpress', 'java_specialist', 'python_basic'):
         selected_type = event
         window['programmingDetail'].update(values=programming_course_options[selected_type])
         
@@ -260,15 +260,15 @@ while True:
             data = get_course_data(values, 'Javaエンジニア アドバンスド', 'javaDetail')
             
         # プログラミングタブ作成    
-        elif values['phpBasic']:
+        elif values['php_basic']:
             data = get_course_data(values, 'PHPベーシック', 'programmingDetail')
-        elif values['phpAdvance']:
+        elif values['php_advance']:
             data = get_course_data(values, 'PHPアドバンス', 'programmingDetail')
         elif values['wordpress']:
             data = get_course_data(values, 'WordPress', 'programmingDetail')
-        elif values['pyhonBasic']:
+        elif values['python_basic']:
             data = get_course_data(values, 'Pythonベーシック', 'programmingDetail')
-        elif values['javaSpecialist']:
+        elif values['java_specialist']:
             data = get_course_data(values, '実践Java技術者試験', 'programmingDetail')
             
         # Officeタブ作成    
