@@ -120,7 +120,7 @@ office_course_options = {
         "マイルストーンテスト Level2"
     ],
 
-    pivot_tables : [
+    'pivot_tables' : [
         "第1回 データソースの編集 課題A１",
         "第1回 データソースの編集 課題B１",
         "第1回 データソースの編集 課題A２",
@@ -149,7 +149,7 @@ office_course_options = {
         "第5回 総合演習問題 総合演習B"
     ],
 
-    vba_advanced : [
+    'vba_advanced' : [
         "1-1 STEP1 VBAの基本用語を確認する",
         "1-2 STEP2 変数と定数を利用する",
         "1-3 STEP3 制御構造を利用する",
@@ -188,7 +188,7 @@ office_course_options = {
         "10-2 総合問題4"
     ],
 
-    macro_practice : [
+    'macro_practice' : [
         "第1回 課題A1",
         "第1回 課題B1",
         "第1回 課題A2",
@@ -211,7 +211,7 @@ office_course_options = {
         "第5回 課題A2"
     ],
 
-    vba_practice : [
+    'vba_practice' : [
         "第1回 機能1. 点数集計",
         "第1回 機能2. ランク付け",
         "第2回 機能1. 評価表示",
@@ -223,7 +223,7 @@ office_course_options = {
         "第4回 機能2. 宿泊者予約管理情報集計"
     ],
 
-    skills_up_vba : [
+    'skills_up_vba' : [
         "第１回 1.VBAの基本",
         "第2回 2.プロパティとは",
         "第3回 3.変数の利用",
@@ -238,7 +238,7 @@ office_course_options = {
         "第12回 12.VBEの便利な機能"
     ],
 
-    excel_power_query : [
+    'excel_power_query' : [
         "1-1 パワークエリとは",
         "1-2 コンマ区切り、UTF-8、タブ区切り",
         "1-3 コンマや改行のあるCSVファイル",
@@ -325,7 +325,7 @@ office_course_options = {
         "12 演習 大問2"
     ],
 
-    excel_power_pivot : [
+    'excel_power_pivot' : [
         "1-1 復習 パワーピボットとは",
         "1-2 「とりこむ」 サンプルファイルの準備",
         "1-3 作ったクエリのグループ化",
@@ -390,7 +390,7 @@ office_course_options = {
         "12 演習 大問2"
     ],
 
-    access_query_utilization : [
+    'access_query_utilization' : [
         "第1回 1. 抽出に関するテクニック",
         "第2回 2. 集計に関するテクニック",
         "第3回 3. フィールドの計算に関するテクニック",
@@ -398,7 +398,7 @@ office_course_options = {
         "第5回 5. 定義域集計関数を使用したテクニック"
     ],
 
-    excel_master_book : [
+    'excel_master_book' : [
         "問題01 お菓子メーカー",
         "問題02 コンビニ",
         "問題03 賃貸住宅会社",
@@ -413,7 +413,7 @@ office_course_options = {
         "問題12 教育出版社"
     ],
 
-    access_business : [
+    'access_business' : [
         "第1章 Accessのビジネス活用",
         "第2章 商品管理",
         "第3章 商品管理～マクロ",
@@ -423,7 +423,7 @@ office_course_options = {
         "第7章 売上管理～マクロ"
     ],
 
-    chatgpt_trial : [
+    'chatgpt_trial' : [
         "第1回 ChatGPTとは？",
         "第1回 まとめ",
         "第1回 大問1",

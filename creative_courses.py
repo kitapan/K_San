@@ -105,7 +105,8 @@ creative_course_options = {
         "第9回 java_scriptの基礎を扱った最終課題",
         "第10回 jQueryの基礎を扱った最終課題"
     ],
-    illustrator_cc2021_basic1 : [
+    
+    'illustrator_cc2021_basic1' : [
         "1-1 Illustratorでできること",
         "1-2 画面構成",
         "1-3 Illustratorの基本操作",
@@ -130,7 +131,7 @@ creative_course_options = {
         "8-3 パターンの作成(2)"
     ],
 
-    illustrator_cc2021_basic2 : [
+    'illustrator_cc2021_basic2' : [
         "1-1 レイヤーの基本操作",
         "1-2 下絵画像の配置",
         "1-3 地図の作成",
@@ -153,7 +154,7 @@ creative_course_options = {
         "8-3 カフェのロゴマーク作成"
     ],
 
-    illustrator_cc2021_advance : [
+    'illustrator_cc2021_advance' : [
         "1-1 印刷物用ファイル設定",
         "1-2 名刺の作成",
         "2-1 カフェのスタンプカードの作成",
@@ -181,7 +182,7 @@ creative_course_options = {
         "8-3 ボタンの作成"
     ],
 
-    photoshop_cc2021_basic1 : [
+    'photoshop_cc2021_basic1' : [
         "1-1 Photoshopでどんなことができるのか",
         "1-2 Photoshopの画面構成",
         "1-3 Photoshopの基本操作",
@@ -209,7 +210,7 @@ creative_course_options = {
         "8-3 レイヤーマスクを使った画像合成(２)"
     ],
 
-    photoshop_cc2021_basic2 : [
+    'photoshop_cc2021_basic2' : [
         "1-1 画像合成のおさらい",
         "1-2 文字の入力・編集(1)",
         "1-3 文字の入力・編集(2)",
@@ -234,7 +235,7 @@ creative_course_options = {
         "8-2 アニマルのビジュアル作成"
     ],    
 
-    photoshop_cc2021_advanced : [
+    'photoshop_cc2021_advanced' : [
         "1-1 Web用ファイルの設定",
         "1-2 ヘッダーの作成（１）",
         "1-3 湯気の作成",
@@ -262,7 +263,7 @@ creative_course_options = {
         "8-3 入稿データの作成"
     ],
 
-    firefly : [
+    'firefly' : [
         "単元1-1 生成AIってなんだ？",
         "単元1-2 Adobe Fireflyでできること",
         "単元1-3 Firefly Web版の機能を体感しよう",
@@ -289,7 +290,7 @@ creative_course_options = {
         "単元5-3 演習問題2-Illustratorベクター生成と再配色"
     ],
 
-    acp_illustrator : [
+    'acp_illustrator' : [
         "単元1-1 ドキュメントの作成",
         "単元1-2 ドキュメントを開く、保存する",
         "単元1-3 画面操作",
@@ -327,7 +328,7 @@ creative_course_options = {
         "実技 演習問題C"
     ],
 
-    acp_photoshop : [
+    'acp_photoshop' : [
         "単元1-1 ドキュメントの作成",
         "単元1-2 ファイル形式",
         "単元1-3 画面操作",
@@ -370,7 +371,7 @@ creative_course_options = {
         "実技 演習問題C"
     ],
 
-    premiere_pro_basic : [
+    'premiere_pro_basic' : [
         "1-1 映像制作の流れを知ろう・起動・終了しよう・画面を知ろう",
         "1-2 作業しやすくしよう",
         "1-3 プロジェクトを作成・保存しよう",
@@ -424,7 +425,7 @@ creative_course_options = {
         "5 演習 大問3"
     ],
 
-    after_effects_basic : [
+    'after_effects_basic' : [
         "1-1 映像制作の流れを知ろう",
         "1-2 起動・終了しよう・画面を知ろう",
         "1-3 作業しやすくしよう",
@@ -479,7 +480,7 @@ creative_course_options = {
         "5 演習 大問3"
     ],
 
-    premiere_pro_standard : [
+    'premiere_pro_standard' : [
         "1-1 プロジェクトを作成する",
         "1-2 シーケンスを作成する",
         "1-3 パネルを確認する",
@@ -567,7 +568,7 @@ creative_course_options = {
         "12 演習 大問2"
     ],
 
-    effect_variations : [
+    'effect_variations' : [
         "単元1-1 Adobeソフトで作成した素材を利用する",
         "単元1-2 音声を加工する",
         "単元1-3 タイムコードを使って時間表示する",
@@ -612,7 +613,7 @@ creative_course_options = {
         "単元D5-4 旧バージョン(トランジション)"
     ],
 
-    parts_web : [
+    'parts_web' : [
         "第1回 課題01",
         "第1回 課題02",
         "第1回 やってみよう",
@@ -637,7 +638,7 @@ creative_course_options = {
         "第10回 最終課題02"
     ],
 
-    design_document : [
+    'design_document' : [
         "第1回 課題01",
         "第1回 課題02",
         "第1回 やってみよう",
@@ -662,7 +663,7 @@ creative_course_options = {
         "第10回 最終課題02"
     ],
     
-    illustrator_cc2024_basic1 : [
+    'illustrator_cc2024_basic1' : [
         "1-1 Illustratorでできること",
         "1-2 画面構成",
         "1-3 Illustratorの基本操作",
@@ -687,7 +688,7 @@ creative_course_options = {
         "8-3 パターンの作成(2)"
     ],
 
-    illustrator_cc2024_basic2 : [
+    'illustrator_cc2024_basic2' : [
         "1-1 レイヤーの基本操作",
         "1-2 下絵画像の配置",
         "1-3 地図の作成",
@@ -710,7 +711,7 @@ creative_course_options = {
         "8-3 カフェのロゴマーク作成"
     ],
 
-    photoshop_cc2024_basic1 : [
+    'photoshop_cc2024_basic1' : [
         "1-1 Photoshopでどんなことができるのか",
         "1-2 Photoshopの画面構成",
         "1-3 Photoshopの基本操作",
@@ -739,7 +740,7 @@ creative_course_options = {
     ],
 
 
-    photoshop_cc2024_basic2 : [
+    'photoshop_cc2024_basic2' : [
         "1-1 画像合成のおさらい",
         "1-2 文字の入力・編集(1)",
         "1-3 文字の入力・編集(2)",

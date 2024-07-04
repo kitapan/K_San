@@ -140,7 +140,8 @@ programming_course_options = {
         "第6回 模擬問題",
         "第7回 模擬問題 解説"
     ],
-    java_android : [
+    
+    'java_android' : [
         "第1回 S01 Androidアプリの仕組み（知識）",
         "第1回 S01 Androidアプリの仕組み（操作）",
         "第1回 S01 セクションテスト",
@@ -192,7 +193,7 @@ programming_course_options = {
         "第15回 S13 セクションテスト"
     ],
 
-    java_android_trial : [
+    'java_android_trial' : [
         "第1回 S01 モバイルアプリとは",
         "第1回 S01 セクションテスト",
         "第2回 S02 おみくじアプリをつくろう①",
@@ -201,7 +202,7 @@ programming_course_options = {
         "第5回 S05 もぐらたたきアプリをつくろう②"
     ],
 
-    sql : [
+    'sql' : [
         "第1回 S01 魔法の箱",
         "第1回 S01 セクションテスト 「魔法の箱」",
         "第1回 S02 パソコンをつなげる",
@@ -248,7 +249,7 @@ programming_course_options = {
         "第20回 S20 DBViewer"
     ],
 
-    appsheet_trial : [
+    'appsheet_trial' : [
         "1-1 第1回イントロ",
         "1-1 ノンコード開発プラットフォーム",
         "1-2 Googleアカウント",

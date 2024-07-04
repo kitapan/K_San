@@ -244,7 +244,7 @@ cad_course_options = {
         "24-1 平面図の壁",
         "24-2 立面図の壁",
     ],
-    fusion_basic : [
+    'fusion_basic' : [
         "1-1 起動と終了方法",
         "1-2 インターフェースと基本設定",
         "1-3 データの保存と読み込み",
@@ -276,7 +276,7 @@ cad_course_options = {
         "8 やってみよう"
     ],
 
-    fusion_advance : [
+    'fusion_advance' : [
         "1-1 クラウドに関わる基本概念と基本操作復習",
         "1-2 Fusion360を活用したものづくりの流れ",
         "1 やってみよう",
@@ -296,7 +296,7 @@ cad_course_options = {
         "6 やってみよう"
     ],
 
-    architecture_cad2 : [
+    'architecture_cad2' : [
         "第1回 試験概要と平面図（通り芯・仕上げ） ※例題A使用",
         "第2回 平面図（建具） ※例題A使用",
         "第3回 平面図（構造体） ※例題A使用",
@@ -324,7 +324,7 @@ cad_course_options = {
         "第25回 立面図（建具・その他） ※例題D使用",
     ],
 
-    auto_cad_basic_training : [
+    'auto_cad_basic_training' : [
         "第1回 1 環境設定",
         "第1回 2 画層の設定",
         "第1回 3 通り芯の作図",
@@ -361,7 +361,7 @@ cad_course_options = {
         "第6回 6 課題"
     ],
 
-    architecture_cad3 : [
+    'architecture_cad3' : [
         "ガイダンス 検定の概要",
         "第1回 1 テンプレートの作成",
         "第1回 2 建築図面枠の作成",
@@ -385,13 +385,13 @@ cad_course_options = {
         "第6回 3 試験合格のためのワンポイント"
     ],
 
-    auto_cad_user : [
+    'auto_cad_user' : [
         "第1回 基本学習1",
         "第2回 基本学習2",
         "第3回 対策テキスト模擬問題"
     ],
 
-    civil_engineering : [
+    'civil_engineering' : [
         "1-1 はじめに",
         "1-2 土木知識（舗装構成図）・路盤・安定処理・表層工",
         "1-3 舗装構成図1（舗装の線を作図）",
@@ -480,7 +480,7 @@ cad_course_options = {
         "12-9 振返り課題"
     ],
 
-    architectural_draft : [
+    'architectural_draft' : [
         "1-1 受講の進め方",
         "1-2 2.4 作図補助ツールの設定",
         "1-3 3.1 注釈尺度を設定する",

@@ -61,7 +61,11 @@ tabProgramming = [
      sg.Radio('PHPアドバンス', '1', key='php_advance', enable_events=True),
      sg.Radio('WordPress', '1', key='wordpress', enable_events=True),
      sg.Radio('実践Java技術者試験', '1', key='java_specialist', enable_events=True)],
-    [sg.Radio('Pythonベーシック', '1', key='python_basic', enable_events=True)],
+    [sg.Radio('Pythonベーシック', '1', key='python_basic', enable_events=True),
+     sg.Radio('android入門', '1', key='java_android_trial', enable_events=True),
+     sg.Radio('android基礎編', '1', key='java_android', enable_events=True),
+     sg.Radio('SQL1-2', '1', key='sql', enable_events=True)],
+    [sg.Radio('AppSheet', '1', key='appsheet_trial', enable_events=True)],    
     [sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
 
@@ -132,9 +136,9 @@ col2 =[
 # Main tabs
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tabAction), sg.Tab('Java', tabJava), sg.Tab('Office', tabOffice), 
-                   sg.Tab('CAD', tabCad), sg.Tab('Google', tabGoogle), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tabProgramming),
-                   sg.Tab('ｸﾘｴｲﾃｨﾌﾞ', tabCreative)]],
+    [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tabAction), sg.Tab('Java', tabJava), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tabProgramming), 
+                   sg.Tab('ｸﾘｴｲﾃｨﾌﾞ', tabCreative), sg.Tab('Google', tabGoogle), sg.Tab('ｵﾌｨｽ', tabOffice),
+                   sg.Tab('CAD', tabCad)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -205,7 +209,7 @@ while True:
         window['javaDetail'].update(values=java_course_options[selected_type])
         
     # programming コースの選択イベント
-    if event in ('php_basic', 'php_advance', 'wordpress', 'java_specialist', 'python_basic'):
+    if event in ('php_basic', 'php_advance', 'wordpress', 'java_specialist', 'python_basic','java_android','java_android_trial','sql','appsheet_trial'):
         selected_type = event
         window['programmingDetail'].update(values=programming_course_options[selected_type])
         
@@ -270,6 +274,14 @@ while True:
             data = get_course_data(values, 'Pythonベーシック', 'programmingDetail')
         elif values['java_specialist']:
             data = get_course_data(values, '実践Java技術者試験', 'programmingDetail')
+        elif values['java_android']:
+            data = get_course_data(values, 'Android基礎開発講座', 'programmingDetail')
+        elif values['java_android_trial']:
+            data = get_course_data(values, 'Androidアプリ入門', 'programmingDetail')
+        elif values['sql']:
+            data = get_course_data(values, 'SQL1-2', 'programmingDetail')
+        elif values['appsheet_trial']:
+            data = get_course_data(values, 'AppSheetトライアル', 'programmingDetail')         
             
         # Officeタブ作成    
         elif values['word_basic']:
