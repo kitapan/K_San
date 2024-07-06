@@ -57,39 +57,76 @@ tabJava = [
 
 # プログラミングタブ
 tabProgramming = [
-    [sg.Radio('PHPベーシック', '1', key='php_basic', enable_events=True),
-     sg.Radio('PHPアドバンス', '1', key='php_advance', enable_events=True),
+    [sg.Radio('PHPﾍﾞｰｼｯｸ', '1', key='php_basic', enable_events=True),
+     sg.Radio('PHPｱﾄﾞﾊﾞﾝｽ', '1', key='php_advance', enable_events=True),
      sg.Radio('WordPress', '1', key='wordpress', enable_events=True),
      sg.Radio('実践Java技術者試験', '1', key='java_specialist', enable_events=True)],
-    [sg.Radio('Pythonベーシック', '1', key='python_basic', enable_events=True),
-     sg.Radio('android入門', '1', key='java_android_trial', enable_events=True),
-     sg.Radio('android基礎編', '1', key='java_android', enable_events=True),
-     sg.Radio('SQL1-2', '1', key='sql', enable_events=True)],
-    [sg.Radio('AppSheet', '1', key='appsheet_trial', enable_events=True)],    
+    [sg.Radio('Pythonﾍﾞｰｼｯｸ', '1', key='python_basic', enable_events=True),
+     sg.Radio('Android入門', '1', key='java_android_trial', enable_events=True),
+     sg.Radio('ndroid基礎編', '1', key='java_android', enable_events=True),
+     sg.Radio('SQL1-2', '1', key='sql', enable_events=True),
+     sg.Radio('AppSheet', '1', key='appsheet_trial', enable_events=True)],        
     [sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
 
 # officeタブ
 tabOffice = [
-    [sg.Radio('Word1-2', '1', key='word_basic', enable_events=True),
-     sg.Radio('Word3-4', '1', key='word_advance', enable_events=True),
-     sg.Radio('Excel1-2', '1', key='excel_basic', enable_events=True),
-     sg.Radio('Excel3-4', '1', key='excel_advance', enable_events=True)],
-    [sg.Radio('PowerPoint1-2', '1', key='powerpoint_basic', enable_events=True),
-     sg.Radio('PowerPoint3-4', '1', key='powerpoint_advance', enable_events=True),
-     sg.Radio('Access1-2', '1', key='access_basic', enable_events=True),
-     sg.Radio('Access3-4', '1', key='access_advance', enable_events=True)],
+    [sg.Radio('W1-2', '1', key='word_basic', enable_events=True),
+     sg.Radio('W3-4', '1', key='word_advance', enable_events=True),
+     sg.Radio('E1-2', '1', key='excel_basic', enable_events=True),
+     sg.Radio('E3-4', '1', key='excel_advance', enable_events=True),
+     sg.Radio('PP1-2', '1', key='powerpoint_basic', enable_events=True),
+     sg.Radio('PP3-4', '1', key='powerpoint_advance', enable_events=True)],
+    [sg.Radio('AC1-2', '1', key='access_basic', enable_events=True),
+     sg.Radio('AC3-4', '1', key='access_advance', enable_events=True),
+     sg.Radio('ACｸｴﾘ活用', '1', key='access_query_utilization', enable_events=True),
+     sg.Radio('ACﾋﾞｼﾞﾈｽ活用', '1', key='access_business', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
+]
+
+# officeタブ2
+tabOffice2 = [
+    [sg.Radio('ﾋﾟﾎﾞｯﾄ実践', '1', key='pivot_tables', enable_events=True),
+     sg.Radio('Eﾏｽﾀｰﾌﾞｯｸ', '1', key='excel_master_book', enable_events=True),
+     sg.Radio('VBA', '1', key='skills_up_vba', enable_events=True),
+     sg.Radio('VBAｱﾄﾞ', '1', key='vba_advanced', enable_events=True),
+     sg.Radio('ﾏｸﾛ実践', '1', key='macro_practice', enable_events=True),
+     sg.Radio('VBA実践', '1', key='vba_practice', enable_events=True)],
+    [sg.Radio('Eﾊﾟﾜｰｸｴﾘ', '1', key='excel_power_query', enable_events=True),
+     sg.Radio('Eﾊﾟﾜｰﾋﾟﾎﾞｯﾄ', '1', key='excel_power_pivot', enable_events=True)],
+    [sg.Combo([], size=(150, 1), key='officeDetail2', font=font)]
 ]
 
 # クリエイティブタブ
 tabCreative = [
-    [sg.Radio('HTML/CSSﾍﾞｰｼｯｸ', '1', key='html_css_basic', enable_events=True),
-     sg.Radio('MEB P1', '1', key='web_coding', enable_events=True),
-     sg.Radio('MEB P2', '1', key='responsive_web_design', enable_events=True),
-     sg.Radio('HTML/CSSﾄﾚｰﾆﾝｸﾞ', '1', key='html_css_training', enable_events=True)],
-    [sg.Radio('JSB', '1', key='java_script', enable_events=True)],
+    [sg.Radio('HTMLﾍﾞｰｼｯｸ', '1', key='html_css_basic', enable_events=True),
+     sg.Radio('MEB1', '1', key='web_coding', enable_events=True),
+     sg.Radio('MEB2', '1', key='responsive_web_design', enable_events=True),
+     sg.Radio('HTMLﾄﾚｰﾆﾝｸﾞ', '1', key='html_css_training', enable_events=True),
+     sg.Radio('JSB', '1', key='java_script', enable_events=True),
+     sg.Radio('WEB素材', '1', key='parts_web', enable_events=True)],
+    [sg.Radio('Ai1', '1', key='illustrator_cc2021_basic1', enable_events=True),
+     sg.Radio('Ai2', '1', key='illustrator_cc2021_basic2', enable_events=True),
+     sg.Radio('Ai3', '1', key='illustrator_cc2021_advance', enable_events=True),
+     sg.Radio('Ps1', '1', key='photoshop_cc2021_basic1', enable_events=True),
+     sg.Radio('Ps2', '1', key='photoshop_cc2021_basic2', enable_events=True),
+     sg.Radio('Ps3', '1', key='photoshop_cc2021_advanced', enable_events=True),
+     sg.Radio('FireFly', '1', key='firefly', enable_events=True),
+     sg.Radio('ﾄﾞｷｭﾒﾝﾄ作成', '1', key='design_document', enable_events=True)],
     [sg.Combo([], size=(150, 1), key='creativeDetail', font=font)]
+]
+
+# クリエイティブタブ2
+tabCreative2 = [
+    [sg.Radio('Prﾍﾞｰｼｯｸ', '1', key='premiere_pro_basic', enable_events=True),
+     sg.Radio('Aeﾍﾞｰｼｯｸ', '1', key='after_effects_basic', enable_events=True),
+     sg.Radio('Prｽﾀﾝﾀﾞｰﾄﾞ', '1', key='premiere_pro_standard', enable_events=True),
+     sg.Radio('Prｴﾌｪｸﾄﾊﾞﾘｴｰｼｮﾝ', '1', key='effect_variations', enable_events=True)],
+    [sg.Radio('Ai1(2024)', '1', key='illustrator_cc2024_basic1', enable_events=True),
+     sg.Radio('Ai2(2024)', '1', key='illustrator_cc2024_basic2', enable_events=True),
+     sg.Radio('Ps1(2024)', '1', key='photoshop_cc2024_basic1', enable_events=True),
+     sg.Radio('Ps2(2024)', '1', key='photoshop_cc2024_basic2', enable_events=True)],      
+    [sg.Combo([], size=(150, 1), key='creativeDetail2', font=font)]
 ]
 
 # CADタブ
@@ -104,8 +141,10 @@ tabCad = [
 
 # googleタブ
 tabGoogle = [
-    [sg.Radio('GAT', '1', key='gat', enable_events=True),
-     sg.Radio('GSS', '1', key='gss', enable_events=True),
+    
+    [sg.Radio('ChatGPT', '1', key='chatgpt_trialt', enable_events=True),
+     sg.Radio('GAT', '1', key='gat', enable_events=True),
+     sg.Radio('GSS', '1', key='gss', enable_events=True), 
      sg.Radio('GASトライアル', '1', key='gas_trial', enable_events=True),
      sg.Radio('GASベーシック', '1', key='gas_basic', enable_events=True)],
     [sg.Radio('GASスタンダード', '1', key='gas_standard', enable_events=True)],
@@ -137,8 +176,8 @@ col2 =[
 layout = [
     [col1],
     [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tabAction), sg.Tab('Java', tabJava), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tabProgramming), 
-                   sg.Tab('ｸﾘｴｲﾃｨﾌﾞ', tabCreative), sg.Tab('Google', tabGoogle), sg.Tab('ｵﾌｨｽ', tabOffice),
-                   sg.Tab('CAD', tabCad)]],
+                   sg.Tab('ｸﾘｴｲﾃｨﾌﾞ', tabCreative), sg.Tab('ｸﾘｴｲﾃｨﾌﾞ+', tabCreative2), sg.Tab('Google', tabGoogle), sg.Tab('ｵﾌｨｽ', tabOffice),
+                   sg.Tab('ｵﾌｨｽ+', tabOffice2), sg.Tab('CAD', tabCad)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -153,7 +192,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_3', layout, keep_on_top=True, size=(560, 305), resizable=True, icon=icon_path)
+window = sg.Window('K_3', layout, keep_on_top=True, size=(570, 305), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -200,7 +239,7 @@ while True:
     # タブの選択イベント処理
     if event == 'tabgroup':
         selected_tab = window['tabgroup'].get()
-        if selected_tab == 'アクション':
+        if selected_tab == 'ｱｸｼｮﾝ':
             window['fast'].update(value=True)
             
     # Java コースの選択イベント
@@ -209,19 +248,28 @@ while True:
         window['javaDetail'].update(values=java_course_options[selected_type])
         
     # programming コースの選択イベント
-    if event in ('php_basic', 'php_advance', 'wordpress', 'java_specialist', 'python_basic','java_android','java_android_trial','sql','appsheet_trial'):
+    if event in ('php_basic', 'php_advance', 'wordpress', 'java_specialist', 'python_basic','java_android',
+                 'java_android_trial','sql','appsheet_trial'):
         selected_type = event
         window['programmingDetail'].update(values=programming_course_options[selected_type])
         
     # office コースの選択イベント
-    if event in ('word_basic', 'word_advance', 'excel_basic', 'excel_advance', 'powerpoint_basic', 'powerpoint_advance', 'access_basic', 'access_advance'):
+    if event in ('word_basic', 'word_advance', 'excel_basic', 'excel_advance', 'powerpoint_basic', 'powerpoint_advance',
+                 'access_basic', 'access_advance', 'pivot_tables', 'excel_master_book', 'skills_up_vba', 'vba_advanced',
+                 'macro_practice', 'vba_practice', 'excel_power_query', 'excel_power_pivot', 'access_query_utilization',
+                 'access_business','chatgpt_trial'):
         selected_type = event
         window['officeDetail'].update(values=office_course_options[selected_type])
+        window['officeDetail2'].update(values=office_course_options[selected_type])
     
     # クリエイティブ コースの選択イベント
-    if event in ('html_css_basic', 'web_coding', 'responsive_web_design', 'html_css_training', 'java_script'):
+    if event in ('html_css_basic', 'web_coding', 'responsive_web_design', 'html_css_training', 'java_script', 'parts_web',
+                 'illustrator_cc2021_basic1', 'illustrator_cc2021_basic2', 'illustrator_cc2021_advance', 'photoshop_cc2021_basic1',
+                 'photoshop_cc2021_basic2', 'photoshop_cc2021_advanced', 'firefly', 'design_document', 'premiere_pro_basic',
+                 'after_effects_basic', 'premiere_pro_standard', 'effect_variations'):
         selected_type = event
         window['creativeDetail'].update(values=creative_course_options[selected_type])
+        window['creativeDetail2'].update(values=creative_course_options[selected_type])
         
     # CAD コースの選択イベント
     if event in ('auto_cad_basic', 'auto_cad_advanced_architecture', 'auto_cad_advanced_mechanical', 'jw_cad_basic', 'jw_cad_advanced'):
@@ -300,7 +348,31 @@ while True:
             data = get_course_data(values, 'Accessベーシック', 'officeDetail')
         elif values['access_advance']:
             data = get_course_data(values, 'Accessアドバンス', 'officeDetail')
+        elif values['access_query_utilization']:
+            data = get_course_data(values, 'Accessクエリ活用', 'officeDetail')
+        elif values['access_business']:
+            data = get_course_data(values, 'Accessビジネス活用', 'officeDetail')
             
+            
+        elif values['pivot_tables']:
+            data = get_course_data(values, 'ピボット実践', 'officeDetail2')            
+        elif values['excel_master_book']:
+            data = get_course_data(values, 'Excelマスターブック', 'officeDetail2')
+        elif values['skills_up_vba']:
+            data = get_course_data(values, 'スキルアップVBA', 'officeDetail2')                  
+        elif values['vba_advanced']:
+            data = get_course_data(values, 'VBAアドバンスド', 'officeDetail2')                  
+        elif values['macro_practice']:
+            data = get_course_data(values, 'マクロ実践', 'officeDetail2')                  
+        elif values['vba_practice']:
+            data = get_course_data(values, 'VBA実践', 'officeDetail2')                  
+        elif values['excel_power_query']:
+            data = get_course_data(values, 'Excelパワークエリ', 'officeDetail2')                              
+        elif values['excel_power_pivot']:
+            data = get_course_data(values, 'Excelパワーピボット', 'officeDetail2')
+              
+            
+                        
         #　クリエイティブタブ作成    
         elif values['html_css_basic']:
             data = get_course_data(values, 'HTML/CSSベーシック', 'creativeDetail')
@@ -309,9 +381,47 @@ while True:
         elif values['responsive_web_design']:
             data = get_course_data(values, 'MEB レスポンシブWebデザインベーシック', 'creativeDetail')
         elif values['html_css_training']:
-            data = get_course_data(values, 'HTML/CSSトレーニングブック', 'creativeDetail')
+            data = get_course_data(values, 'HTML/CSSトレーニングブック～運用・更新編', 'creativeDetail')
         elif values['java_script']:
             data = get_course_data(values, 'JSB', 'creativeDetail')
+        elif values['parts_web']:
+            data = get_course_data(values, 'パーツで魅せるWEB素材作成講座', 'creativeDetail')            
+        elif values['illustrator_cc2021_basic1']:
+            data = get_course_data(values, 'Illustrator ベーシック1', 'creativeDetail')
+        elif values['illustrator_cc2021_basic2']:
+            data = get_course_data(values, 'Illustrator ベーシック2', 'creativeDetail')
+        elif values['illustrator_cc2021_advance']:
+            data = get_course_data(values, 'Illustrator アドバンス', 'creativeDetail')
+        elif values['photoshop_cc2021_basic1']:
+            data = get_course_data(values, 'Photoshop ベーシック1', 'creativeDetail')
+        elif values['photoshop_cc2021_basic2']:
+            data = get_course_data(values, 'Photoshop ベーシック2', 'creativeDetail')
+        elif values['photoshop_cc2021_advanced']:
+            data = get_course_data(values, 'Photoshop アドバンス', 'creativeDetail')            
+        elif values['firefly']:
+            data = get_course_data(values, 'AdobeFirefly トライアル', 'creativeDetail')
+        elif values['design_document']:
+            data = get_course_data(values, 'デザインで差をつけるドキュメント作成講座', 'creativeDetail')
+        elif values['premiere_pro_basic']:
+            data = get_course_data(values, 'PremierePro ベーシック', 'creativeDetail2')
+        elif values['after_effects_basic']:
+            data = get_course_data(values, 'AfterEffects ベーシック', 'creativeDetail2')
+        elif values['premiere_pro_standard']:
+            data = get_course_data(values, 'PremierePro スタンダード', 'creativeDetail2')
+        elif values['effect_variations']:
+            data = get_course_data(values, 'PremierePro スタンダード～エフェクトバリエーション～', 'creativeDetail2')
+        elif values['illustrator_cc2024_basic1']:
+            data = get_course_data(values, 'Illustrator(2024) ベーシック1', 'creativeDetail2')
+        elif values['illustrator_cc2024_basic2']:
+            data = get_course_data(values, 'Illustrator(2024) ベーシック2', 'creativeDetail2')
+        elif values['photoshop_cc2024_basic1']:
+            data = get_course_data(values, 'Photoshop(2024) ベーシック1', 'creativeDetail2')
+        elif values['photoshop_cc2024_basic2']:
+            data = get_course_data(values, 'Photoshop(2024) ベーシック2', 'creativeDetail2')            
+            
+
+
+          
             
         #　CADタブ作成
         elif values['auto_cad_basic']:
