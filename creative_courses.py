@@ -764,5 +764,36 @@ creative_course_options = {
         "8-1 背景デザインの作成",
         "8-2 アニマルのビジュアル作成"
     ],
+    'create_design' : [
+        "1-1 Recipe009", "1-2 Recipe010", "1-3 Recipe011", "1-4 Recipe012", "1-5 Recipe014",
+        "2-1 Recipe016", "2-2 Recipe017", "2-3 Recipe018", "2-4 Recipe019", "2-5 Recipe020",
+        "3-1 Recipe027", "3-2 Recipe028", "3-3 Recipe029", "3-4 Recipe030", "3-5 Recipe031",
+        "3-6 Recipe032", "3-7 Recipe033", "3-8 Recipe034", "3-9 Recipe035", "3-10 Recipe036",
+        "4-1 Recipe038", "4-2 Recipe039", "4-3 Recipe040", "4-4 Recipe041", "4-5 Recipe042",
+        "4-6 Recipe043", "4-7 Recipe044", "4-8 Recipe045", "4-9 Recipe048", "5-1 Recipe049",
+        "5-2 Recipe050", "5-3 Recipe051", "5-4 Recipe052", "5-5 Recipe053", " 5-6 Recipe054",
+        "6-1 Recipe056", "6-2 Recipe057", "6-3 Recipe058", "6-4 Recipe059", "7-1 Recipe060",
+        "7-2 Recipe061", "7-3 Recipe062", "7-4 Recipe063", "8-1 Recipe064", "8-2 Recipe066",
+        "8-3 Recipe067", "9-1 Recipe068", "9-2 Recipe069", "9-3 Recipe071", "9-4 Recipe072",
+        "9-5 Recipe073", "10-1 Recipe077", "10-2 Recipe079", "10-3 Recipe080", "10-4 Recipe083"
+    ],
     
+    'retouching_processing' : [
+        "1-1 Recipe001", "1-2 Recipe002", "1-3 Recipe003", "1-4 Recipe004", "1-5 Recipe005",
+        "1-6 Recipe006", "1-7 Recipe007", "1-8 Recipe008", "1-9 Recipe009", "1-10 Recipe010",
+        "1-11 Recipe011", "1-12 Recipe012", "1-13 Recipe013", "1-14 Recipe014", "2-1 Recipe015", 
+        "2-2 Recipe016", "2-3 Recipe017", "2-4 Recipe018", "2-5 Recipe019", "2-6 Recipe020",
+        "2-7 Recipe021", "2-8 Recipe022", "2-9 Recipe023", "2-10 Recipe025", "2-11 Recipe026",
+        "2-12 Recipe027", "2-13 Recipe028", "3-1 Recipe029", "3-2 Recipe030", "3-3 Recipe031",
+        "3-4 Recipe032", "3-5 Recipe033", "3-6 Recipe034", "3-7 Recipe037", "3-8 Recipe038",
+        "4-1 Recipe039", "4-2 Recipe042", "4-3 Recipe043", "4-4 Recipe044", "4-5 Recipe045",
+        "4-6 Recipe046", "4-7 Recipe047", "4-8 Recipe048", "4-9 Recipe049", "5-1 Recipe050",
+        "5-2 Recipe051", "5-3 Recipe052", "5-4 Recipe053", "5-5 Recipe054", "6-1 Recipe056",
+        "6-2 Recipe063", "6-3 Recipe064", "6-4 Recipe065", "6-5 Recipe066", "7-1 Recipe068",
+        "7-2 Recipe070", "7-3 Recipe076", "7-4 Recipe077", "8-1 Recipe078", "8-2 Recipe080",
+        "8-3 Recipe084", "8-4 Recipe085", "8-5 Recipe086", "8-6 Recipe087", "9-1 Recipe088",
+        "9-2 Recipe089", "9-3 Recipe090", "9-4 Recipe091", "9-5 Recipe092", "9-6 Recipe093",
+        "9-7 Recipe094", "9-8 Recipe095", "10-1 Recipe096", "10-2 Recipe097", "10-3 Recipe098",
+        "10-4 Recipe099", "10-5 Recipe100", "10-6 Recipe101", "10-7 Recipe102"
+    ],
 }
