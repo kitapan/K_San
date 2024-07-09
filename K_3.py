@@ -9,6 +9,7 @@ from office_courses import office_course_options
 from creative_courses import creative_course_options
 from cad_courses import cad_course_options
 from google_courses import google_course_options
+from school_number import school_options
 
 # ウィンドウテーマ
 sg.theme('TealMono')
@@ -52,7 +53,8 @@ tabJava = [
      sg.Spin(java_course, size=(11, 1), key='1on1Course', font=font),
      sg.Spin(one_on_one_numbers, size=(2, 1), key='1on1Input', font=font),
      sg.Radio('BuildUp', '1', key='BuildUp', enable_events=True)],
-    [sg.Combo([], size=(150, 1), key='javaDetail', font=font)]
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='javaDetail', font=font)]
 ]
 
 # プログラミングタブ
@@ -60,12 +62,12 @@ tabProgramming = [
     [sg.Radio('PHPﾍﾞｰｼｯｸ', '1', key='php_basic', enable_events=True),
      sg.Radio('PHPｱﾄﾞﾊﾞﾝｽ', '1', key='php_advance', enable_events=True),
      sg.Radio('WordPress', '1', key='wordpress', enable_events=True),
-     sg.Radio('実践Java技術者試験', '1', key='java_specialist', enable_events=True),
-     sg.Radio('SQL1-2', '1', key='sql', enable_events=True)],
-    [sg.Radio('Pythonﾍﾞｰｼｯｸ', '1', key='python_basic', enable_events=True),
-     sg.Radio('Android入門', '1', key='java_android_trial', enable_events=True),
+     sg.Radio('SQL1-2', '1', key='sql', enable_events=True),
+     sg.Radio('Pythonﾍﾞｰｼｯｸ', '1', key='python_basic', enable_events=True)],
+    [sg.Radio('Android入門', '1', key='java_android_trial', enable_events=True),
      sg.Radio('Android基礎編', '1', key='java_android', enable_events=True)],        
-    [sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
 
 # オフィスタブ
@@ -80,7 +82,8 @@ tabOffice = [
      sg.Radio('AC3-4', '1', key='access_advance', enable_events=True)],
     [sg.Radio('ACｸｴﾘ活用', '1', key='access_query_utilization', enable_events=True),
      sg.Radio('ACﾋﾞｼﾞﾈｽ活用', '1', key='access_business', enable_events=True)],
-    [sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
 
 # オフィスタブ2
@@ -96,7 +99,8 @@ tabOfficePlus = [
      sg.Radio('ﾍﾞｰｼｯｸ関数', '1', key='basic_function', enable_events=True),
      sg.Radio('ｱﾄﾞﾊﾞﾝｽ関数', '1', key='advance_function', enable_events=True),
      sg.Radio('ｽｷﾙｱｯﾌﾟ関数', '1', key='skill_function', enable_events=True)],
-    [sg.Combo([], size=(150, 1), key='officeDetailPlus', font=font)]
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='officeDetailPlus', font=font)]
 ]
 
 # クリエイティブタブ
@@ -105,7 +109,8 @@ tabCreative = [
      sg.Radio('MEB1', '1', key='web_coding', enable_events=True),
      sg.Radio('MEB2', '1', key='responsive_web_design', enable_events=True),
      sg.Radio('HTMLﾄﾚｰﾆﾝｸﾞ', '1', key='html_css_training', enable_events=True),
-     sg.Radio('JSB', '1', key='java_script', enable_events=True)],
+     sg.Radio('JSB', '1', key='java_script', enable_events=True),
+     sg.Radio('MEA', '1', key='web_coding_advance', enable_events=True)],
     [sg.Radio('Ai1', '1', key='illustrator_cc2021_basic1', enable_events=True),
      sg.Radio('Ai2', '1', key='illustrator_cc2021_basic2', enable_events=True),
      sg.Radio('Ai3', '1', key='illustrator_cc2021_advance', enable_events=True),
@@ -114,7 +119,8 @@ tabCreative = [
      sg.Radio('Ps3', '1', key='photoshop_cc2021_advanced', enable_events=True),
      sg.Radio('ﾄﾞｷｭﾒﾝﾄ作成', '1', key='design_document', enable_events=True),
      sg.Radio('WEB素材', '1', key='parts_web', enable_events=True)],
-    [sg.Combo([], size=(150, 1), key='creativeDetail', font=font)]
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='creativeDetail', font=font)]
 ]
 
 # クリエイティブタブ2
@@ -130,7 +136,8 @@ tabCreativePlus = [
      sg.Radio('Ps2(2024)', '1', key='photoshop_cc2024_basic2', enable_events=True),
      sg.Radio('ﾃﾞｻﾞｲﾝ', '1', key='create_design', enable_events=True),
      sg.Radio('ﾚﾀｯﾁ', '1', key='retouching_processing', enable_events=True)],         
-    [sg.Combo([], size=(150, 1), key='creativeDetailPlus', font=font)]
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='creativeDetailPlus', font=font)]
 ]
 
 # CADタブ
@@ -144,20 +151,38 @@ tabCad = [
     [sg.Radio('Fusionｱﾄﾞﾊﾞﾝｽ', '1', key='fusion_advance', enable_events=True),
      sg.Radio('AutoCAD建築製図編', '1', key='architectural_draft', enable_events=True),
      sg.Radio('AutoCAD土木編', '1', key='civil_engineering', enable_events=True)],    
-    [sg.Combo([], size=(150, 1), key='cadDetail', font=font)]
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='cadDetail', font=font)]
 ]
 
 # googleタブ
 tabGoogle = [
     
-    [sg.Radio('ChatGPT', '1', key='chatgpt_trialt', enable_events=True),
+    [sg.Radio('ChatGPT', '1', key='chatgpt_trial', enable_events=True),
      sg.Radio('GAT', '1', key='gat', enable_events=True),
      sg.Radio('GSS', '1', key='gss', enable_events=True), 
      sg.Radio('GASﾄﾗｲｱﾙ', '1', key='gas_trial', enable_events=True),
      sg.Radio('GASﾍﾞｰｼｯｸ', '1', key='gas_basic', enable_events=True),
      sg.Radio('GASｽﾀﾝﾀﾞｰﾄﾞ', '1', key='gas_standard', enable_events=True)],
     [sg.Radio('AppSheet', '1', key='appsheet_trial', enable_events=True)],
-    [sg.Combo([], size=(150, 1), key='googleDetail', font=font)]
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='googleDetail', font=font)]
+]
+
+# トラブルタブ
+tabTrouble = [
+    [sg.Text('校舎名', size=(5, 1)),
+     sg.Combo([], size=(27, 1), key='schoolDetail')],
+    [sg.Text('ID', size=(2, 1)),
+     sg.InputText(size=(12, 1), font=font, key='studentId'),
+     sg.Text('名前', size=(3, 1)),
+     sg.InputText(size=(17, 1), font=font, key='studentName'),
+     sg.Text('科目', size=(3, 1)),
+     sg.InputText(size=(17, 1), font=font, key='studentCourse')],
+    [sg.Radio('Room移動', '1', key='roomChange', enable_events=True),
+     sg.Radio('音声つながらない', '1', key='audioFollow', enable_events=True),
+     sg.Radio('Roomにいない', '1', key='notRoom', enable_events=True),
+     sg.Radio('助けてください', '1', key='helpMe', enable_events=True)]
 ]
 
 col1 = [
@@ -186,7 +211,7 @@ layout = [
     [col1],
     [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tabAction), sg.Tab('Java', tabJava), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tabProgramming), 
                    sg.Tab('ｸﾘｴｲﾃｨﾌﾞ', tabCreative), sg.Tab('ｸﾘｴｲﾃｨﾌﾞ+', tabCreativePlus), sg.Tab('Google', tabGoogle), sg.Tab('ｵﾌｨｽ', tabOffice),
-                   sg.Tab('ｵﾌｨｽ+', tabOfficePlus), sg.Tab('CAD', tabCad)]],
+                   sg.Tab('ｵﾌｨｽ+', tabOfficePlus), sg.Tab('CAD', tabCad),sg.Tab('ﾄﾗﾌﾞﾙ', tabTrouble)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -256,13 +281,13 @@ while True:
         selected_type = event
         window['javaDetail'].update(values=java_course_options[selected_type])
         
-    # programming コースの選択イベント
-    if event in ('php_basic', 'php_advance', 'wordpress', 'java_specialist', 'python_basic','java_android',
+    # プログラミング コースの選択イベント
+    if event in ('php_basic', 'php_advance', 'wordpress', 'python_basic','java_android',
                  'java_android_trial','sql'):
         selected_type = event
         window['programmingDetail'].update(values=programming_course_options[selected_type])
         
-    # office コースの選択イベント
+    # オフィス コースの選択イベント
     if event in ('word_basic', 'word_advance', 'excel_basic', 'excel_advance', 'powerpoint_basic', 'powerpoint_advance',
                  'access_basic', 'access_advance', 'pivot_tables', 'excel_master_book', 'skills_up_vba', 'vba_advanced',
                  'macro_practice', 'vba_practice', 'excel_power_query', 'excel_power_pivot', 'access_query_utilization',
@@ -272,7 +297,7 @@ while True:
         window['officeDetailPlus'].update(values=office_course_options[selected_type])
     
     # クリエイティブ コースの選択イベント
-    if event in ('html_css_basic', 'web_coding', 'responsive_web_design', 'html_css_training', 'java_script', 'parts_web',
+    if event in ('html_css_basic', 'web_coding', 'responsive_web_design', 'html_css_training', 'java_script', 'web_coding_advance', 'parts_web',
                  'illustrator_cc2021_basic1', 'illustrator_cc2021_basic2', 'illustrator_cc2021_advance', 'photoshop_cc2021_basic1',
                  'photoshop_cc2021_basic2', 'photoshop_cc2021_advanced', 'firefly', 'design_document', 'premiere_pro_basic',
                  'after_effects_basic', 'premiere_pro_standard', 'effect_variations', 'illustrator_cc2024_basic1', 'illustrator_cc2024_basic2',
@@ -291,6 +316,13 @@ while True:
     if event in ('chatgpt_trial','gat', 'gss', 'gas_trial', 'gas_basic', 'gas_standard','appsheet_trial'):
         selected_type = event
         window['googleDetail'].update(values=google_course_options[selected_type])
+    
+    # トラブル 校舎選択イベント
+    if event == 'tabgroup':
+        selected_tab = window['tabgroup'].get()
+        if selected_tab == 'ﾄﾗﾌﾞﾙ':
+            window['schoolDetail'].update(values=school_options['schools'])   
+
 
     # COPY ボタンの処理
     if event == 'COPY':
@@ -331,8 +363,6 @@ while True:
             data = get_course_data(values, 'WordPress', 'programmingDetail')
         elif values['python_basic']:
             data = get_course_data(values, 'Pythonベーシック', 'programmingDetail')
-        elif values['java_specialist']:
-            data = get_course_data(values, '実践Java技術者試験', 'programmingDetail')
         elif values['java_android']:
             data = get_course_data(values, 'Android基礎開発講座', 'programmingDetail')
         elif values['java_android_trial']:
@@ -380,9 +410,9 @@ while True:
         elif values['excel_power_pivot']:
             data = get_course_data(values, 'Excelパワーピボット', 'officeDetailPlus')
         elif values['basic_function']:
-            data = get_course_data(values, 'Excel関数実践ベーシック', 'officeDetailPlus')                  
+            data = get_course_data(values, 'ベーシックExcel関数実践', 'officeDetailPlus')                  
         elif values['advance_function']:
-            data = get_course_data(values, 'Excel関数実践アドバンス', 'officeDetailPlus')                              
+            data = get_course_data(values, 'アドバンスExcel関数実践', 'officeDetailPlus')                              
         elif values['skill_function']:
             data = get_course_data(values, 'スキルアップExcel関数実践', 'officeDetailPlus')            
                         
@@ -390,13 +420,15 @@ while True:
         elif values['html_css_basic']:
             data = get_course_data(values, 'HTML/CSSベーシック', 'creativeDetail')
         elif values['web_coding']:
-            data = get_course_data(values, 'MEB コーティングベーシック', 'creativeDetail')
+            data = get_course_data(values, 'マークアップEB パート1(WEB)', 'creativeDetail')
         elif values['responsive_web_design']:
-            data = get_course_data(values, 'MEB レスポンシブWebデザインベーシック', 'creativeDetail')
+            data = get_course_data(values, 'マークアップEB パート2(レスポンシブ)', 'creativeDetail')
         elif values['html_css_training']:
-            data = get_course_data(values, 'HTML/CSSトレーニングブック～運用・更新編', 'creativeDetail')
+            data = get_course_data(values, 'HTML/CSSトレーニングブック～運用・更新編～', 'creativeDetail')
         elif values['java_script']:
-            data = get_course_data(values, 'JSB', 'creativeDetail')       
+            data = get_course_data(values, 'JavaScriptベーシック', 'creativeDetail')
+        elif values['web_coding_advance']:
+            data = get_course_data(values, 'マークアップエンジニア アドバンス', 'creativeDetail')             
         elif values['illustrator_cc2021_basic1']:
             data = get_course_data(values, 'Illustrator ベーシック1', 'creativeDetail')
         elif values['illustrator_cc2021_basic2']:
@@ -470,7 +502,17 @@ while True:
         elif values['gas_standard']:
             data = get_course_data(values, 'GASスタンダード', 'googleDetail')
         elif values['appsheet_trial']:
-            data = get_course_data(values, 'AppSheetトライアル', 'googleDetail')  
+            data = get_course_data(values, 'AppSheetトライアル', 'googleDetail')
+            
+        #　トラブルタブ作成
+        elif values['roomChange']:
+            data = f"{values['studentId']}　{values['studentName']} 様ですが、\n科目が{values['studentCourse']}です。Room移動許可をお願いします。"
+        elif values['audioFollow']:
+            data = f"{values['studentId']}　{values['studentName']} 様ですが、\n音声がつながりません。フォローお願いします。"
+        elif values['notRoom']:
+            data = f"{values['studentId']}　{values['studentName']} 様ですが、\nステータスが出席ですがRoomにいません。フォローお願いします。"
+        elif values['helpMe']:
+            data = f"Room{values['room']}、ヘルプなどが多く回っていません。助けてください！"         
                      
         pyperclip.copy(data)
 
@@ -488,16 +530,56 @@ while True:
         window['promotionFalse'].update(False)
         
         if values['wakaba']:
-            window['seven'].update('1')
+            window['javaDetail'].update('')
+            window['programmingDetail'].update('')
+            window['creativeDetail'].update('')
+            window['creativeDetailPlus'].update('')
+            window['googleDetail'].update('')
+            window['officeDetail'].update('')
+            window['officeDetailPlus'].update('')
+            window['cadDetail'].update('')
+            window['schoolDetail'].update('')
+            window['studentId'].update('')
+            window['studentName'].update('')
+            window['studentCourse'].update('')            
+            window['DiscordInput'].update('')
+            window['1on1Input'].update('')
+            window['1on1Course'].update('')
             
         else:
             window['javaDetail'].update('')
+            window['programmingDetail'].update('')
+            window['creativeDetail'].update('')
+            window['creativeDetailPlus'].update('')
+            window['googleDetail'].update('')
+            window['officeDetail'].update('')
+            window['officeDetailPlus'].update('')
+            window['cadDetail'].update('')
+            window['schoolDetail'].update('')
+            window['studentId'].update('')
+            window['studentName'].update('')
+            window['studentCourse'].update('')            
             window['DiscordInput'].update('')
             window['1on1Input'].update('')
             window['1on1Course'].update('')
             window['subject'].update(False)
 
-        if any(values[key] for key in ('java_basic', 'java_standard', 'java_advance', 'BuildUp', '1on1', 'Discord')):
+        if any(values[key] for key in ('java_basic', 'java_standard', 'java_advance', 'BuildUp', '1on1', 'Discord',
+                                       'php_basic', 'php_advance', 'wordpress', 'python_basic',
+                                       'java_android', 'java_android_trial','sql', 'word_basic', 'word_advance', 'excel_basic',
+                                       'excel_advance', 'powerpoint_basic', 'powerpoint_advance', 'access_basic', 'access_advance',
+                                       'pivot_tables', 'excel_master_book', 'skills_up_vba', 'vba_advanced', 'macro_practice',
+                                       'vba_practice', 'excel_power_query', 'excel_power_pivot', 'access_query_utilization',
+                                       'access_business', 'basic_function', 'advance_function', 'skill_function', 'html_css_basic',
+                                       'web_coding', 'responsive_web_design', 'html_css_training', 'java_script', 'parts_web',
+                                       'illustrator_cc2021_basic1', 'illustrator_cc2021_basic2', 'illustrator_cc2021_advance',
+                                       'photoshop_cc2021_basic1', 'photoshop_cc2021_basic2', 'photoshop_cc2021_advanced', 'firefly',
+                                       'design_document', 'premiere_pro_basic', 'after_effects_basic', 'premiere_pro_standard',
+                                       'effect_variations', 'illustrator_cc2024_basic1', 'illustrator_cc2024_basic2', 'photoshop_cc2024_basic1',
+                                       'photoshop_cc2024_basic2', 'create_design', 'retouching_processing', 'auto_cad_basic',
+                                       'auto_cad_advanced_architecture', 'auto_cad_advanced_mechanical', 'jw_cad_basic', 'jw_cad_advanced',
+                                       'fusion_basic', 'fusion_advance', 'architectural_draft', 'civil_engineering', 'chatgpt_trial', 'gat',
+                                       'gss', 'gas_trial', 'gas_basic', 'gas_standard','appsheet_trial')):
             window['fast'].update(True)
             window['tabgroup'].Widget.select(0)
 
