@@ -226,7 +226,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_3', layout, keep_on_top=True, size=(595, 305), resizable=True, icon=icon_path)
+window = sg.Window('K_San', layout, keep_on_top=True, size=(595, 305), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -512,7 +512,7 @@ while True:
         elif values['notRoom']:
             data = f"{values['studentId']}　{values['studentName']} 様ですが、\nステータスが出席ですがRoomにいません。フォローお願いします。"
         elif values['helpMe']:
-            data = f"Room{values['room']}、ヘルプなどが多く回っていません。助けてください！"         
+            data = f"Room{values['jyugyou']}、ヘルプなどが多く回っていません。助けてください！"         
                      
         pyperclip.copy(data)
 
