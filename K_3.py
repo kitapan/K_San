@@ -491,6 +491,8 @@ while True:
             data = get_course_data(values, 'AutoCAD土木編', 'cadDetail')                  
             
         #　googleタブ作成
+        elif values['chatgpt_trial']:
+            data = get_course_data(values, 'ChatGPT トライアル', 'googleDetail')        
         elif values['gat']:
             data = get_course_data(values, 'Googleアプリ トライアル', 'googleDetail')
         elif values['gss']:
