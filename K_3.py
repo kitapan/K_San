@@ -3,6 +3,9 @@ import pyperclip
 import datetime
 import os
 import sys
+import time
+import threading
+import pygame
 from java_courses import java_course_options
 from programming_courses import programming_course_options
 from office_courses import office_course_options
@@ -16,10 +19,19 @@ sg.theme('TealMono')
 
 java_course = ['', 'ベーシック', 'スタンダード', 'アドバンスド']
 font = ('Helvetica', 12)
+bold_font = ('Helvetica', 13, 'bold')
 
 # today
 now = datetime.date.today()
 now = "{0:%m%d}".format(now)
+
+# タイマーの初期化
+timer_running = False
+start_time = 0
+alarm_playing = False
+
+# pygameの初期化
+pygame.mixer.init()
 
 # 1~70
 lis = ['{:02d}'.format(i + 1) for i in range(70)]
@@ -203,7 +215,10 @@ col1 = [
 col2 =[
     sg.Button('COPY', size=(10, 1), key='COPY', button_color=('white', '#001480')),
     sg.Button('CODE', size=(10, 1), key='CODE', button_color=('white', '#001480')),
-    sg.Button('CLEAR', size=(10, 1), key='CLEAR', button_color=('white', '#dc143c'))
+    sg.Button('CLEAR', size=(10, 1), key='CLEAR', button_color=('white', '#dc143c')),
+    sg.Button('START', key='start_stop', size=(10, 1)),
+    sg.Text('所要時間：', size=(8, 1), font=font),
+    sg.Text('00:00', size=(10, 1), font=font, key='timer')
 ]
 
 # Main tabs
@@ -266,9 +281,19 @@ def get_course_data(values, course_name, detail):
 
     return data
 
+def play_alarm():
+    absolute_path = os.path.abspath('alarm.wav')
+    pygame.mixer.music.load(absolute_path)
+    pygame.mixer.music.set_volume(0.5)  # 音量を50%に設定
+    pygame.mixer.music.play(loops=-1)  # ループ再生
+
+
+def stop_alarm():
+    pygame.mixer.music.stop()
+
 # メイン処理
 while True:
-    event, values = window.read()
+    event, values = window.read(timeout=10)
     
     # タブの選択イベント処理
     if event == 'tabgroup':
@@ -330,9 +355,9 @@ while True:
         if values['fast']:
             data = get_greeting_data(values)
         elif values['help']:
-            data = f"ヘルプ対応:{values['remarks']}"
+            data = f"ヘルプ対応:{values['remarks']} 所要時間：{window['timer'].get()}"
         elif values['follow']:
-            data = f"フォロー対応:{values['remarks']}"
+            data = f"フォロー対応:{values['remarks']} 所要時間：{window['timer'].get()}"
         elif values['cs']:
             data = f"【面談依頼】\n内容：{values['remarks']}"
         elif values['vu']:
@@ -508,13 +533,13 @@ while True:
             
         #　トラブルタブ作成
         elif values['roomChange']:
-            data = f"{values['studentId']}　{values['studentName']} 様ですが、\n科目が{values['studentCourse']}です。Room移動許可をお願いします。"
+            data = f"{values['studentId']}　{values['studentName']} 様、\n科目が{values['studentCourse']}です。Room移動許可をお願いします。"
         elif values['audioFollow']:
-            data = f"{values['studentId']}　{values['studentName']} 様ですが、\n音声がつながりません。フォローお願いします。"
+            data = f"{values['studentId']}　{values['studentName']} 様、\n音声がつながりません。フォローお願いします。"
         elif values['notRoom']:
-            data = f"{values['studentId']}　{values['studentName']} 様ですが、\nステータスが出席ですがRoomにいません。フォローお願いします。"
+            data = f"{values['studentId']}　{values['studentName']} 様、\nステータスが出席ですがRoomにいません。フォローお願いします。"
         elif values['helpMe']:
-            data = f"Room{values['jyugyou']}、ヘルプなどが多く回っていません。助けてください！"         
+            data = f"Room{values['jyugyou']}、ヘルプなどでROOMが回っていません。助けてください！"         
                      
         pyperclip.copy(data)
 
@@ -522,6 +547,34 @@ while True:
     if event == 'CODE':
         data = f"{now}_{values['jyugyou']}_{values['jigen']}限_Room00"
         pyperclip.copy(data)
+    
+    # タイマー実装
+    if event == 'start_stop':
+        if not timer_running:
+            start_time = time.time() - (start_time if start_time else 0)
+            timer_running = True
+            window['start_stop'].update('STOP')
+        else:
+            stop_alarm()
+            
+    # アラーム停止
+    elif event == 'CLEAR':
+        timer_running = False
+        start_time = 0
+        window['timer'].update('00:00')
+        window['start_stop'].update('START')
+        window['timer'].update(font=font, text_color='black')  # テキストの色とフォントをリセット
+        stop_alarm()
+        alarm_playing = False
+        
+
+    if timer_running:
+        elapsed_time = time.time() - start_time
+        window['timer'].update(time.strftime('%M:%S', time.gmtime(elapsed_time)))
+        if elapsed_time >= 1 * 60 and not alarm_playing:  # 3分 = 3 * 60秒
+            threading.Thread(target=play_alarm).start()
+            window['timer'].update(font=bold_font, text_color='red')  # 3分経過でフォントを太字、色を赤に
+            alarm_playing = True  # アラームが再生中であることを記録
 
     # CLEARボタン
     if event == 'CLEAR':
@@ -573,7 +626,7 @@ while True:
                                        'pivot_tables', 'excel_master_book', 'skills_up_vba', 'vba_advanced', 'macro_practice',
                                        'vba_practice', 'excel_power_query', 'excel_power_pivot', 'access_query_utilization',
                                        'access_business', 'basic_function', 'advance_function', 'skill_function', 'html_css_basic',
-                                       'web_coding', 'responsive_web_design', 'html_css_training', 'java_script', 'parts_web',
+                                       'web_coding', 'responsive_web_design', 'html_css_training', 'java_script', 'web_coding_advance', 'parts_web',
                                        'illustrator_cc2021_basic1', 'illustrator_cc2021_basic2', 'illustrator_cc2021_advance',
                                        'photoshop_cc2021_basic1', 'photoshop_cc2021_basic2', 'photoshop_cc2021_advanced', 'firefly',
                                        'design_document', 'premiere_pro_basic', 'after_effects_basic', 'premiere_pro_standard',

@@ -77,7 +77,7 @@ programming_course_options = {
     ],
     
     'php_basic': [
-        "第１回 PHPとは",
+        "第1回 PHPとは",
         "第2回 演算子",
         "第3回 デバッグ",
         "第4回 条件分岐（if／elese／switch）",
@@ -110,7 +110,7 @@ programming_course_options = {
     ],
     
     'wordpress': [
-        "第１回 1-1 WordPressの準備",
+        "第1回 1-1 WordPressの準備",
         "第2回 2-1 テーマの初期設定",
         "第3回 3-1 functions.phpによるテーマ設定",
         "第4回 4-1 テンプレート階層の設定",
