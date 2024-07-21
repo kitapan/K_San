@@ -168,6 +168,18 @@ tabCad = [
      sg.Combo([], size=(150, 1), key='cadDetail', font=font)]
 ]
 
+# CAD2タブ
+tabCadPlus = [
+    [sg.Radio('AutoCADﾄﾚｰﾆﾝｸﾞ', '1', key='auto_cad_basic_training', enable_events=True),
+     sg.Radio('建CAD3級', '1', key='architecture_cad3', enable_events=True),
+     sg.Radio('建CAD2級(AutoCAD)', '1', key='architecture_cad2', enable_events=True),
+     sg.Radio('建CAD2級(JW)', '1', key='architecture_jw_cad2', enable_events=True)],     
+    [sg.Radio('CAD利用2級', '1', key='cad_engineer_2', enable_events=True),
+     sg.Radio('ユーザー試験', '1', key='auto_cad_user', enable_events=True)],   
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='cadDetailPlus', font=font)]
+]
+
 # googleタブ
 tabGoogle = [
     
@@ -225,9 +237,9 @@ col2 =[
 # Main tabs
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('AC', tabAction), sg.Tab('JV', tabJava), sg.Tab('PG', tabProgramming), 
-                   sg.Tab('CR', tabCreative), sg.Tab('CR+', tabCreativePlus), sg.Tab('GO', tabGoogle), sg.Tab('OF', tabOffice),
-                   sg.Tab('OF+', tabOfficePlus), sg.Tab('CD', tabCad),sg.Tab('TR', tabTrouble)]],
+    [sg.TabGroup([[sg.Tab('ACTION', tabAction), sg.Tab('JV', tabJava), sg.Tab('PG', tabProgramming), 
+                   sg.Tab('CR①', tabCreative), sg.Tab('CR②', tabCreativePlus), sg.Tab('GO', tabGoogle), sg.Tab('OF①', tabOffice),
+                   sg.Tab('OF②', tabOfficePlus), sg.Tab('CD①', tabCad), sg.Tab('CD②', tabCadPlus), sg.Tab('TR', tabTrouble)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -299,7 +311,7 @@ while True:
     # タブの選択イベント処理
     if event == 'tabgroup':
         selected_tab = window['tabgroup'].get()
-        if selected_tab == 'AC':
+        if selected_tab == 'ACTION':
             window['fast'].update(value=True)
             
     # Java コースの選択イベント
@@ -334,9 +346,11 @@ while True:
         
     # CAD コースの選択イベント
     if event in ('auto_cad_basic', 'auto_cad_advanced_architecture', 'auto_cad_advanced_mechanical', 'jw_cad_basic', 'jw_cad_advanced',
-                 'fusion_basic', 'fusion_advance', 'architectural_draft', 'civil_engineering'):
+                 'fusion_basic', 'fusion_advance', 'architectural_draft', 'civil_engineering', 'auto_cad_basic_training', 'architecture_cad3',
+                 'architecture_cad2', 'architecture_jw_cad2', 'cad_engineer_2', 'auto_cad_user'):
         selected_type = event
         window['cadDetail'].update(values=cad_course_options[selected_type])
+        window['cadDetailPlus'].update(values=cad_course_options[selected_type])
         
     # Google コースの選択イベント
     if event in ('chatgpt_trial','gat', 'gss', 'gas_trial', 'gas_basic', 'gas_standard','appsheet_trial'):
@@ -506,9 +520,9 @@ while True:
         elif values['auto_cad_advanced_mechanical']:
             data = get_course_data(values, 'AutoCADアドバンス（機械）', 'cadDetail')
         elif values['jw_cad_basic']:
-            data = get_course_data(values, 'JwCADベーシック', 'cadDetail')
+            data = get_course_data(values, 'Jw_cadベーシック', 'cadDetail')
         elif values['jw_cad_advanced']:
-            data = get_course_data(values, 'JwCADアドバンス', 'cadDetail')
+            data = get_course_data(values, 'Jw_cadアドバンス', 'cadDetail')
         elif values['fusion_basic']:
             data = get_course_data(values, 'Fusionベーシック', 'cadDetail')
         elif values['fusion_advance']:
@@ -516,7 +530,22 @@ while True:
         elif values['architectural_draft']:
             data = get_course_data(values, 'AutoCAD建築製図編', 'cadDetail')                       
         elif values['civil_engineering']:
-            data = get_course_data(values, 'AutoCAD土木編', 'cadDetail')                  
+            data = get_course_data(values, 'AutoCAD土木編', 'cadDetail')
+
+            
+        #　CAD+タブ作成
+        elif values['auto_cad_basic_training']:
+            data = get_course_data(values, 'AutoCAD版トレーニングプラス講座', 'cadDetailPlus')
+        elif values['architecture_cad3']:
+            data = get_course_data(values, '建築CAD検定3級', 'cadDetailPlus')
+        elif values['architecture_cad2']:
+            data = get_course_data(values, '建築CAD検定2級(AutoCAD)', 'cadDetailPlus')
+        elif values['architecture_jw_cad2']:
+            data = get_course_data(values, '建築CAD検定2級(jw_cad)', 'cadDetailPlus')            
+        elif values['cad_engineer_2']:
+            data = get_course_data(values, 'CAD利用技術者試験2級対策', 'cadDetailPlus')
+        elif values['auto_cad_user']:
+            data = get_course_data(values, 'AutoCADユーザー対策講座', 'cadDetailPlus')
             
         #　googleタブ作成
         elif values['chatgpt_trial']:
@@ -636,7 +665,8 @@ while True:
                                        'effect_variations', 'illustrator_cc2024_basic1', 'illustrator_cc2024_basic2', 'photoshop_cc2024_basic1',
                                        'photoshop_cc2024_basic2', 'create_design', 'retouching_processing', 'auto_cad_basic',
                                        'auto_cad_advanced_architecture', 'auto_cad_advanced_mechanical', 'jw_cad_basic', 'jw_cad_advanced',
-                                       'fusion_basic', 'fusion_advance', 'architectural_draft', 'civil_engineering', 'chatgpt_trial', 'gat',
+                                       'fusion_basic', 'fusion_advance', 'architectural_draft', 'civil_engineering', 'auto_cad_basic_training', 
+                                       'architecture_cad3', 'architecture_cad2', 'architecture_jw_cad2', 'cad_engineer_2', 'auto_cad_user', 'chatgpt_trial', 'gat',
                                        'gss', 'gas_trial', 'gas_basic', 'gas_standard','appsheet_trial')):
             window['fast'].update(True)
             window['tabgroup'].Widget.select(0)
