@@ -77,7 +77,8 @@ tabProgramming = [
      sg.Radio('SQL1-2', '1', key='sql', enable_events=True),
      sg.Radio('Pythonﾍﾞｰｼｯｸ', '1', key='python_basic', enable_events=True)],
     [sg.Radio('Android入門', '1', key='java_android_trial', enable_events=True),
-     sg.Radio('Android基礎編', '1', key='java_android', enable_events=True)],        
+     sg.Radio('Android基礎編', '1', key='java_android', enable_events=True),
+     sg.Radio('RPA', '1', key='rpa', enable_events=True)],        
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
@@ -224,9 +225,9 @@ col2 =[
 # Main tabs
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('ｱｸｼｮﾝ', tabAction), sg.Tab('Java', tabJava), sg.Tab('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', tabProgramming), 
-                   sg.Tab('ｸﾘｴｲﾃｨﾌﾞ', tabCreative), sg.Tab('ｸﾘｴｲﾃｨﾌﾞ+', tabCreativePlus), sg.Tab('Google', tabGoogle), sg.Tab('ｵﾌｨｽ', tabOffice),
-                   sg.Tab('ｵﾌｨｽ+', tabOfficePlus), sg.Tab('CAD', tabCad),sg.Tab('ﾄﾗﾌﾞﾙ', tabTrouble)]],
+    [sg.TabGroup([[sg.Tab('AC', tabAction), sg.Tab('JV', tabJava), sg.Tab('PG', tabProgramming), 
+                   sg.Tab('CR', tabCreative), sg.Tab('CR+', tabCreativePlus), sg.Tab('GO', tabGoogle), sg.Tab('OF', tabOffice),
+                   sg.Tab('OF+', tabOfficePlus), sg.Tab('CD', tabCad),sg.Tab('TR', tabTrouble)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -269,7 +270,7 @@ def get_course_data(values, course_name, detail):
     if values['subject']:
         data += f"【初VU期間サポート対象】{values['seven']}回目\n"
     data += f"{now}_{values['jyugyou']}_{values['jigen']}限_Room{values['room']}\n"
-    data += f"挨拶:{course_name}\n{values[detail]}\n注意事項:"
+    data += f"挨拶:{course_name}　{values[detail]}\n注意事項:"
     if values['noFollow']:
         data += '★巡回不要　'
     if values['promotionTrue']:
@@ -284,7 +285,7 @@ def get_course_data(values, course_name, detail):
 def play_alarm():
     absolute_path = os.path.abspath('alarm.wav')
     pygame.mixer.music.load(absolute_path)
-    pygame.mixer.music.set_volume(0.5)  # 音量を50%に設定
+    pygame.mixer.music.set_volume(0.1)  # 音量を10%に設定
     pygame.mixer.music.play(loops=-1)  # ループ再生
 
 
@@ -298,7 +299,7 @@ while True:
     # タブの選択イベント処理
     if event == 'tabgroup':
         selected_tab = window['tabgroup'].get()
-        if selected_tab == 'ｱｸｼｮﾝ':
+        if selected_tab == 'AC':
             window['fast'].update(value=True)
             
     # Java コースの選択イベント
@@ -308,7 +309,7 @@ while True:
         
     # プログラミング コースの選択イベント
     if event in ('php_basic', 'php_advance', 'wordpress', 'python_basic','java_android',
-                 'java_android_trial','sql'):
+                 'java_android_trial','sql', 'rpa'):
         selected_type = event
         window['programmingDetail'].update(values=programming_course_options[selected_type])
         
@@ -345,7 +346,7 @@ while True:
     # トラブル 校舎選択イベント
     if event == 'tabgroup':
         selected_tab = window['tabgroup'].get()
-        if selected_tab == 'ﾄﾗﾌﾞﾙ':
+        if selected_tab == 'TR':
             window['schoolDetail'].update(values=school_options['schools'])   
 
 
@@ -394,6 +395,8 @@ while True:
             data = get_course_data(values, 'Androidアプリ入門', 'programmingDetail')
         elif values['sql']:
             data = get_course_data(values, 'SQL1-2', 'programmingDetail')
+        elif values['rpa']:
+            data = get_course_data(values, 'RPA講座ベーシックforSynchRoid', 'programmingDetail')
                
         # オフィスタブ作成    
         elif values['word_basic']:
@@ -567,7 +570,7 @@ while True:
         stop_alarm()
         alarm_playing = False
         
-
+    # アラーム再生
     if timer_running:
         elapsed_time = time.time() - start_time
         window['timer'].update(time.strftime('%M:%S', time.gmtime(elapsed_time)))
@@ -621,7 +624,7 @@ while True:
 
         if any(values[key] for key in ('java_basic', 'java_standard', 'java_advance', 'BuildUp', '1on1', 'Discord',
                                        'php_basic', 'php_advance', 'wordpress', 'python_basic',
-                                       'java_android', 'java_android_trial','sql', 'word_basic', 'word_advance', 'excel_basic',
+                                       'java_android', 'java_android_trial','sql', 'rpa', 'word_basic', 'word_advance', 'excel_basic',
                                        'excel_advance', 'powerpoint_basic', 'powerpoint_advance', 'access_basic', 'access_advance',
                                        'pivot_tables', 'excel_master_book', 'skills_up_vba', 'vba_advanced', 'macro_practice',
                                        'vba_practice', 'excel_power_query', 'excel_power_pivot', 'access_query_utilization',
@@ -643,3 +646,4 @@ while True:
         break
 
 window.close()
+pygame.mixer.quit()
