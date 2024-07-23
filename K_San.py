@@ -31,7 +31,14 @@ start_time = 0
 alarm_playing = False
 
 # pygameの初期化
-pygame.mixer.init()
+def initialize_pygame():
+    try:
+        pygame.mixer.init()
+        print("Pygame mixer initialized successfully.")
+    except Exception as e:
+        print(f"Error initializing pygame mixer: {e}")
+        sg.popup_error('Pygameの初期化に失敗しました。プログラムを終了します。')
+        sys.exit(1)  # 初期化に失敗した場合、プログラムを終了する
 
 # 1~70
 lis = ['{:02d}'.format(i + 1) for i in range(70)]
@@ -97,7 +104,7 @@ tabOffice = [
     [sg.Radio('ACｸｴﾘ活用', '1', key='access_query_utilization', enable_events=True),
      sg.Radio('ACﾋﾞｼﾞﾈｽ活用', '1', key='access_business', enable_events=True),
      sg.Radio('伝わる提案書', '1', key='proposal', enable_events=True),
-     sg.Radio('伝わる提案書(ﾄﾞﾘﾙ)', '1', key='proposal_drill', enable_events=True)],
+     sg.Radio('伝わる提案書（ﾄﾞﾘﾙ）', '1', key='proposal_drill', enable_events=True)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
@@ -122,10 +129,10 @@ tabOfficeSecond = [
 # オフィスタブ3
 tabOfficeThird = [
     [sg.Radio('ﾃﾞｰﾀ分析', '1', key='data_analysis', enable_events=True),        
-     sg.Radio('仕事術(基本)', '1', key='work_basic', enable_events=True),
-     sg.Radio('仕事術(応用)', '1', key='work_application', enable_events=True),
-     sg.Radio('仕事術(経理)', '1', key='work_accounting', enable_events=True),
-     sg.Radio('仕事術(管理)', '1', key='work_administrator', enable_events=True)],    
+     sg.Radio('仕事術（基）', '1', key='work_basic', enable_events=True),
+     sg.Radio('仕事術（応）', '1', key='work_application', enable_events=True),
+     sg.Radio('仕事術（経）', '1', key='work_accounting', enable_events=True),
+     sg.Radio('仕事術（管）', '1', key='work_administrator', enable_events=True)],    
     [sg.Radio('ﾅﾚｯｼﾞW', '1', key='business_knowledge_word', enable_events=True),
      sg.Radio('ﾅﾚｯｼﾞE', '1', key='business_knowledge_excel', enable_events=True),
      sg.Radio('ﾅﾚｯｼﾞP', '1', key='business_knowledge_powerpoint', enable_events=True),
@@ -164,10 +171,10 @@ tabCreativeSecond = [
      sg.Radio('Prｽﾀﾝﾀﾞｰﾄﾞ', '1', key='premiere_pro_standard', enable_events=True),
      sg.Radio('Prｴﾌｪｸﾄﾊﾞﾘｴｰｼｮﾝ', '1', key='effect_variations', enable_events=True),
      sg.Radio('FireFly', '1', key='firefly', enable_events=True),],
-    [sg.Radio('Ai1(2024)', '1', key='illustrator_cc2024_basic1', enable_events=True),
-     sg.Radio('Ai2(2024)', '1', key='illustrator_cc2024_basic2', enable_events=True),
-     sg.Radio('Ps1(2024)', '1', key='photoshop_cc2024_basic1', enable_events=True),
-     sg.Radio('Ps2(2024)', '1', key='photoshop_cc2024_basic2', enable_events=True),
+    [sg.Radio('Ai1_2024', '1', key='illustrator_cc2024_basic1', enable_events=True),
+     sg.Radio('Ai2_2024', '1', key='illustrator_cc2024_basic2', enable_events=True),
+     sg.Radio('Ps1_2024', '1', key='photoshop_cc2024_basic1', enable_events=True),
+     sg.Radio('Ps2_2024', '1', key='photoshop_cc2024_basic2', enable_events=True),
      sg.Radio('ﾃﾞｻﾞｲﾝ', '1', key='create_design', enable_events=True),
      sg.Radio('ﾚﾀｯﾁ', '1', key='retouching_processing', enable_events=True)],         
     [sg.Text('挨拶', size=(4, 1), font=font),
@@ -177,12 +184,12 @@ tabCreativeSecond = [
 # CADタブ1
 tabCad = [
     [sg.Radio('Auto1-2', '1', key='auto_cad_basic', enable_events=True),
-     sg.Radio('Auto3-4(建)', '1', key='auto_cad_advanced_architecture', enable_events=True),
-     sg.Radio('Auto3-4(機)', '1', key='auto_cad_advanced_mechanical', enable_events=True),
+     sg.Radio('Auto3-4（建）', '1', key='auto_cad_advanced_architecture', enable_events=True),
+     sg.Radio('Auto3-4（機）', '1', key='auto_cad_advanced_mechanical', enable_events=True),
      sg.Radio('Jw1-2', '1', key='jw_cad_basic', enable_events=True),
-     sg.Radio('Jw3-4', '1', key='jw_cad_advanced', enable_events=True),
-     sg.Radio('Fusionﾍﾞｰｼｯｸ', '1', key='fusion_basic', enable_events=True)],
-    [sg.Radio('Fusionｱﾄﾞﾊﾞﾝｽ', '1', key='fusion_advance', enable_events=True),
+     sg.Radio('Jw3-4', '1', key='jw_cad_advanced', enable_events=True)],
+    [sg.Radio('Fusionﾍﾞｰｼｯｸ', '1', key='fusion_basic', enable_events=True),
+     sg.Radio('Fusionｱﾄﾞﾊﾞﾝｽ', '1', key='fusion_advance', enable_events=True),
      sg.Radio('AutoCAD建築製図編', '1', key='architectural_draft', enable_events=True),
      sg.Radio('AutoCAD土木編', '1', key='civil_engineering', enable_events=True)],    
     [sg.Text('挨拶', size=(4, 1), font=font),
@@ -192,11 +199,11 @@ tabCad = [
 # CADタブ2
 tabCadSecond = [
     [sg.Radio('AutoCADﾄﾚｰﾆﾝｸﾞ', '1', key='auto_cad_basic_training', enable_events=True),
-     sg.Radio('建CAD3級(Auto)', '1', key='architecture_cad3', enable_events=True),
-     sg.Radio('建CAD2級(Auto)', '1', key='architecture_cad2', enable_events=True),
-     sg.Radio('建CAD2級(Jw)', '1', key='architecture_jw_cad2', enable_events=True)],     
-    [sg.Radio('CAD利用2級', '1', key='cad_engineer_2', enable_events=True),
-     sg.Radio('ﾕｰｻﾞｰ試験', '1', key='auto_cad_user', enable_events=True)],   
+     sg.Radio('建CAD3級（Auto）', '1', key='architecture_cad3', enable_events=True),
+     sg.Radio('ﾕｰｻﾞｰ試験', '1', key='auto_cad_user', enable_events=True),
+     sg.Radio('CAD利用2級', '1', key='cad_engineer_2', enable_events=True)],
+    [sg.Radio('建CAD2級（Auto）', '1', key='architecture_cad2', enable_events=True),
+     sg.Radio('建CAD2級（Jw）', '1', key='architecture_jw_cad2', enable_events=True)],   
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='cadDetailSecond', font=font)]
 ]
@@ -315,14 +322,23 @@ def get_course_data(values, course_name, detail):
     return data
 
 def play_alarm():
-    absolute_path = os.path.abspath('alarm.wav')
-    pygame.mixer.music.load(absolute_path)
-    pygame.mixer.music.set_volume(0.3)  # 音量を30%に設定
-    pygame.mixer.music.play(loops=-1)  # ループ再生
+    try:
+        absolute_path = resource_path('alarm.wav')
+        print(f"Attempting to play sound from: {absolute_path}")
+        pygame.mixer.music.load(absolute_path)
+        pygame.mixer.music.set_volume(0.3)  # 音量を30%に設定
+        pygame.mixer.music.play(loops=-1)  # ループ再生
+        print("Sound playing successfully.")
+    except pygame.error as e:
+        print(f"Error playing sound: {e}")
+        sg.popup_error('アラーム音の再生に失敗しました。PCのサウンド機能を確認してください。')
 
 
 def stop_alarm():
     pygame.mixer.music.stop()
+    
+# Pygame初期化の呼び出し
+initialize_pygame()
 
 # メイン処理
 while True:
@@ -658,7 +674,7 @@ while True:
     if timer_running:
         elapsed_time = time.time() - start_time
         window['timer'].update(time.strftime('%M:%S', time.gmtime(elapsed_time)))
-        if elapsed_time >= 3 * 60 and not alarm_playing:  # 3分 = 3 * 60秒
+        if elapsed_time >= 1 * 60 and not alarm_playing:  # 3分 = 3 * 60秒
             threading.Thread(target=play_alarm).start()
             window['timer'].update(font=bold_font, text_color='red')  # 3分経過でフォントを太字、色を赤に
             alarm_playing = True  # アラームが再生中であることを記録
