@@ -1,5 +1,7 @@
+# クリエイティブコース
 creative_course_options = {
     
+    # マークアップEB パート1(WEB)
     'web_coding': [
         "第1回 1-1 ナレッジ映像WEBの基礎知識",
         "第1回 1-2 操作映像メモ帳でHTMLを書いてみる",
@@ -105,6 +107,7 @@ creative_course_options = {
         "第12回 演習課題01"
     ],
     
+    # マークアップEB パート2(レスポンシブ)
     'responsive_web_design': [
         "第1回 1-1 ナレッジ映像 完成例の確認 1章の内容確認 HTML5.0で作成",
         "第1回 1-2 操作映像 データの確認 DWの起動 ファイルを開く",
@@ -194,6 +197,7 @@ creative_course_options = {
         "第12回 セクションテスト2"
     ],
     
+    # HTML/CSSベーシック
     'html_css_basic': [
         "第1回 単元1-1 ウェブサイトについて知ろう",
         "第1回 単元1-1 ウェブページを作成するために必要なもの",
@@ -258,8 +262,9 @@ creative_course_options = {
         "第5回 単元5-8 E課題大問1",
         "第5回 単元5-8 E課題大問2",
         "第5回 単元5-8 E課題大問3"
-        ],
+    ],
     
+    # HTML/CSSトレーニングブック～運用・更新編～
     'html_css_training': [
         "第1回 1-1 はじめに・Webサイトに関する基礎知識",
         "第1回 1-2 サイトの更新・運用に関する基礎知識",
@@ -343,6 +348,7 @@ creative_course_options = {
         "第10回 10-6 演習10-1：製品紹介ページの作成 手順５：詳細情報のスタイルの設定（箇条書き、テーブル）"
     ],
     
+    # JavaScriptベーシック
     'java_script': [
         "第1回 1-1-1 プログラミング言語とは？",
         "第1回 1-1-2 プログラミング言語・ライブラリ・フレームワーク",
@@ -395,6 +401,7 @@ creative_course_options = {
         "第10回 10-1-1 最終課題"
     ],
     
+    # マークアップエンジニア　アドバンス
     'web_coding_advance': [
         "第1回 1-1　この講座で学習すること",
         "第1回 1-2　クリック時のボタンの色の変更(1)",
@@ -458,6 +465,7 @@ creative_course_options = {
         "第10回 授業映像応用資料※お時間ある方用"
     ],
     
+    # Illustratorベーシック1
     'illustrator_cc2021_basic1' : [
         "第1回 1-1 Illustratorでできること",
         "第1回 1-2 画面構成",
@@ -483,6 +491,7 @@ creative_course_options = {
         "第8回 8-3 パターンの作成(2)",
     ],
 
+    # Illustratorベーシック2
     'illustrator_cc2021_basic2' : [
         "第1回 1-1 レイヤーの基本操作",
         "第1回 1-2 下絵画像の配置",
@@ -506,6 +515,7 @@ creative_course_options = {
         "第8回 8-3 カフェのロゴマーク作成",
     ],
 
+    # Illustratorアドバンス
     'illustrator_cc2021_advance' : [
         "第1回 1-1 印刷物用ファイル設定",
         "第1回 1-2 名刺の作成",
@@ -534,6 +544,7 @@ creative_course_options = {
         "第8回 8-3 ボタンの作成",
     ],
 
+    # PhotoShopベーシック1
     'photoshop_cc2021_basic1' : [
         "第1回 1-1 Photoshopでどんなことができるのか",
         "第1回 1-2 Photoshopの画面構成",
@@ -562,6 +573,7 @@ creative_course_options = {
         "第8回 8-3 レイヤーマスクを使った画像合成(２)",
     ],
 
+    # PhotoShopベーシック2
     'photoshop_cc2021_basic2' : [
         "第1回 1-1 画像合成のおさらい",
         "第1回 1-2 文字の入力・編集(1)",
@@ -587,6 +599,7 @@ creative_course_options = {
         "第8回 8-2 アニマルのビジュアル作成",
     ],
     
+    # PhotoShopアドバンス
     'photoshop_cc2021_advanced' : [
         "第1回 1-1 Web用ファイルの設定",
         "第1回 1-2 ヘッダーの作成（１）",
@@ -615,6 +628,7 @@ creative_course_options = {
         "第8回 8-3 入稿データの作成"
     ],
 
+    # AdobeFirefly トライアル
     'firefly' : [
         "第1回 単元1-1 Firefly概要",
         "第1回 単元1-2 Fireflyでできること",
@@ -643,6 +657,7 @@ creative_course_options = {
         "第5回 単元5-3 演習問題２-ILベクター生成と再配色"
     ],
 
+    # 
     'acp_illustrator' : [
         "単元1-1 ドキュメントの作成",
         "単元1-2 ドキュメントを開く、保存する",
@@ -681,6 +696,7 @@ creative_course_options = {
         "実技 演習問題C"
     ],
 
+    # 
     'acp_photoshop' : [
         "単元1-1 ドキュメントの作成",
         "単元1-2 ファイル形式",
@@ -724,6 +740,7 @@ creative_course_options = {
         "実技 演習問題C"
     ],
 
+    # PremiereProベーシック
     'premiere_pro_basic' : [
         "第1回 単元1-1 映像制作の流れを知ろう",
         "第1回 単元1-1 起動・終了しよう",
@@ -785,6 +802,7 @@ creative_course_options = {
         "第5回 単元5-6 演習課題大問3"
     ],
 
+    # afterEffectsベーシック
     'after_effects_basic' : [
         "第1回 単元1-1 映像制作の流れを知ろう",
         "第1回 単元1-2 起動・終了しよう",
@@ -844,6 +862,7 @@ creative_course_options = {
         "第5回 単元5-9 演習課題大問3"
     ],
 
+    # PremiereProスタンダード
     'premiere_pro_standard' : [
         "第1回 単元1-1 プロジェクトを作成する",
         "第1回 単元1-2 シーケンスを作成する",
@@ -932,6 +951,7 @@ creative_course_options = {
         "第12回 単元12-5 演習課題大問2"
     ],
 
+    # PremierePro スタンダード～エフェクトバリエーション～
     'effect_variations' : [
         "第1回 単元1-1 Adobeソフトで作成した素材を利用する",
         "第1回 単元1-2 音声を加工する",
@@ -977,6 +997,7 @@ creative_course_options = {
         "第6回 単元D5-4 旧バージョン(トランジション)"
     ],
 
+    # パーツで魅せるWEB素材作成講座
     'parts_web' : [
         "第1回 1-1 文字と写真をレイアウトしたバナーの作成",
         "第1回 1-2 文字の切り抜きと文字をレイアウトしたバナーの作成",
@@ -1008,6 +1029,7 @@ creative_course_options = {
         "第10回 10-1 最終課題02(デザイン修正)"
     ],
 
+    # デザインで差をつけるドキュメント作成講座
     'design_document' : [
         "第1回 課題01 文字の配置とレイアウト",
         "第1回 課題02 袋文字のデザイン",
@@ -1041,6 +1063,7 @@ creative_course_options = {
         "第10回 最終課題01(デザイン修正)"
     ],
     
+    # Illustrator(2024) ベーシック1
     'illustrator_cc2024_basic1' : [
         "第1回 1-1 Illustratorでできること",
         "第1回 1-2 画面構成",
@@ -1066,6 +1089,7 @@ creative_course_options = {
         "第8回 8-3 パターンの作成(2)"
     ],
 
+    # Illustrator(2024) ベーシック2
     'illustrator_cc2024_basic2' : [
         "第1回 1-1 レイヤーの基本操作",
         "第1回 1-2 下絵画像の配置",
@@ -1089,6 +1113,7 @@ creative_course_options = {
         "第8回 8-3 カフェのロゴマーク作成"
     ],
 
+    # Photoshop(2024) ベーシック1
     'photoshop_cc2024_basic1' : [
         "第1回 1-1 Photoshopでどんなことができるのか",
         "第1回 1-2 Photoshopの画面構成",
@@ -1117,6 +1142,7 @@ creative_course_options = {
         "第8回 8-3 レイヤーマスクを使った画像合成(２)"
     ],
 
+    # Photoshop(2024) ベーシック2
     'photoshop_cc2024_basic2' : [
         "第1回 1-1 画像合成のおさらい",
         "第1回 1-2 文字の入力・編集(1)",
@@ -1141,6 +1167,8 @@ creative_course_options = {
         "第8回 8-1 背景デザインの作成",
         "第8回 8-2 アニマルのビジュアル作成"
     ],
+    
+    # Illustrator & Photoshop デザインの作り方
     'create_design' : [
         "1-1 Recipe009", "1-2 Recipe010", "1-3 Recipe011", "1-4 Recipe012", "1-5 Recipe014",
         "2-1 Recipe016", "2-2 Recipe017", "2-3 Recipe018", "2-4 Recipe019", "2-5 Recipe020",
@@ -1155,6 +1183,7 @@ creative_course_options = {
         "9-5 Recipe073", "10-1 Recipe077", "10-2 Recipe079", "10-3 Recipe080", "10-4 Recipe083"
     ],
     
+    # Photoshop レタッチ・加工
     'retouching_processing' : [
         "1-1 Recipe001", "1-2 Recipe002", "1-3 Recipe003", "1-4 Recipe004", "1-5 Recipe005",
         "1-6 Recipe006", "1-7 Recipe007", "1-8 Recipe008", "1-9 Recipe009", "1-10 Recipe010",

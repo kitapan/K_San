@@ -1,4 +1,7 @@
+# Googleコース
 google_course_options = {
+    
+    # ChatGPT
     'chatgpt_trial' : [
         "第1回 1-1 ChatGPTとは？",
         "第1回 1-2 ChatGPTを使う準備をしよう",
@@ -28,6 +31,7 @@ google_course_options = {
         "第3回 3-7-3 大問3"
     ],
     
+    # Googleアプリトライアル
     'gat': [
         "第1回 1-1 Googleアプリとは",
         "第1回 1-2 Googleドキュメント",
@@ -52,8 +56,9 @@ google_course_options = {
         "第3回 3-6-1 演習課題大問1",
         "第3回 3-6-2 演習課題大問2",
         "第3回 3-6-3 演習課題大問3"
-    ],   
-
+    ],
+    
+    # Googleスプレッドシートスタンダード
     'gss': [
         "第1回 1-1 Gmailサービス・GmailAppクラス",
         "第1回 1-2 スレッドを取得・GmailThreadクラス",
@@ -152,6 +157,7 @@ google_course_options = {
         "第12回 12-3-3 演習課題大問3"
     ],
     
+    # GASトライアル
     'gas_trial': [
         "第1回 1-1 GASとは？",
         "第1回 1-2 GASからメールを送信",
@@ -198,6 +204,7 @@ google_course_options = {
         "第6回 6-5-3 演習課題大問3"
     ],
     
+    # GASベーシック
     'gas_basic': [
         "第1回 1-1 初めてのGAS",
         "第1回 1-2 プロジェクトとスクリプト",
@@ -309,6 +316,7 @@ google_course_options = {
         "第12回 12-3-3 演習課題大問3"
     ],
 
+    # GASスタンダード
     'gas_standard': [
         "第1回 1-1 Gmailサービス・GmailAppクラス",
         "第1回 1-2 スレッドを取得・GmailThreadクラス",
@@ -407,6 +415,7 @@ google_course_options = {
         "第12回 12-3-3 演習課題大問3"
     ],
     
+    # AppSheetトライアル
     'appsheet_trial' : [
         "第1回 単元1-1 第1回イントロ",
         "第1回 単元1-1 ノンコード開発プラットフォーム",

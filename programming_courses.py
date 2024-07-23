@@ -1,5 +1,7 @@
+# プログラミングコース
 programming_course_options = {
     
+    # Pythonベーシック
     'python_basic': [
         "第1回 1-1 データの型を意識する",
         "第1回 1-2 便利な関数・メソッドを呼び出す",
@@ -76,6 +78,7 @@ programming_course_options = {
         "第10回 演習 大問3"
     ],
     
+    # PHPベーシック
     'php_basic': [
         "第1回 PHPとは",
         "第2回 演算子",
@@ -93,6 +96,7 @@ programming_course_options = {
         "第14回 マンツーマン フィードバック"
     ],
     
+    # PHPアドバンス
     'php_advance':[
         "第1回 フレームワークを使った開発の準備",
         "第2回 商品のデータベースの作成",
@@ -109,6 +113,7 @@ programming_course_options = {
         "第13回 マンツーマン フィードバックの実施"  
     ],
     
+    # WordPress
     'wordpress': [
         "第1回 WordPressの準備",
         "第2回 テーマの初期設定",
@@ -125,6 +130,7 @@ programming_course_options = {
         "第13回 マンツーマン フィードバックの実施"
     ],
     
+    # 実践Java技術者試験
     'java_specialist': [
         "第1回 Javaの基本",
         "第2回 データ宣言と活用",
@@ -141,6 +147,7 @@ programming_course_options = {
         "第7回 模擬問題 解説"
     ],
     
+    # Android基礎開発講座
     'java_android' : [
         "第1回 S01 Androidアプリの仕組み（知識）",
         "第1回 S01 Androidアプリの仕組み（操作）",
@@ -193,6 +200,7 @@ programming_course_options = {
         "第15回 S13 セクションテスト"
     ],
 
+    # Androidアプリ入門
     'java_android_trial' : [
         "第1回 S01 モバイルアプリとは",
         "第1回 S01 セクションテスト",
@@ -202,6 +210,7 @@ programming_course_options = {
         "第5回 S05 もぐらたたきアプリをつくろう②"
     ],
 
+    # SQL1-2
     'sql' : [
         "第1回 S01 魔法の箱",
         "第1回 S01 セクションテスト 「魔法の箱」",
@@ -249,6 +258,7 @@ programming_course_options = {
         "第20回 S20 DBViewer"
     ],
 
+    # RPA講座ベーシック
     'rpa' : [
         "第1回 RPAとは",
         "第1回 Synchroidの基本 起動とインターフェース",

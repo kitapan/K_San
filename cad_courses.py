@@ -1,5 +1,7 @@
+# CADコース
 cad_course_options = {
     
+    # AutoCADベーシック
     'auto_cad_basic': [
         "第1回 1-1-1 AutoCAD の起動",
         "第1回 1-1-2 新規図",
@@ -134,6 +136,7 @@ cad_course_options = {
         "第12回 やってみよう"
     ],
     
+    # AutoCADアドバンス（建築）
     'auto_cad_advanced_architecture': [
         "第1回 1-1-1 相対座標入力と極座標入力",
         "第1回 1-1-2 マルチライン",
@@ -241,6 +244,7 @@ cad_course_options = {
         "第12回 やってみよう"
     ],
     
+    # AutoCADアドバンス（機械）
     'auto_cad_advanced_mechanical': [
         "第1回 1-1-1機械要素について",
         "第1回 1-2-1 ねじの表し方",
@@ -321,6 +325,7 @@ cad_course_options = {
         "第14回 やってみよう"
     ],
     
+    # Jw_cadベーシック
     'jw_cad_basic': [
         "第1回 1-1-1 Jw_cadの起動",
         "第1回 1-1-2 新規図面",
@@ -460,6 +465,7 @@ cad_course_options = {
         "第12回 やってみよう"
     ],
     
+    # Jw_cadアドバンス
     'jw_cad_advanced': [
         "第1回 13-1-1 斜線の入力",
         "第1回 13-1-2 2重線の作図",
@@ -570,6 +576,8 @@ cad_course_options = {
         "第12回 24-3-2 2階建具を作図",
         "第12回 やってみよう"
     ],
+    
+    # Fusionベーシック
     'fusion_basic' : [
         "第1回 1-1-1 Fusion360の起動",
         "第1回 1-1-2 Fusion360の起動(Windows10)",
@@ -651,6 +659,7 @@ cad_course_options = {
         "第8回 やってみよう"
     ],
 
+    # Fusionアドバンス
     'fusion_advance' : [
         "第1回 1-1-1 基本設定",
         "第1回 1-1-2 ファイルの管理",
@@ -709,6 +718,7 @@ cad_course_options = {
         "第6回 やってみよう"
     ],
 
+    # 建築CAD検定2級(AutoCAD)
     'architecture_cad2' : [
         "第1回 試験概要と平面図（通り芯・通り芯符号・壁の仕上げ） ※例題A使用",
         "第2回 平面図（建具） ※例題A使用",
@@ -737,6 +747,7 @@ cad_course_options = {
         "第25回 立面図（建具・その他）の作図 ※例題D使用"
     ],
     
+    # 建築CAD検定2級(jw_cad)
     'architecture_jw_cad2' : [
         "第1回 試験概要と平面図（通り芯・仕上げ）　※例題A使用",
         "第2回 平面図（建具）　※例題A使用",
@@ -765,6 +776,7 @@ cad_course_options = {
         "第25回 立面図（建具・その他）の作図　※例題D使用"
     ],    
 
+    # AutoCAD版トレーニングプラス講座
     'auto_cad_basic_training' : [
         "第1回 Section01 環境設定",
         "第1回 Section02 画層の設定",
@@ -796,6 +808,7 @@ cad_course_options = {
         "第6回 Secton05 課題"
     ],
 
+    # 建築CAD検定3級
     'architecture_cad3' : [
         "第1回 テンプレートの作成",
         "第1回 建築図面枠の作成",
@@ -818,6 +831,7 @@ cad_course_options = {
         "第6回 A-2：階段平面図-1"
     ],
 
+    # AutoCADユーザー対策講座
     'auto_cad_user' : [
         "第1回 練習前の事前説明 学習の前に試験について",
         "第1回 問題1 基本的な作図スキル",
@@ -868,6 +882,7 @@ cad_course_options = {
         "第3回 問題16～問題20"
     ],
 
+    # CAD利用技術者試験2級対策
     'cad_engineer_2' : [
         "第1回 1. CAD システムの概要と機能",
         "第1回 2. CAD システムの基本機能",
@@ -918,6 +933,7 @@ cad_course_options = {
         "第14回 解答・解説"
     ],    
 
+    # AutoCAD土木編
     'civil_engineering' : [
         "第1回 1-1 はじめに",
         "第1回 1-2 土木知識（舗装構成図）・路盤・安定処理・表層工",
@@ -1007,6 +1023,7 @@ cad_course_options = {
         "第12回 12-9 振返り課題"
     ],
 
+    # AutoCAD建築製図編
     'architectural_draft' : [
         "第1回 1-1 受講の進め方",
         "第1回 1-2 2.4 作図補助ツールの設定",
