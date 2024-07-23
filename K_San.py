@@ -94,7 +94,9 @@ tabOffice = [
      sg.Radio('AC1-2', '1', key='access_basic', enable_events=True),
      sg.Radio('AC3-4', '1', key='access_advance', enable_events=True)],
     [sg.Radio('ACｸｴﾘ活用', '1', key='access_query_utilization', enable_events=True),
-     sg.Radio('ACﾋﾞｼﾞﾈｽ活用', '1', key='access_business', enable_events=True)],
+     sg.Radio('ACﾋﾞｼﾞﾈｽ活用', '1', key='access_business', enable_events=True),
+     sg.Radio('伝わる提案書', '1', key='proposal', enable_events=True),
+     sg.Radio('伝わる提案書(ﾄﾞﾘﾙ)', '1', key='proposal_drill', enable_events=True)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
@@ -115,6 +117,21 @@ tabOfficePlus = [
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetailPlus', font=font)]
 ]
+
+# オフィスタブ3
+tabOfficeThird = [
+    [sg.Radio('ﾃﾞｰﾀ分析', '1', key='data_analysis', enable_events=True),        
+     sg.Radio('仕事術(基本)', '1', key='work_basic', enable_events=True),
+     sg.Radio('仕事術(応用)', '1', key='work_application', enable_events=True),
+     sg.Radio('仕事術(経理)', '1', key='work_accounting', enable_events=True),
+     sg.Radio('仕事術(管理)', '1', key='work_administrator', enable_events=True)],    
+    [sg.Radio('ﾅﾚｯｼﾞW', '1', key='business_knowledge_word', enable_events=True),
+     sg.Radio('ﾅﾚｯｼﾞE', '1', key='business_knowledge_excel', enable_events=True),
+     sg.Radio('ﾅﾚｯｼﾞP', '1', key='business_knowledge_powerpoint', enable_events=True)],
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='officeDetailThird', font=font)]
+]
+
 
 # クリエイティブタブ
 tabCreative = [
@@ -175,7 +192,7 @@ tabCadPlus = [
      sg.Radio('建CAD2級(AutoCAD)', '1', key='architecture_cad2', enable_events=True),
      sg.Radio('建CAD2級(JW)', '1', key='architecture_jw_cad2', enable_events=True)],     
     [sg.Radio('CAD利用2級', '1', key='cad_engineer_2', enable_events=True),
-     sg.Radio('ユーザー試験', '1', key='auto_cad_user', enable_events=True)],   
+     sg.Radio('ﾕｰｻﾞｰ試験', '1', key='auto_cad_user', enable_events=True)],   
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='cadDetailPlus', font=font)]
 ]
@@ -239,7 +256,7 @@ layout = [
     [col1],
     [sg.TabGroup([[sg.Tab('ACTION', tabAction), sg.Tab('JV', tabJava), sg.Tab('PG', tabProgramming), 
                    sg.Tab('CR①', tabCreative), sg.Tab('CR②', tabCreativePlus), sg.Tab('GO', tabGoogle), sg.Tab('OF①', tabOffice),
-                   sg.Tab('OF②', tabOfficePlus), sg.Tab('CD①', tabCad), sg.Tab('CD②', tabCadPlus), sg.Tab('TR', tabTrouble)]],
+                   sg.Tab('OF②', tabOfficePlus), sg.Tab('OF③', tabOfficeThird), sg.Tab('CD①', tabCad), sg.Tab('CD②', tabCadPlus), sg.Tab('TR', tabTrouble)]],
                  key="tabgroup", enable_events=True)],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
@@ -329,10 +346,13 @@ while True:
     if event in ('word_basic', 'word_advance', 'excel_basic', 'excel_advance', 'powerpoint_basic', 'powerpoint_advance',
                  'access_basic', 'access_advance', 'pivot_tables', 'excel_master_book', 'skills_up_vba', 'vba_advanced',
                  'macro_practice', 'vba_practice', 'excel_power_query', 'excel_power_pivot', 'access_query_utilization',
-                 'access_business', 'basic_function', 'advance_function', 'skill_function'):
+                 'access_business', 'proposal', 'proposal_drill', 'basic_function', 'advance_function', 'skill_function',
+                 'business_knowledge_word', 'business_knowledge_excel', 'business_knowledge_powerpoint', 'data_analysis',
+                 'work_basic', 'work_application', 'work_accounting', 'work_administrator'):
         selected_type = event
         window['officeDetail'].update(values=office_course_options[selected_type])
         window['officeDetailPlus'].update(values=office_course_options[selected_type])
+        window['officeDetailThird'].update(values=office_course_options[selected_type])
     
     # クリエイティブ コースの選択イベント
     if event in ('html_css_basic', 'web_coding', 'responsive_web_design', 'html_css_training', 'java_script', 'web_coding_advance', 'parts_web',
@@ -433,6 +453,10 @@ while True:
             data = get_course_data(values, 'Accessクエリ活用', 'officeDetail')
         elif values['access_business']:
             data = get_course_data(values, 'Accessビジネス活用', 'officeDetail')
+        elif values['proposal']:
+            data = get_course_data(values, '伝わる提案書', 'officeDetail')
+        elif values['proposal_drill']:
+            data = get_course_data(values, '伝わる提案書（ドリル）', 'officeDetail')
             
         # オフィス+タブ作成     
         elif values['pivot_tables']:
@@ -456,7 +480,25 @@ while True:
         elif values['advance_function']:
             data = get_course_data(values, 'アドバンスExcel関数実践', 'officeDetailPlus')                              
         elif values['skill_function']:
-            data = get_course_data(values, 'スキルアップExcel関数実践', 'officeDetailPlus')            
+            data = get_course_data(values, 'スキルアップExcel関数実践', 'officeDetailPlus')
+            
+ # オフィス+タブ作成     
+        elif values['business_knowledge_word']:
+            data = get_course_data(values, 'ビジネスナレッジブックWord', 'officeDetailThird')            
+        elif values['business_knowledge_excel']:
+            data = get_course_data(values, 'ビジネスナレッジブックExcel', 'officeDetailThird')
+        elif values['business_knowledge_powerpoint']:
+            data = get_course_data(values, 'ビジネスナレッジブックPowerPoint', 'officeDetailThird')                  
+        elif values['data_analysis']:
+            data = get_course_data(values, 'Excelデータ分析', 'officeDetailThird')                  
+        elif values['work_basic']:
+            data = get_course_data(values, 'Excel仕事術≪基本編≫', 'officeDetailThird')                  
+        elif values['work_application']:
+            data = get_course_data(values, 'Excel仕事術≪応用編≫', 'officeDetailThird')                  
+        elif values['work_accounting']:
+            data = get_course_data(values, 'Excel仕事術≪経理実務編≫', 'officeDetailThird')                
+        elif values['work_administrator']:
+            data = get_course_data(values, 'Excel仕事術≪管理者実務編≫', 'officeDetailThird')                    
                         
         #　クリエイティブタブ作成    
         elif values['html_css_basic']:
@@ -657,7 +699,9 @@ while True:
                                        'excel_advance', 'powerpoint_basic', 'powerpoint_advance', 'access_basic', 'access_advance',
                                        'pivot_tables', 'excel_master_book', 'skills_up_vba', 'vba_advanced', 'macro_practice',
                                        'vba_practice', 'excel_power_query', 'excel_power_pivot', 'access_query_utilization',
-                                       'access_business', 'basic_function', 'advance_function', 'skill_function', 'html_css_basic',
+                                       'access_business', 'proposal', 'proposal_drill', 'basic_function', 'advance_function', 'skill_function', 
+                                       'business_knowledge_word', 'business_knowledge_excel', 'business_knowledge_powerpoint', 'data_analysis',
+                                       'work_basic', 'work_application', 'work_accounting', 'work_administrator', 'html_css_basic',
                                        'web_coding', 'responsive_web_design', 'html_css_training', 'java_script', 'web_coding_advance', 'parts_web',
                                        'illustrator_cc2021_basic1', 'illustrator_cc2021_basic2', 'illustrator_cc2021_advance',
                                        'photoshop_cc2021_basic1', 'photoshop_cc2021_basic2', 'photoshop_cc2021_advanced', 'firefly',
