@@ -104,7 +104,7 @@ tabOffice = [
     [sg.Radio('ACｸｴﾘ活用', '1', key='access_query_utilization', enable_events=True),
      sg.Radio('ACﾋﾞｼﾞﾈｽ活用', '1', key='access_business', enable_events=True),
      sg.Radio('伝わる提案書', '1', key='proposal', enable_events=True),
-     sg.Radio('伝わる提案書（ﾄﾞﾘﾙ）', '1', key='proposal_drill', enable_events=True)],
+     sg.Radio('伝わる提案書ﾄﾞﾘﾙ', '1', key='proposal_drill', enable_events=True)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
@@ -246,7 +246,7 @@ col1 = [
     sg.Text('時限', size=(4, 1), font=font),
     sg.Spin(period, size=(2, 1), font=font, key='jigen'),
     sg.Text('Room', size=(5, 1), font=font),
-    sg.Spin(lis, size=(2, 1), font=font, key='room')],
+    sg.Spin(lis, size=(3, 1), font=font, key='room')],
     [sg.Checkbox('受講促進○', key='promotionTrue', default=False, size=(9, 1), font=font),
      sg.Checkbox('受講促進×', key='promotionFalse', default=False, size=(9, 1), font=font),
      sg.Checkbox('巡回不要', key='noFollow', default=False, size=(9, 1), font=font)],
@@ -331,7 +331,7 @@ def play_alarm():
         print("Sound playing successfully.")
     except pygame.error as e:
         print(f"Error playing sound: {e}")
-        sg.popup_error('アラーム音の再生に失敗しました。PCのサウンド機能を確認してください。')
+        sg.popup('アラーム音の再生に失敗しました。PCのサウンド機能を確認してください。', button_type=sg.POPUP_BUTTONS_NO_BUTTONS)
 
 
 def stop_alarm():
@@ -726,26 +726,39 @@ while True:
             window['1on1Course'].update('')
             window['subject'].update(False)
 
-        if any(values[key] for key in ('java_basic', 'java_standard', 'java_advance', 'BuildUp', '1on1', 'Discord',
-                                       'php_basic', 'php_advance', 'wordpress', 'python_basic',
-                                       'java_android', 'java_android_trial','sql', 'rpa', 'java_specialist', 'word_basic', 'word_advance', 'excel_basic',
-                                       'excel_advance', 'powerpoint_basic', 'powerpoint_advance', 'access_basic', 'access_advance',
-                                       'pivot_tables', 'excel_master_book', 'skills_up_vba', 'vba_advanced', 'macro_practice',
-                                       'vba_practice', 'excel_power_query', 'excel_power_pivot', 'access_query_utilization',
-                                       'access_business', 'proposal', 'proposal_drill', 'basic_function', 'advance_function', 'skill_function', 
-                                       'business_knowledge_word', 'business_knowledge_excel', 'business_knowledge_powerpoint', 'business_drill_word',
-                                       'business_drill_excel', 'business_drill_powerpoint', 'data_analysis',
-                                       'work_basic', 'work_application', 'work_accounting', 'work_administrator', 'html_css_basic',
-                                       'web_coding', 'responsive_web_design', 'html_css_training', 'java_script', 'web_coding_advance', 'parts_web',
-                                       'illustrator_cc2021_basic1', 'illustrator_cc2021_basic2', 'illustrator_cc2021_advance',
-                                       'photoshop_cc2021_basic1', 'photoshop_cc2021_basic2', 'photoshop_cc2021_advanced', 'firefly',
-                                       'design_document', 'premiere_pro_basic', 'after_effects_basic', 'premiere_pro_standard',
-                                       'effect_variations', 'illustrator_cc2024_basic1', 'illustrator_cc2024_basic2', 'photoshop_cc2024_basic1',
-                                       'photoshop_cc2024_basic2', 'create_design', 'retouching_processing', 'auto_cad_basic',
-                                       'auto_cad_advanced_architecture', 'auto_cad_advanced_mechanical', 'jw_cad_basic', 'jw_cad_advanced',
-                                       'fusion_basic', 'fusion_advance', 'architectural_draft', 'civil_engineering', 'auto_cad_basic_training', 
-                                       'architecture_cad3', 'architecture_cad2', 'architecture_jw_cad2', 'cad_engineer_2', 'auto_cad_user', 'chatgpt_trial', 'gat',
-                                       'gss', 'gas_trial', 'gas_basic', 'gas_standard','appsheet_trial')):
+        if any(values[key] for key in (
+            'java_basic', 'java_standard', 'java_advance', 'BuildUp', '1on1', 'Discord',
+            'php_basic', 'php_advance', 'wordpress', 'python_basic', 'java_android', 
+            'java_android_trial', 'sql', 'rpa', 'java_specialist', 'word_basic', 
+            'word_advance', 'excel_basic', 'excel_advance', 'powerpoint_basic', 
+            'powerpoint_advance', 'access_basic', 'access_advance', 'pivot_tables', 
+            'excel_master_book', 'skills_up_vba', 'vba_advanced', 'macro_practice', 
+            'vba_practice', 'excel_power_query', 'excel_power_pivot', 
+            'access_query_utilization', 'access_business', 'proposal', 
+            'proposal_drill', 'basic_function', 'advance_function', 
+            'skill_function', 'business_knowledge_word', 
+            'business_knowledge_excel', 'business_knowledge_powerpoint', 
+            'business_drill_word', 'business_drill_excel', 
+            'business_drill_powerpoint', 'data_analysis', 'work_basic', 
+            'work_application', 'work_accounting', 'work_administrator', 
+            'html_css_basic', 'web_coding', 'responsive_web_design', 
+            'html_css_training', 'java_script', 'web_coding_advance', 'parts_web', 
+            'illustrator_cc2021_basic1', 'illustrator_cc2021_basic2', 
+            'illustrator_cc2021_advance', 'photoshop_cc2021_basic1', 
+            'photoshop_cc2021_basic2', 'photoshop_cc2021_advanced', 'firefly', 
+            'design_document', 'premiere_pro_basic', 'after_effects_basic', 
+            'premiere_pro_standard', 'effect_variations', 'illustrator_cc2024_basic1', 
+            'illustrator_cc2024_basic2', 'photoshop_cc2024_basic1', 
+            'photoshop_cc2024_basic2', 'create_design', 'retouching_processing', 
+            'auto_cad_basic', 'auto_cad_advanced_architecture', 
+            'auto_cad_advanced_mechanical', 'jw_cad_basic', 'jw_cad_advanced', 
+            'fusion_basic', 'fusion_advance', 'architectural_draft', 
+            'civil_engineering', 'auto_cad_basic_training', 'architecture_cad3', 
+            'architecture_cad2', 'architecture_jw_cad2', 'cad_engineer_2', 
+            'auto_cad_user', 'chatgpt_trial', 'gat', 'gss', 'gas_trial', 
+            'gas_basic', 'gas_standard', 'appsheet_trial'
+        )):
+
             window['fast'].update(True)
             window['tabgroup'].Widget.select(0)
 
