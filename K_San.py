@@ -81,12 +81,12 @@ tabProgramming = [
     [sg.Radio('PHPﾍﾞｰｼｯｸ', '1', key='php_basic', enable_events=True),
      sg.Radio('PHPｱﾄﾞﾊﾞﾝｽ', '1', key='php_advance', enable_events=True),
      sg.Radio('WordPress', '1', key='wordpress', enable_events=True),
-     sg.Radio('SQL1-2', '1', key='sql', enable_events=True),
-     sg.Radio('Pythonﾍﾞｰｼｯｸ', '1', key='python_basic', enable_events=True)],
-    [sg.Radio('Android入門', '1', key='java_android_trial', enable_events=True),
-     sg.Radio('Android基礎編', '1', key='java_android', enable_events=True),
+     sg.Radio('SQL1-2', '1', key='sql', enable_events=True)],
+    [sg.Radio('Pythonﾍﾞｰｼｯｸ', '1', key='python_basic', enable_events=True),
+     sg.Radio('Android入門', '1', key='java_android_trial', enable_events=True),
+     sg.Radio('Android基礎', '1', key='java_android', enable_events=True),
      sg.Radio('RPA', '1', key='rpa', enable_events=True),
-     sg.Radio('実践Java対策', '1', key='java_specialist', enable_events=True)],        
+     sg.Radio('実践Java', '1', key='java_specialist', enable_events=True)],        
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
@@ -99,29 +99,29 @@ tabOffice = [
      sg.Radio('E3-4', '1', key='excel_advance', enable_events=True),
      sg.Radio('PP1-2', '1', key='powerpoint_basic', enable_events=True),
      sg.Radio('PP3-4', '1', key='powerpoint_advance', enable_events=True),
-     sg.Radio('AC1-2', '1', key='access_basic', enable_events=True),
-     sg.Radio('AC3-4', '1', key='access_advance', enable_events=True)],
-    [sg.Radio('ACｸｴﾘ活用', '1', key='access_query_utilization', enable_events=True),
-     sg.Radio('ACﾋﾞｼﾞﾈｽ活用', '1', key='access_business', enable_events=True),
-     sg.Radio('伝わる提案書', '1', key='proposal', enable_events=True),
-     sg.Radio('伝わる提案書ﾄﾞﾘﾙ', '1', key='proposal_drill', enable_events=True)],
+     sg.Radio('AC1-2', '1', key='access_basic', enable_events=True)],
+    [sg.Radio('AC3-4', '1', key='access_advance', enable_events=True),
+     sg.Radio('ACｸｴﾘ活', '1', key='access_query_utilization', enable_events=True),
+     sg.Radio('ACﾋﾞｼﾞﾈｽ活', '1', key='access_business', enable_events=True),
+     sg.Radio('提案書', '1', key='proposal', enable_events=True),
+     sg.Radio('提案書ﾄﾞﾘﾙ', '1', key='proposal_drill', enable_events=True)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
 
 # オフィスタブ2
 tabOfficeSecond = [
-    [sg.Radio('ﾋﾟﾎﾞｯﾄ実践', '1', key='pivot_tables', enable_events=True),
+    [sg.Radio('ﾋﾟﾎﾞｯﾄ実', '1', key='pivot_tables', enable_events=True),
      sg.Radio('Eﾏｽﾀｰﾌﾞｯｸ', '1', key='excel_master_book', enable_events=True),
      sg.Radio('VBA', '1', key='skills_up_vba', enable_events=True),
      sg.Radio('VBAｱﾄﾞ', '1', key='vba_advanced', enable_events=True),
-     sg.Radio('ﾏｸﾛ実践', '1', key='macro_practice', enable_events=True),
-     sg.Radio('VBA実践', '1', key='vba_practice', enable_events=True)],
+     sg.Radio('ﾏｸﾛ実', '1', key='macro_practice', enable_events=True),
+     sg.Radio('VBA実', '1', key='vba_practice', enable_events=True)],
     [sg.Radio('Eﾊﾟﾜｰｸｴﾘ', '1', key='excel_power_query', enable_events=True),
      sg.Radio('Eﾊﾟﾜｰﾋﾟﾎﾞｯﾄ', '1', key='excel_power_pivot', enable_events=True),
-     sg.Radio('ﾍﾞｰｼｯｸ関数', '1', key='basic_function', enable_events=True),
-     sg.Radio('ｱﾄﾞﾊﾞﾝｽ関数', '1', key='advance_function', enable_events=True),
-     sg.Radio('ｽｷﾙｱｯﾌﾟ関数', '1', key='skill_function', enable_events=True)],
+     sg.Radio('ﾍﾞｰｼｯｸ関', '1', key='basic_function', enable_events=True),
+     sg.Radio('ｱﾄﾞﾊﾞﾝｽ関', '1', key='advance_function', enable_events=True),
+     sg.Radio('ｽｷﾙｱｯﾌﾟ関', '1', key='skill_function', enable_events=True)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetailSecond', font=font)]
 ]
@@ -129,10 +129,10 @@ tabOfficeSecond = [
 # オフィスタブ3
 tabOfficeThird = [
     [sg.Radio('ﾃﾞｰﾀ分析', '1', key='data_analysis', enable_events=True),        
-     sg.Radio('仕事術（基）', '1', key='work_basic', enable_events=True),
-     sg.Radio('仕事術（応）', '1', key='work_application', enable_events=True),
-     sg.Radio('仕事術（経）', '1', key='work_accounting', enable_events=True),
-     sg.Radio('仕事術（管）', '1', key='work_administrator', enable_events=True)],    
+     sg.Radio('仕事術(基)', '1', key='work_basic', enable_events=True),
+     sg.Radio('仕事術(応)', '1', key='work_application', enable_events=True),
+     sg.Radio('仕事術(経)', '1', key='work_accounting', enable_events=True),
+     sg.Radio('仕事術(管)', '1', key='work_administrator', enable_events=True)],    
     [sg.Radio('ﾅﾚｯｼﾞW', '1', key='business_knowledge_word', enable_events=True),
      sg.Radio('ﾅﾚｯｼﾞE', '1', key='business_knowledge_excel', enable_events=True),
      sg.Radio('ﾅﾚｯｼﾞP', '1', key='business_knowledge_powerpoint', enable_events=True),
@@ -158,8 +158,8 @@ tabCreative = [
      sg.Radio('Ps1', '1', key='photoshop_cc2021_basic1', enable_events=True),
      sg.Radio('Ps2', '1', key='photoshop_cc2021_basic2', enable_events=True),
      sg.Radio('Ps3', '1', key='photoshop_cc2021_advanced', enable_events=True),
-     sg.Radio('ﾄﾞｷｭﾒﾝﾄ作成', '1', key='design_document', enable_events=True),
-     sg.Radio('WEB素材', '1', key='parts_web', enable_events=True)],
+     sg.Radio('ﾄﾞｷｭ作', '1', key='design_document', enable_events=True),
+     sg.Radio('WEB作', '1', key='parts_web', enable_events=True)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='creativeDetail', font=font)]
 ]
@@ -169,12 +169,12 @@ tabCreativeSecond = [
     [sg.Radio('Prﾍﾞｰｼｯｸ', '1', key='premiere_pro_basic', enable_events=True),
      sg.Radio('Aeﾍﾞｰｼｯｸ', '1', key='after_effects_basic', enable_events=True),
      sg.Radio('Prｽﾀﾝﾀﾞｰﾄﾞ', '1', key='premiere_pro_standard', enable_events=True),
-     sg.Radio('Prｴﾌｪｸﾄﾊﾞﾘｴｰｼｮﾝ', '1', key='effect_variations', enable_events=True),
+     sg.Radio('Prｴﾌｪｸﾄ', '1', key='effect_variations', enable_events=True),
      sg.Radio('FireFly', '1', key='firefly', enable_events=True),],
-    [sg.Radio('Ai1_2024', '1', key='illustrator_cc2024_basic1', enable_events=True),
-     sg.Radio('Ai2_2024', '1', key='illustrator_cc2024_basic2', enable_events=True),
-     sg.Radio('Ps1_2024', '1', key='photoshop_cc2024_basic1', enable_events=True),
-     sg.Radio('Ps2_2024', '1', key='photoshop_cc2024_basic2', enable_events=True),
+    [sg.Radio('Ai1_24', '1', key='illustrator_cc2024_basic1', enable_events=True),
+     sg.Radio('Ai2_24', '1', key='illustrator_cc2024_basic2', enable_events=True),
+     sg.Radio('Ps1_24', '1', key='photoshop_cc2024_basic1', enable_events=True),
+     sg.Radio('Ps2_24', '1', key='photoshop_cc2024_basic2', enable_events=True),
      sg.Radio('ﾃﾞｻﾞｲﾝ', '1', key='create_design', enable_events=True),
      sg.Radio('ﾚﾀｯﾁ', '1', key='retouching_processing', enable_events=True)],         
     [sg.Text('挨拶', size=(4, 1), font=font),
@@ -184,14 +184,14 @@ tabCreativeSecond = [
 # CADタブ1
 tabCad = [
     [sg.Radio('Auto1-2', '1', key='auto_cad_basic', enable_events=True),
-     sg.Radio('Auto3-4（建）', '1', key='auto_cad_advanced_architecture', enable_events=True),
-     sg.Radio('Auto3-4（機）', '1', key='auto_cad_advanced_mechanical', enable_events=True),
+     sg.Radio('Auto3-4(建)', '1', key='auto_cad_advanced_architecture', enable_events=True),
+     sg.Radio('Auto3-4(機)', '1', key='auto_cad_advanced_mechanical', enable_events=True),
      sg.Radio('Jw1-2', '1', key='jw_cad_basic', enable_events=True),
      sg.Radio('Jw3-4', '1', key='jw_cad_advanced', enable_events=True)],
     [sg.Radio('Fusionﾍﾞｰｼｯｸ', '1', key='fusion_basic', enable_events=True),
      sg.Radio('Fusionｱﾄﾞﾊﾞﾝｽ', '1', key='fusion_advance', enable_events=True),
-     sg.Radio('AutoCAD建築製図編', '1', key='architectural_draft', enable_events=True),
-     sg.Radio('AutoCAD土木編', '1', key='civil_engineering', enable_events=True)],    
+     sg.Radio('Auto建築製図', '1', key='architectural_draft', enable_events=True),
+     sg.Radio('Auto土木', '1', key='civil_engineering', enable_events=True)],    
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='cadDetail', font=font)]
 ]
@@ -199,11 +199,11 @@ tabCad = [
 # CADタブ2
 tabCadSecond = [
     [sg.Radio('AutoCADﾄﾚｰﾆﾝｸﾞ', '1', key='auto_cad_basic_training', enable_events=True),
-     sg.Radio('建CAD3級（Auto）', '1', key='architecture_cad3', enable_events=True),
+     sg.Radio('建CAD3級(Auto)', '1', key='architecture_cad3', enable_events=True),
      sg.Radio('ﾕｰｻﾞｰ試験', '1', key='auto_cad_user', enable_events=True),
      sg.Radio('CAD利用2級', '1', key='cad_engineer_2', enable_events=True)],
-    [sg.Radio('建CAD2級（Auto）', '1', key='architecture_cad2', enable_events=True),
-     sg.Radio('建CAD2級（Jw）', '1', key='architecture_jw_cad2', enable_events=True)],   
+    [sg.Radio('建CAD2級(Auto)', '1', key='architecture_cad2', enable_events=True),
+     sg.Radio('建CAD2級(Jw)', '1', key='architecture_jw_cad2', enable_events=True)],   
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='cadDetailSecond', font=font)]
 ]
@@ -212,29 +212,32 @@ tabCadSecond = [
 tabGoogle = [
     [sg.Radio('ChatGPT', '1', key='chatgpt_trial', enable_events=True),
      sg.Radio('GAT', '1', key='gat', enable_events=True),
-     sg.Radio('GSS', '1', key='gss', enable_events=True), 
-     sg.Radio('GASﾄﾗｲｱﾙ', '1', key='gas_trial', enable_events=True),
+     sg.Radio('GSS', '1', key='gss', enable_events=True)], 
+    [sg.Radio('GASﾄﾗｲｱﾙ', '1', key='gas_trial', enable_events=True),
      sg.Radio('GASﾍﾞｰｼｯｸ', '1', key='gas_basic', enable_events=True),
-     sg.Radio('GASｽﾀﾝﾀﾞｰﾄﾞ', '1', key='gas_standard', enable_events=True)],
-    [sg.Radio('AppSheet', '1', key='appsheet_trial', enable_events=True)],
+     sg.Radio('GASｽﾀﾝﾀﾞｰﾄﾞ', '1', key='gas_standard', enable_events=True),
+     sg.Radio('AppSheet', '1', key='appsheet_trial', enable_events=True)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='googleDetail', font=font)]
 ]
 
 # トラブルタブ
 tabTrouble = [
-    [sg.Text('校舎名', size=(5, 1)),
+    [sg.Text('ユニット', size=(7, 1)),
+     sg.Combo(list(school_options.keys()),size=(10, 1), key='unit', enable_events=True),
+     sg.Text('校舎名', size=(5, 1)),
      sg.Combo([], size=(27, 1), key='schoolDetail')],
     [sg.Text('ID', size=(2, 1)),
-     sg.InputText(size=(12, 1), font=font, key='studentId'),
+     sg.InputText(size=(11, 1), font=font, key='studentId'),
      sg.Text('名前', size=(3, 1)),
-     sg.InputText(size=(17, 1), font=font, key='studentName'),
+     sg.InputText(size=(11, 1), font=font, key='studentName'),
      sg.Text('科目', size=(3, 1)),
      sg.InputText(size=(17, 1), font=font, key='studentCourse')],
     [sg.Radio('Room移動', '1', key='roomChange', enable_events=True),
-     sg.Radio('音声つながらない', '1', key='audioFollow', enable_events=True),
-     sg.Radio('Roomにいない', '1', key='notRoom', enable_events=True),
-     sg.Radio('助けてください', '1', key='helpMe', enable_events=True)]
+     sg.Radio('音声不通', '1', key='audioFollow', enable_events=True),
+     sg.Radio('退出確認', '1', key='exitConfirmation', enable_events=True),
+     sg.Radio('Room不在', '1', key='notRoom', enable_events=True),
+     sg.Radio('助けて', '1', key='helpMe', enable_events=True)]
 ]
 
 col1 = [
@@ -256,8 +259,8 @@ col2 =[
     sg.Button('COPY', size=(10, 1), key='COPY', button_color=('white', '#001480')),
     sg.Button('CODE', size=(10, 1), key='CODE', button_color=('white', '#001480')),
     sg.Button('CLEAR', size=(10, 1), key='CLEAR', button_color=('white', '#dc143c')),
-    sg.Button('START', key='start_stop', size=(10, 1)),
-    sg.Text('所要時間：', size=(8, 1), font=font),
+    sg.Button('START', key='start_stop', size=(9, 1)),
+    sg.Text('所要時間：', size=(7, 1), font=font),
     sg.Text('00:00', size=(10, 1), font=font, key='timer')
 ]
 
@@ -281,7 +284,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_San', layout, keep_on_top=True, size=(595, 305), resizable=True, icon=icon_path)
+window = sg.Window('K_San', layout, keep_on_top=True, size=(540, 305), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -398,10 +401,10 @@ while True:
         window['googleDetail'].update(values=google_course_options[selected_type])
     
     # トラブル 校舎選択イベント
-    if event == 'tabgroup':
-        selected_tab = window['tabgroup'].get()
-        if selected_tab == 'TR':
-            window['schoolDetail'].update(values=school_options['schools'])   
+    if event == 'unit':
+        selected_type = values['unit']
+        if selected_type in school_options:
+            window['schoolDetail'].update(values=school_options[selected_type])
 
 
     # COPY ボタンの処理
@@ -635,14 +638,17 @@ while True:
             data = get_course_data(values, 'AppSheetトライアル', 'googleDetail')
             
         #　トラブルタブ作成
+        
         elif values['roomChange']:
-            data = f"{values['studentId']}　{values['studentName']} 様、\n科目が{values['studentCourse']}です。Room移動許可をお願いします。"
+            data = f"【Room移動依頼】\n{values['studentId']}　{values['studentName']} 様\n科目が{values['studentCourse']}です。Room移動許可をお願いします。"
         elif values['audioFollow']:
-            data = f"{values['studentId']}　{values['studentName']} 様、\n音声がつながりません。フォローお願いします。"
+            data = f"【音声確認依頼】\n{values['studentId']}　{values['studentName']} 様\n音声がつながりません。フォローお願いします。"
+        elif values['exitConfirmation']:
+            data = f"【退出確認依頼】\n{values['studentId']}　{values['studentName']} 様\nRoomから退出されています。フォローお願いします。"            
         elif values['notRoom']:
-            data = f"{values['studentId']}　{values['studentName']} 様、\nステータスが出席ですがRoomにいません。フォローお願いします。"
+            data = f"【出席確認依頼】\n{values['studentId']}　{values['studentName']} 様\nステータスが出席ですがRoomにいません。フォローお願いします。"
         elif values['helpMe']:
-            data = f"Room{values['jyugyou']}、ヘルプなどでROOMが回っていません。助けてください！"         
+            data = f"Room{values['jyugyou']}\nROOMが回っていません。助けてください！"         
                      
         pyperclip.copy(data)
 
@@ -674,7 +680,7 @@ while True:
     if timer_running:
         elapsed_time = time.time() - start_time
         window['timer'].update(time.strftime('%M:%S', time.gmtime(elapsed_time)))
-        if elapsed_time >= 1 * 60 and not alarm_playing:  # 3分 = 3 * 60秒
+        if elapsed_time >= 3 * 60 and not alarm_playing:  # 3分 = 3 * 60秒
             threading.Thread(target=play_alarm).start()
             window['timer'].update(font=bold_font, text_color='red')  # 3分経過でフォントを太字、色を赤に
             alarm_playing = True  # アラームが再生中であることを記録
@@ -699,6 +705,7 @@ while True:
             window['cadDetail'].update('')
             window['cadDetailSecond'].update('')
             window['schoolDetail'].update('')
+            window['unit'].update('')            
             window['studentId'].update('')
             window['studentName'].update('')
             window['studentCourse'].update('')            
@@ -718,6 +725,7 @@ while True:
             window['cadDetail'].update('')
             window['cadDetailSecond'].update('')
             window['schoolDetail'].update('')
+            window['unit'].update('')
             window['studentId'].update('')
             window['studentName'].update('')
             window['studentCourse'].update('')            

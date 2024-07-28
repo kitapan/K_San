@@ -1,7 +1,7 @@
 # javaエンジニアコース
 java_course_options = {
     
-    # Javaエンジニア　ベーシック
+    # Javaエンジニア ベーシック
     'java_basic': [
         "第1回 01_Javaの歴史_意識してほしいこと_AI活用方法 ※課題無し",
         "第2回 02_開発環境構築",
@@ -24,7 +24,7 @@ java_course_options = {
         "第19回 1on1"
     ],
     
-    # Javaエンジニア　スタンダード
+    # Javaエンジニア スタンダード
     'java_standard': [
         "第1回 01_Webアプリの仕組み ※課題無し",
         "第2回 02_SpringとSpringBootの違い",
@@ -86,7 +86,7 @@ java_course_options = {
         "第58回 1on1"
     ],
     
-    # Javaエンジニア　アドバンス
+    # Javaエンジニア アドバンス
     'java_advance':[
         "第1回 01_クラウドとは_AWSアカウントの作成",
         "第2回 1on1",
