@@ -19,7 +19,7 @@ sg.theme('TealMono')
 
 java_course = ['', 'ベーシック', 'スタンダード', 'アドバンスド']
 font = ('Helvetica', 12)
-bold_font = ('Helvetica', 13, 'bold')
+bold_font = ('Helvetica', 12, 'bold')
 
 # today
 now = datetime.date.today()
@@ -48,6 +48,9 @@ period = [str(p + 1) for p in range(8)]
 
 # 1on1
 one_on_one_numbers = ['', '1', '2', '3', '4', '5', '6', '7']
+
+# タイマー時間
+timerSet = [1, 2, 3, 4, 5]
 
 # アクションタブ
 tabAction = [
@@ -243,7 +246,9 @@ tabTrouble = [
 col1 = [
     [sg.Checkbox('わかばROOM', key='wakaba', default=False),
     sg.Checkbox('初VU期間サポート対象', key='subject', default=False),
-    sg.Spin(period, size=(2, 1), font=font, key='seven')],
+    sg.Spin(period, size=(2, 1), font=font, key='seven'),
+    sg.Checkbox('アラーム分', key='alarmCheck', default=True),
+    sg.Spin(timerSet, size=(2, 1), font=font, key='alarmSet', initial_value=3)],
     [sg.Text('授業', size=(4, 1), font=font),
     sg.Spin(lis, size=(2, 1), font=font, key='jyugyou'),
     sg.Text('時限', size=(4, 1), font=font),
@@ -261,7 +266,7 @@ col2 =[
     sg.Button('CLEAR', size=(10, 1), key='CLEAR', button_color=('white', '#dc143c')),
     sg.Button('START', key='start_stop', size=(9, 1)),
     sg.Text('所要時間：', size=(7, 1), font=font),
-    sg.Text('00:00', size=(10, 1), font=font, key='timer')
+    sg.Text('00:00', size=(7, 1), font=font, key='timer'),
 ]
 
 # メインタブ
@@ -412,10 +417,12 @@ while True:
         data = ""
         if values['fast']:
             data = get_greeting_data(values)
-        elif values['help']:
+        elif values['help'] and values['alarmCheck']:
             data = f"ヘルプ対応:{values['remarks']} 所要時間：{window['timer'].get()}"
+        elif values['help']:
+            data = f"ヘルプ対応:{values['remarks']}"
         elif values['follow']:
-            data = f"フォロー対応:{values['remarks']} 所要時間：{window['timer'].get()}"
+            data = f"フォロー対応:{values['remarks']}"
         elif values['cs']:
             data = f"【面談依頼】\n内容：{values['remarks']}"
         elif values['vu']:
@@ -667,7 +674,7 @@ while True:
             stop_alarm()
             
     # アラーム停止
-    elif event == 'CLEAR':
+    if event == 'CLEAR':
         timer_running = False
         start_time = 0
         window['timer'].update('00:00')
@@ -677,13 +684,14 @@ while True:
         alarm_playing = False
         
     # アラーム再生
-    if timer_running:
-        elapsed_time = time.time() - start_time
-        window['timer'].update(time.strftime('%M:%S', time.gmtime(elapsed_time)))
-        if elapsed_time >= 3 * 60 and not alarm_playing:  # 3分 = 3 * 60秒
-            threading.Thread(target=play_alarm).start()
-            window['timer'].update(font=bold_font, text_color='red')  # 3分経過でフォントを太字、色を赤に
-            alarm_playing = True  # アラームが再生中であることを記録
+    if values is not None:
+        if timer_running:
+            elapsed_time = time.time() - start_time
+            window['timer'].update(time.strftime('%M:%S', time.gmtime(elapsed_time)))
+            if elapsed_time >= values['alarmSet'] * 60 and not alarm_playing and values['alarmCheck']:
+                threading.Thread(target=play_alarm).start()
+                window['timer'].update(font=bold_font, text_color='red')  # 3分経過でフォントを太字、色を赤に
+                alarm_playing = True  # アラームが再生中であることを記録
 
     # CLEARボタン
     if event == 'CLEAR':
