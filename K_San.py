@@ -67,6 +67,7 @@ tabAction = [
 # Javaタブ
 tabJava = [
     [sg.Radio('ベーシック', '1', key='java_basic', enable_events=True),
+     sg.Radio('旧ベーシック', '1', key='old_java_basic', enable_events=True),
      sg.Radio('スタンダード', '1', key='java_standard', enable_events=True),
      sg.Radio('アドバンスド', '1', key='java_advance', enable_events=True)],
     [sg.Radio('Discord', '1', key='Discord', enable_events=True, size=(5, 1)),
@@ -359,7 +360,7 @@ while True:
             window['fast'].update(value=True)
             
     # Java コースの選択イベント
-    if event in ('java_basic', 'java_standard', 'java_advance'):
+    if event in ('java_basic', 'old_java_basic', 'java_standard', 'java_advance'):
         selected_type = event
         window['javaDetail'].update(values=java_course_options[selected_type])
         
@@ -439,6 +440,8 @@ while True:
         # Javaエンジニアタブ作成
         if values['java_basic']:
             data = get_course_data(values, 'Javaエンジニア ベーシック', 'javaDetail')
+        elif values['old_java_basic']:
+            data = get_course_data(values, 'Javaエンジニア 旧版_ベーシック', 'javaDetail')
         elif values['java_standard']:
             data = get_course_data(values, 'Javaエンジニア スタンダード', 'javaDetail')
         elif values['java_advance']:
@@ -743,7 +746,7 @@ while True:
             window['subject'].update(False)
 
         if any(values[key] for key in (
-            'java_basic', 'java_standard', 'java_advance', 'BuildUp', '1on1', 'Discord',
+            'java_basic', 'old_java_basic', 'java_standard', 'java_advance', 'BuildUp', '1on1', 'Discord',
             'php_basic', 'php_advance', 'wordpress', 'python_basic', 'java_android', 
             'java_android_trial', 'sql', 'rpa', 'java_specialist', 'word_basic', 
             'word_advance', 'excel_basic', 'excel_advance', 'powerpoint_basic', 
