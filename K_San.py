@@ -55,8 +55,10 @@ timerSet = [1, 2, 3, 4, 5]
 # アクションタブ
 tabAction = [
     [sg.Radio('挨拶', '1', default=True, key='fast'),
-     sg.Radio('ヘルプ', '1', key='help'),
-     sg.Radio('フォロー', '1', key='follow')],
+     sg.Radio('ﾍﾙﾌﾟ', '1', key='help'),
+     sg.Radio('ﾌｫﾛｰ', '1', key='follow'),
+     sg.Radio('ｱﾄﾞﾊﾞｲｽﾍﾙﾌﾟ', '1', key='adviceHelp'),
+     sg.Radio('ｱﾄﾞﾊﾞｲｽﾌｫﾛｰ', '1', key='adviceFollow')],
     [sg.Radio('面談依頼', '1', key='cs'),
      sg.Radio('VUサポート', '1', key='vu'),
      sg.Radio('初VU期間サポート', '1', key='fastVu')],
@@ -439,6 +441,17 @@ while True:
             data = f"ヘルプ対応:{values['remarks']}"
         elif values['follow']:
             data = f"フォロー対応:{values['remarks']}"
+            
+            
+        #G3専用アドバイスコマンド    
+        elif values['adviceHelp'] and values['alarmCheck']:
+            data = f"ヘルプ対応:所要時間：{window['timer'].get()} !▲ {values['remarks']} ▲!"
+        elif values['adviceHelp']:
+            data = f"ヘルプ対応:!▲ {values['remarks']} ▲!"               
+        elif values['adviceFollow']:
+            data = f"フォロー対応:!▲ {values['remarks']} ▲!"
+            
+                        
         elif values['cs']:
             data = f"【面談依頼】\n内容：{values['remarks']}"
         elif values['vu']:
