@@ -1,6 +1,6 @@
 # クリエイティブコース
-creative_course_options = {
-    
+creative_course_options= {
+
     # マークアップEB パート1(WEB)
     'web_coding': [
         "第1回 WEBの基礎知識",
@@ -17,7 +17,7 @@ creative_course_options = {
         "第12回 お問い合わせページの使いやすさを向上させる①（JS）",
         "第13回 お問い合わせページの使いやすさを向上させる②（JS）",
     ],
-    
+
     # マークアップEB パート2(レスポンシブ)
     'responsive_web_design': [
         "第1回 完成例の確認をする",
@@ -29,11 +29,11 @@ creative_course_options = {
         "第7回 会社情報ページの表示を整える(CSS)",
         "第8回 スマートフォンなどでも、きれいに表示がされるの（レスポンシブ対応）Webサイトを作成する",
         "第9回 Webページに動きをつける方法を知る (jQuery)",
-        "第10回 Webページに動きをつけてみる①　(jQueryプラグインの実装)",
-        "第11回 Webページに動きをつけてみる②　(jQueryプラグインの実装)",
+        "第10回 Webページに動きをつけてみる① (jQueryプラグインの実装)",
+        "第11回 Webページに動きをつけてみる② (jQueryプラグインの実装)",
         "第12回 動画を取り入れたＷｅｂページの作成",
     ],
-    
+
     # HTML/CSSベーシック
     'html_css_basic': [
         "第1回 Chapter01 ウェブページについて知ろう",
@@ -49,7 +49,7 @@ creative_course_options = {
         "第5回 Chapter08 背景、影、枠線を付けよう",
         "第5回 Chapter09 モバイル・SMS対応して公開しよう",
     ],
-    
+
     # HTML/CSSトレーニングブック～運用・更新編～
     'html_css_training': [
         "第1回 はじめに／Webサイト制作・運用に関する基礎知識",
@@ -63,7 +63,7 @@ creative_course_options = {
         "第9回 実践演習②",
         "第10回 総合演習",
     ],
-    
+
     # JavaScriptベーシック
     'java_script': [
         "第1回 javaScriptの基礎",
@@ -77,7 +77,7 @@ creative_course_options = {
         "第9回 最終課題（１）",
         "第10回 最終課題（２）",
     ],
-    
+
     # マークアップエンジニア アドバンス
     'web_coding_advance': [
         "第1回 制作するサイトについて",
@@ -90,11 +90,10 @@ creative_course_options = {
         "第8回 注文ページの作成(2)",
         "第9回 注文ページの作成(3)",
         "第10回 レスポンシブ対応",
-
     ],
-    
+
     # Illustratorベーシック1
-    'illustrator_cc2021_basic1' : [
+    'illustrator_cc2021_basic1': [
         "第1回 Illustratorでできること",
         "第2回 図形の描画（1）",
         "第3回 図形の描画（2）",
@@ -106,7 +105,7 @@ creative_course_options = {
     ],
 
     # Illustratorベーシック2
-    'illustrator_cc2021_basic2' : [
+    'illustrator_cc2021_basic2': [
         "第1回 レイヤー",
         "第2回 トレース",
         "第3回 ブラシ(1)",
@@ -118,7 +117,7 @@ creative_course_options = {
     ],
 
     # Illustratorアドバンス
-    'illustrator_cc2021_advance' : [
+    'illustrator_cc2021_advance': [
         "第1回 印刷物の作成（1）",
         "第2回 印刷物の作成（2）",
         "第3回 印刷物の作成（3）",
@@ -130,7 +129,7 @@ creative_course_options = {
     ],
 
     # PhotoShopベーシック1
-    'photoshop_cc2021_basic1' : [
+    'photoshop_cc2021_basic1': [
         "第1回 Photoshopでできること",
         "第2回 切り抜き、角度補正、カンバスの追加",
         "第3回 色調補正",
@@ -142,7 +141,7 @@ creative_course_options = {
     ],
 
     # PhotoShopベーシック2
-    'photoshop_cc2021_basic2' : [
+    'photoshop_cc2021_basic2': [
         "第1回 文字の入力・編集",
         "第2回 描画モードとレイヤースタイル",
         "第3回 スマートオブジェクト",
@@ -152,9 +151,9 @@ creative_course_options = {
         "第7回 シェイプ・パス（2）",
         "第8回 総合演習",
     ],
-    
+
     # PhotoShopアドバンス
-    'photoshop_cc2021_advanced' : [
+    'photoshop_cc2021_advanced': [
         "第1回 Web素材の作成(1)",
         "第2回 Web素材の作成(2)",
         "第3回 Web素材の作成(3)",
@@ -166,7 +165,7 @@ creative_course_options = {
     ],
 
     # AdobeFirefly トライアル
-    'firefly' : [
+    'firefly': [
         "第1回 Adobeの生成AI「Firefly」の概要",
         "第1回 Firefly Web版",
         "第2回 Firefly Web版",
@@ -179,7 +178,7 @@ creative_course_options = {
     ],
 
     # PremiereProベーシック
-    'premiere_pro_basic' : [
+    'premiere_pro_basic': [
         "第1回 Chapter01 Premire Proを使う前の準備",
         "第1回 Chapter02 基本操作を覚えよう",
         "第1回 Chapter03 動画を編集しよう",
@@ -194,7 +193,7 @@ creative_course_options = {
     ],
 
     # afterEffectsベーシック
-    'after_effects_basic' : [
+    'after_effects_basic': [
         "第1回 Chapter01 AffterEffectを使う前の準備",
         "第1回 Chapter02 背景を作ろう",
         "第2回 Chapter02 背景を作ろう",
@@ -209,7 +208,7 @@ creative_course_options = {
     ],
 
     # PremiereProスタンダード
-    'premiere_pro_standard' : [
+    'premiere_pro_standard': [
         "第1回 基本操作で編集する",
         "第2回 基本操作で編集する",
         "第3回 タイトルで印象付ける",
@@ -225,7 +224,7 @@ creative_course_options = {
     ],
 
     # PremierePro スタンダード～エフェクトバリエーション～
-    'effect_variations' : [
+    'effect_variations': [
         "第1回 素材を生かす",
         "第1回 エフェクトディクショナリー1",
         "第2回 エフェクトで魅せる",
@@ -240,10 +239,10 @@ creative_course_options = {
     ],
 
     # パーツで魅せるWEB素材作成講座
-    'parts_web' : [
-        "第1回 【ECサイト】バナーの作成　",
+    'parts_web': [
+        "第1回 【ECサイト】バナーの作成",
         "第2回 【ECサイト】TOP画像の制作",
-        "第3回 【ECサイト】アイコンの制作　",
+        "第3回 【ECサイト】アイコンの制作",
         "第4回 【旅行サイト】カンプの制作",
         "第5回 【旅行サイト】アイキャッチ画像とボタンの制作",
         "第6回 【旅行サイト】アイキャッチ画像（小）の制作",
@@ -254,13 +253,13 @@ creative_course_options = {
     ],
 
     # デザインで差をつけるドキュメント作成講座
-    'design_document' : [
+    'design_document': [
         "第1回 文字の配置と飾り文字",
         "第2回 ロゴのデザイン",
-        "第3回 画像加工　",
-        "第4回 フライヤーのデザイン　",
-        "第4回 フライヤーのデザイン　セクションテスト",
-        "第4回 フライヤーのデザイン　やってみよう",
+        "第3回 画像加工",
+        "第4回 フライヤーのデザイン",
+        "第4回 フライヤーのデザイン セクションテスト",
+        "第4回 フライヤーのデザイン やってみよう",
         "第5回 フライヤーのデザイン（タテ）",
         "第6回 プレゼンテーション資料のデザイン",
         "第7回 最終課題01",
@@ -268,9 +267,9 @@ creative_course_options = {
         "第9回 最終課題02",
         "第10回 最終課題02",
     ],
-    
+
     # Illustrator(2024) ベーシック1
-    'illustrator_cc2024_basic1' : [
+    'illustrator_cc2024_basic1': [
         "第1回 Illustratorでできること",
         "第2回 図形の描画（1）",
         "第3回 図形の描画（2）",
@@ -282,7 +281,7 @@ creative_course_options = {
     ],
 
     # Illustrator(2024) ベーシック2
-    'illustrator_cc2024_basic2' : [
+    'illustrator_cc2024_basic2': [
         "第1回 レイヤー",
         "第2回 トレース",
         "第3回 ブラシ(1)",
@@ -290,11 +289,11 @@ creative_course_options = {
         "第5回 シンボルとブレンド",
         "第6回 グラフ・表",
         "第7回 画像の配置と編集",
-        "第8回 総合演習",  
+        "第8回 総合演習",
     ],
-    
-    # Illustrator(2024)アドバンス  
-    'illustrator_cc2024_advanced' : [
+
+    # Illustrator(2024)アドバンス
+    'illustrator_cc2024_advanced': [
         "第1回 印刷物の作成（1）",
         "第2回 印刷物の作成（2）",
         "第3回 印刷物の作成（3）",
@@ -302,11 +301,11 @@ creative_course_options = {
         "第5回 印刷物の作成（5）",
         "第6回 印刷物の作成（6）",
         "第7回 Web用素材の作成（1）",
-        "第8回 Web用素材の作成（2）", 
+        "第8回 Web用素材の作成（2）",
     ],
 
     # Photoshop(2024) ベーシック1
-    'photoshop_cc2024_basic1' : [
+    'photoshop_cc2024_basic1': [
         "第1回 Photoshopでできること",
         "第2回 切り抜き、角度補正、カンバスの追加",
         "第3回 色調補正",
@@ -318,7 +317,7 @@ creative_course_options = {
     ],
 
     # Photoshop(2024) ベーシック2
-    'photoshop_cc2024_basic2' : [
+    'photoshop_cc2024_basic2': [
         "第1回 文字の入力・編集",
         "第2回 描画モードとレイヤースタイル",
         "第3回 スマートオブジェクト",
@@ -328,9 +327,9 @@ creative_course_options = {
         "第7回 シェイプ・パス（2）",
         "第8回 総合演習",
     ],
-    
+
     # Photoshop(2024) アドバンス
-    'photoshop_cc2024_advanced' : [
+    'photoshop_cc2024_advanced': [
         "第1回 Web素材の作成(1)",
         "第2回 Web素材の作成(2)",
         "第3回 Web素材の作成(3)",
@@ -340,44 +339,151 @@ creative_course_options = {
         "第7回 印刷用素材の作成(3)",
         "第8回 印刷用素材の作成(4)",
     ],
-    
+
     # Illustrator & Photoshop デザインの作り方
-    'create_design' : [
-        "1-1 Recipe009", "1-2 Recipe010", "1-3 Recipe011", "1-4 Recipe012", "1-5 Recipe014",
-        "2-1 Recipe016", "2-2 Recipe017", "2-3 Recipe018", "2-4 Recipe019", "2-5 Recipe020",
-        "3-1 Recipe027", "3-2 Recipe028", "3-3 Recipe029", "3-4 Recipe030", "3-5 Recipe031",
-        "3-6 Recipe032", "3-7 Recipe033", "3-8 Recipe034", "3-9 Recipe035", "3-10 Recipe036",
-        "4-1 Recipe038", "4-2 Recipe039", "4-3 Recipe040", "4-4 Recipe041", "4-5 Recipe042",
-        "4-6 Recipe043", "4-7 Recipe044", "4-8 Recipe045", "4-9 Recipe048", "5-1 Recipe049",
-        "5-2 Recipe050", "5-3 Recipe051", "5-4 Recipe052", "5-5 Recipe053", " 5-6 Recipe054",
-        "6-1 Recipe056", "6-2 Recipe057", "6-3 Recipe058", "6-4 Recipe059", "7-1 Recipe060",
-        "7-2 Recipe061", "7-3 Recipe062", "7-4 Recipe063", "8-1 Recipe064", "8-2 Recipe066",
-        "8-3 Recipe067", "9-1 Recipe068", "9-2 Recipe069", "9-3 Recipe071", "9-4 Recipe072",
-        "9-5 Recipe073", "10-1 Recipe077", "10-2 Recipe079", "10-3 Recipe080", "10-4 Recipe083"
+    'create_design': [
+        "1-1 Recipe009",
+        "1-2 Recipe010",
+        "1-3 Recipe011",
+        "1-4 Recipe012",
+        "1-5 Recipe014",
+        "2-1 Recipe016",
+        "2-2 Recipe017",
+        "2-3 Recipe018",
+        "2-4 Recipe019",
+        "2-5 Recipe020",
+        "3-1 Recipe027",
+        "3-2 Recipe028",
+        "3-3 Recipe029",
+        "3-4 Recipe030",
+        "3-5 Recipe031",
+        "3-6 Recipe032",
+        "3-7 Recipe033",
+        "3-8 Recipe034",
+        "3-9 Recipe035",
+        "3-10 Recipe036",
+        "4-1 Recipe038",
+        "4-2 Recipe039",
+        "4-3 Recipe040",
+        "4-4 Recipe041",
+        "4-5 Recipe042",
+        "4-6 Recipe043",
+        "4-7 Recipe044",
+        "4-8 Recipe045",
+        "4-9 Recipe048",
+        "5-1 Recipe049",
+        "5-2 Recipe050",
+        "5-3 Recipe051",
+        "5-4 Recipe052",
+        "5-5 Recipe053",
+        "5-6 Recipe054",
+        "6-1 Recipe056",
+        "6-2 Recipe057",
+        "6-3 Recipe058",
+        "6-4 Recipe059",
+        "7-1 Recipe060",
+        "7-2 Recipe061",
+        "7-3 Recipe062",
+        "7-4 Recipe063",
+        "8-1 Recipe064",
+        "8-2 Recipe066",
+        "8-3 Recipe067",
+        "9-1 Recipe068",
+        "9-2 Recipe069",
+        "9-3 Recipe071",
+        "9-4 Recipe072",
+        "9-5 Recipe073",
+        "10-1 Recipe077",
+        "10-2 Recipe079",
+        "10-3 Recipe080",
+        "10-4 Recipe083",
     ],
-    
+
     # Photoshop レタッチ・加工
-    'retouching_processing' : [
-        "1-1 Recipe001", "1-2 Recipe002", "1-3 Recipe003", "1-4 Recipe004", "1-5 Recipe005",
-        "1-6 Recipe006", "1-7 Recipe007", "1-8 Recipe008", "1-9 Recipe009", "1-10 Recipe010",
-        "1-11 Recipe011", "1-12 Recipe012", "1-13 Recipe013", "1-14 Recipe014", "2-1 Recipe015", 
-        "2-2 Recipe016", "2-3 Recipe017", "2-4 Recipe018", "2-5 Recipe019", "2-6 Recipe020",
-        "2-7 Recipe021", "2-8 Recipe022", "2-9 Recipe023", "2-10 Recipe025", "2-11 Recipe026",
-        "2-12 Recipe027", "2-13 Recipe028", "3-1 Recipe029", "3-2 Recipe030", "3-3 Recipe031",
-        "3-4 Recipe032", "3-5 Recipe033", "3-6 Recipe034", "3-7 Recipe037", "3-8 Recipe038",
-        "4-1 Recipe039", "4-2 Recipe042", "4-3 Recipe043", "4-4 Recipe044", "4-5 Recipe045",
-        "4-6 Recipe046", "4-7 Recipe047", "4-8 Recipe048", "4-9 Recipe049", "5-1 Recipe050",
-        "5-2 Recipe051", "5-3 Recipe052", "5-4 Recipe053", "5-5 Recipe054", "6-1 Recipe056",
-        "6-2 Recipe063", "6-3 Recipe064", "6-4 Recipe065", "6-5 Recipe066", "7-1 Recipe068",
-        "7-2 Recipe070", "7-3 Recipe076", "7-4 Recipe077", "8-1 Recipe078", "8-2 Recipe080",
-        "8-3 Recipe084", "8-4 Recipe085", "8-5 Recipe086", "8-6 Recipe087", "9-1 Recipe088",
-        "9-2 Recipe089", "9-3 Recipe090", "9-4 Recipe091", "9-5 Recipe092", "9-6 Recipe093",
-        "9-7 Recipe094", "9-8 Recipe095", "10-1 Recipe096", "10-2 Recipe097", "10-3 Recipe098",
-        "10-4 Recipe099", "10-5 Recipe100", "10-6 Recipe101", "10-7 Recipe102"
+    'retouching_processing': [
+        "1-1 Recipe001",
+        "1-2 Recipe002",
+        "1-3 Recipe003",
+        "1-4 Recipe004",
+        "1-5 Recipe005",
+        "1-6 Recipe006",
+        "1-7 Recipe007",
+        "1-8 Recipe008",
+        "1-9 Recipe009",
+        "1-10 Recipe010",
+        "1-11 Recipe011",
+        "1-12 Recipe012",
+        "1-13 Recipe013",
+        "1-14 Recipe014",
+        "2-1 Recipe015",
+        "2-2 Recipe016",
+        "2-3 Recipe017",
+        "2-4 Recipe018",
+        "2-5 Recipe019",
+        "2-6 Recipe020",
+        "2-7 Recipe021",
+        "2-8 Recipe022",
+        "2-9 Recipe023",
+        "2-10 Recipe025",
+        "2-11 Recipe026",
+        "2-12 Recipe027",
+        "2-13 Recipe028",
+        "3-1 Recipe029",
+        "3-2 Recipe030",
+        "3-3 Recipe031",
+        "3-4 Recipe032",
+        "3-5 Recipe033",
+        "3-6 Recipe034",
+        "3-7 Recipe037",
+        "3-8 Recipe038",
+        "4-1 Recipe039",
+        "4-2 Recipe042",
+        "4-3 Recipe043",
+        "4-4 Recipe044",
+        "4-5 Recipe045",
+        "4-6 Recipe046",
+        "4-7 Recipe047",
+        "4-8 Recipe048",
+        "4-9 Recipe049",
+        "5-1 Recipe050",
+        "5-2 Recipe051",
+        "5-3 Recipe052",
+        "5-4 Recipe053",
+        "5-5 Recipe054",
+        "6-1 Recipe056",
+        "6-2 Recipe063",
+        "6-3 Recipe064",
+        "6-4 Recipe065",
+        "6-5 Recipe066",
+        "7-1 Recipe068",
+        "7-2 Recipe070",
+        "7-3 Recipe076",
+        "7-4 Recipe077",
+        "8-1 Recipe078",
+        "8-2 Recipe080",
+        "8-3 Recipe084",
+        "8-4 Recipe085",
+        "8-5 Recipe086",
+        "8-6 Recipe087",
+        "9-1 Recipe088",
+        "9-2 Recipe089",
+        "9-3 Recipe090",
+        "9-4 Recipe091",
+        "9-5 Recipe092",
+        "9-6 Recipe093",
+        "9-7 Recipe094",
+        "9-8 Recipe095",
+        "10-1 Recipe096",
+        "10-2 Recipe097",
+        "10-3 Recipe098",
+        "10-4 Recipe099",
+        "10-5 Recipe100",
+        "10-6 Recipe101",
+        "10-7 Recipe102",
     ],
-    
+
     # Web制作プロフェッショナル ベーシック
-    'web_production_professional_basic' : [
+    'web_production_professional_basic': [
         "第1回 はじめに",
         "第1回 Webの基礎知識",
         "第1回 教材のダウンロード",
@@ -415,4 +521,50 @@ creative_course_options = {
         "第22回 コードのリファクタリング",
         "第23回 1on1",
     ],
+
+    # Web制作プロフェッショナル スタンダード
+    'web_production_professional_standard': [
+        "第1回 コーポレートサイトのトップページコーディング",
+        "第1回 コーポレートサイトの下層ページコーディング1",
+        "第2回 コーポレートサイトのトップページコーディング",
+        "第3回 コーポレートサイトのトップページコーディング",
+        "第4回 1on1",
+        "第5回 コーポレートサイトの下層ページコーディング1",
+        "第6回 コーポレートサイトの下層ページコーディング1",
+        "第7回 コーポレートサイトの下層ページコーディング2",
+        "第8回 コーポレートサイトの下層ページコーディング2",
+        "第9回 コーポレートサイトの下層ページコーディング2",
+        "第10回 コーポレートサイトのレスポンシブ化・JavaScriptの基礎と活用 準備",
+        "第11回 コーポレートサイトのレスポンシブ化",
+        "第12回 コーポレートサイトのレスポンシブ化",
+        "第13回 1on1",
+        "第14回 JavaScriptの基礎と活用",
+        "第15回 JavaScriptの基礎と活用",
+        "第16回 JavaScriptの基礎と活用",
+        "第17回 1on1",
+        "第18回 DOM操作によるアニメーション",
+        "第19回 DOM操作によるアニメーション",
+        "第20回 GSAPの応用",
+        "第21回 GSAPの応用",
+        "第22回 GSAPの応用",
+        "第23回 1on1",
+        "第24回 Swiper",
+        "第25回 Swiper",
+        "第26回 Swiper",
+        "第27回 1on1",
+        "第28回 WordPress概要・テンプレート化準備",
+        "第29回 WordPress概要・テンプレート化",
+        "第30回 WordPress概要・テンプレート化",
+        "第31回 メインループ・サブループ",
+        "第32回 メインループ・サブループ",
+        "第33回 メインループ・サブループ",
+        "第34回 1on1",
+        "第35回 固定ページ・カスタムフィールド",
+        "第36回 固定ページ・カスタムフィールド",
+        "第37回 WordPressの拡張機能",
+        "第38回 WordPressの拡張機能",
+        "第39回 WordPressの拡張機能",
+        "第40回 1on1",
+    ],
+
 }

@@ -1,20 +1,29 @@
 # Googleコース
-google_course_options = {
-    
-    # ChatGPT
-    'chatgpt_trial' : [
+google_course_options= {
+
+    # ChatGPTトライアル
+    'chatgpt_trial': [
         "第1回 ChatGPTとは何かを知ろう",
         "第2回 ChatGPTで文章を作成してみよう",
         "第3回 ChatGPTをもっと使いこなそう",
     ],
-    
+
+    # ChatGPTベーシック
+    'chatgpt_basic': [
+        "第1回 ChatGPTの基礎知識",
+        "第2回 仕事で使う",
+        "第3回 学習に使う",
+        "第4回 プログラミングで使う",
+        "第5回 日常生活や遊びで使う・GPTs・多様なAIツール",
+    ],
+
     # Googleアプリトライアル
     'gat': [
         "第1回 ドキュメント、スプレッド",
         "第2回 スライド、フォーム",
         "第3回 その他アプリ",
     ],
-    
+
     # Googleスプレッドシートスタンダード
     'gss': [
         "第1回 「インプット」の速度を上げる1",
@@ -30,7 +39,7 @@ google_course_options = {
         "第11回 「シェア」でチームの生産性をアップさせる2",
         "第12回 「シェア」でチームの生産性をアップさせる3",
     ],
-    
+
     # GASトライアル
     'gas_trial': [
         "第1回 GASの基本知識",
@@ -40,7 +49,7 @@ google_course_options = {
         "第5回 今日から使える自動化サンプルスクリプト4",
         "第6回 スプレッドシートでお問い合わせボットをつくる",
     ],
-    
+
     # GASベーシック
     'gas_basic': [
         "第1回 GASとは？",
@@ -72,14 +81,26 @@ google_course_options = {
         "第11回 外部サイトへのアクセス・ライブラリ",
         "第12回 演習課題",
     ],
-    
+
     # AppSheetトライアル
-    'appsheet_trial' : [
+    'appsheet_trial': [
         "第1回 はじめてのAppSheet利用",
         "第2回 テーブル編（１）",
         "第3回 テーブル編（２）・UX編",
         "第4回 UX編（２）・アプリ制作演習",
         "第5回 アプリ制作演習（２）",
         "第6回 アプリ制作演習（３）",
-    ],    
+    ],
+
+    # DX推進講座～Salesforce IT基礎編～
+    'dx_course_it_basics': [
+        "第1回 1章 IT基礎知識",
+        "第2回 1章 IT基礎知識",
+        "第3回 2章 主要なSaaS製品（SFA/CRM）",
+        "第3回 3章 主要なSaaS製品（MA）",
+        "第4回 4章 主要なSaaS製品（BI）",
+        "第4回 5章 主要なSaaS製品（その他）",
+        "第5回 6章 SaaSを体感してみよう",
+    ],
+
 }
