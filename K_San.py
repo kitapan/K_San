@@ -57,8 +57,8 @@ tabAction = [
     [sg.Radio('挨拶', '1', default=True, key='fast'),
      sg.Radio('ヘルプ', '1', key='help'),
      sg.Radio('フォロー', '1', key='follow'),
-     sg.Radio('Aヘルプ', '1', key='adviceHelp'),
-     sg.Radio('Aフォロー', '1', key='adviceFollow')
+    #  sg.Radio('Aヘルプ', '1', key='adviceHelp'),
+    #  sg.Radio('Aフォロー', '1', key='adviceFollow')
      ],
     [sg.Radio('面談', '1', key='cs'),
      sg.Radio('VUサポ', '1', key='vu'),
@@ -196,7 +196,8 @@ tabCreativeSecond = [
 # クリエイティブタブ3
 tabCreativeThird = [
     [sg.Radio('WebﾌﾟﾛⒷ', '1', key='web_production_professional_basic', enable_events=True),
-     sg.Radio('WebﾌﾟﾛⓈ', '1', key='web_production_professional_standard', enable_events=True)],
+     sg.Radio('WebﾌﾟﾛⓈ', '1', key='web_production_professional_standard', enable_events=True),
+     sg.Radio('WebﾌﾟﾛⒶ', '1', key='web_production_professional_advanced', enable_events=True)],    
     [sg.Text('', size=(4, 1), font=font)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='creativeDetailThird', font=font)]
@@ -212,7 +213,8 @@ tabCad = [
     [sg.Radio('FusionⒷ', '1', key='fusion_basic', enable_events=True),
      sg.Radio('FusionⒶ', '1', key='fusion_advance', enable_events=True),
      sg.Radio('Auto建築製図', '1', key='architectural_draft', enable_events=True),
-     sg.Radio('Auto土木', '1', key='civil_engineering', enable_events=True)],    
+     sg.Radio('Auto土木', '1', key='civil_engineering', enable_events=True),
+     sg.Radio('Revit', '1', key='revit_basic', enable_events=True)],    
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='cadDetail', font=font)]
 ]
@@ -280,7 +282,8 @@ col1 = [
     sg.Spin(lis, size=(3, 1), font=font, key='room')],
     [sg.Checkbox('受講促進○', key='promotionTrue', default=False, size=(9, 1), font=font),
      sg.Checkbox('受講促進×', key='promotionFalse', default=False, size=(9, 1), font=font),
-     sg.Checkbox('巡回不要', key='noFollow', default=False, size=(9, 1), font=font)],
+     sg.Checkbox('巡回不要', key='noFollow', default=False, size=(9, 1), font=font),
+     sg.Checkbox('VUサポ対象者', key='vuTarget', default=False, size=(9, 1), font=font)],
 ]
 
 col2 =[
@@ -312,7 +315,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_San v2411.02', layout, keep_on_top=True, size=(550, 305), resizable=True, icon=icon_path)
+window = sg.Window('K_San v2411.03', layout, keep_on_top=True, size=(550, 305), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -325,9 +328,11 @@ def get_greeting_data(values):
     if values['noFollow']:
         data += '★巡回不要　'
     if values['promotionTrue']:
-        data += f'受講促進○ {now} {values["jigen"]}限'
+        data += f'受講促進○ {now} {values["jigen"]}限　'
     if values['promotionFalse']:
-        data += '受講促進×'
+        data += '受講促進×　'
+    if values['vuTarget']:
+        data += '■VUサポート対象者'           
  
     data += f"\n{values['remarks']}" if values['noFollow'] or values['promotionTrue'] or values['promotionFalse'] else values['remarks']
        
@@ -344,9 +349,11 @@ def get_course_data(values, course_name, detail):
     if values['noFollow']:
         data += '★巡回不要　'
     if values['promotionTrue']:
-        data += f'受講促進○ {now} {values["jigen"]}限'
+        data += f'受講促進○ {now} {values["jigen"]}限　'
     if values['promotionFalse']:
-        data += '受講促進×'
+        data += '受講促進×　'
+    if values['vuTarget']:
+        data += '■VUサポート対象者'        
         
     data += f"\n{values['remarks']}" if values['noFollow'] or values['promotionTrue'] or values['promotionFalse'] else values['remarks']
 
@@ -411,7 +418,7 @@ while True:
                  'photoshop_cc2021_basic2', 'photoshop_cc2021_advanced', 'firefly', 'design_document', 'premiere_pro_basic',
                  'after_effects_basic', 'premiere_pro_standard', 'effect_variations', 'illustrator_cc2024_basic1', 'illustrator_cc2024_basic2',
                  'photoshop_cc2024_basic1', 'photoshop_cc2024_basic2', 'create_design', 'retouching_processing', 'illustrator_cc2024_advanced', 'photoshop_cc2024_advanced',
-                 'web_production_professional_basic', 'web_production_professional_standard'):
+                 'web_production_professional_basic', 'web_production_professional_standard', 'web_production_professional_advanced'):
         selected_type = event
         window['creativeDetail'].update(values=creative_course_options[selected_type])
         window['creativeDetailSecond'].update(values=creative_course_options[selected_type])
@@ -420,7 +427,7 @@ while True:
     # CAD コースの選択イベント
     if event in ('auto_cad_basic', 'auto_cad_advanced_architecture', 'auto_cad_advanced_mechanical', 'jw_cad_basic', 'jw_cad_advanced',
                  'fusion_basic', 'fusion_advance', 'architectural_draft', 'civil_engineering', 'auto_cad_basic_training', 'architecture_cad3',
-                 'architecture_cad2', 'architecture_jw_cad2', 'cad_engineer_2', 'auto_cad_user', 'architecture_jw_cad3'):
+                 'architecture_cad2', 'architecture_jw_cad2', 'cad_engineer_2', 'auto_cad_user', 'architecture_jw_cad3', 'revit_basic'):
         selected_type = event
         window['cadDetail'].update(values=cad_course_options[selected_type])
         window['cadDetailSecond'].update(values=cad_course_options[selected_type])
@@ -452,12 +459,12 @@ while True:
             
             
         #G3専用アドバイスコマンド    
-        elif values['adviceHelp'] and values['alarmCheck']:
-            data = f"ヘルプ対応:所要時間：{window['timer'].get()} !▲ {values['remarks']} ▲!"
-        elif values['adviceHelp']:
-            data = f"ヘルプ対応:!▲ {values['remarks']} ▲!"               
-        elif values['adviceFollow']:
-            data = f"フォロー対応:!▲ {values['remarks']} ▲!"
+        # elif values['adviceHelp'] and values['alarmCheck']:
+        #     data = f"ヘルプ対応:所要時間：{window['timer'].get()} !▲ {values['remarks']} ▲!"
+        # elif values['adviceHelp']:
+        #     data = f"ヘルプ対応:!▲ {values['remarks']} ▲!"               
+        # elif values['adviceFollow']:
+        #     data = f"フォロー対応:!▲ {values['remarks']} ▲!"
             
                         
         elif values['cs']:
@@ -647,6 +654,8 @@ while True:
             data = get_course_data(values, 'Web制作プロフェッショナル ベーシック', 'creativeDetailThird')
         elif values['web_production_professional_standard']:
             data = get_course_data(values, 'Web制作プロフェッショナル スタンダード', 'creativeDetailThird')
+        elif values['web_production_professional_advanced']:
+            data = get_course_data(values, 'Web制作プロフェッショナル アドバンスド', 'creativeDetailThird')
 
         #　CADタブ1作成
         elif values['auto_cad_basic']:
@@ -667,6 +676,8 @@ while True:
             data = get_course_data(values, 'AutoCAD建築製図編', 'cadDetail')                       
         elif values['civil_engineering']:
             data = get_course_data(values, 'AutoCAD土木編', 'cadDetail')
+        elif values['revit_basic']:
+            data = get_course_data(values, 'Revitベーシック講座', 'cadDetail')
 
             
         #　CADタブ2作成
@@ -852,7 +863,8 @@ while True:
             'auto_cad_user', 'chatgpt_trial', 'gat', 'gss', 'gas_trial', 
             'gas_basic', 'gas_standard', 'appsheet_trial','word_master_book', 
             'illustrator_cc2024_advanced', 'photoshop_cc2024_advanced', 'web_production_professional_basic',
-            'dx_course_it_basics', 'chatgpt_basic', 'web_production_professional_standard', 'architecture_jw_cad3'
+            'dx_course_it_basics', 'chatgpt_basic', 'web_production_professional_standard', 'architecture_jw_cad3',
+            'revit_basic', 'web_production_professional_advanced'
         )):
 
             window['fast'].update(True)
