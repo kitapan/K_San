@@ -57,8 +57,8 @@ tabAction = [
     [sg.Radio('挨拶', '1', default=True, key='fast'),
      sg.Radio('ヘルプ', '1', key='help'),
      sg.Radio('フォロー', '1', key='follow'),
-     sg.Radio('Aヘルプ', '1', key='adviceHelp'),
-     sg.Radio('Aフォロー', '1', key='adviceFollow')
+    #  sg.Radio('Aヘルプ', '1', key='adviceHelp'),
+    #  sg.Radio('Aフォロー', '1', key='adviceFollow')
      ],
     [sg.Radio('面談', '1', key='cs'),
      sg.Radio('VUサポ', '1', key='vu'),
@@ -315,7 +315,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_San v2411.06', layout, keep_on_top=True, size=(550, 305), resizable=True, icon=icon_path)
+window = sg.Window('K_San v2411.05', layout, keep_on_top=True, size=(550, 305), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -459,12 +459,12 @@ while True:
             
             
         #G3専用アドバイスコマンド    
-        elif values['adviceHelp'] and values['alarmCheck']:
-            data = f"ヘルプ対応:所要時間：{window['timer'].get()} !▲ {values['remarks']} ▲!"
-        elif values['adviceHelp']:
-            data = f"ヘルプ対応:!▲ {values['remarks']} ▲!"               
-        elif values['adviceFollow']:
-            data = f"フォロー対応:!▲ {values['remarks']} ▲!"
+        # elif values['adviceHelp'] and values['alarmCheck']:
+        #     data = f"ヘルプ対応:所要時間：{window['timer'].get()} !▲ {values['remarks']} ▲!"
+        # elif values['adviceHelp']:
+        #     data = f"ヘルプ対応:!▲ {values['remarks']} ▲!"               
+        # elif values['adviceFollow']:
+        #     data = f"フォロー対応:!▲ {values['remarks']} ▲!"
             
                         
         elif values['cs']:
