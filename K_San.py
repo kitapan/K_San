@@ -326,7 +326,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_San v2412.01', layout, keep_on_top=True, size=(585, 305), resizable=True, icon=icon_path)
+window = sg.Window('K_San v2412.02', layout, keep_on_top=True, size=(585, 305), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
