@@ -155,11 +155,18 @@ tabOfficeThird = [
 
 # オフィスタブ4
 tabOfficeFourth = [
-    [sg.Radio('A+ E1', '1', key='generate_ai_excel_level1', enable_events=True),
-     sg.Radio('A+ E2', '1', key='generate_ai_excel_level2', enable_events=True),
-     sg.Radio('A+ E3', '1', key='generate_ai_excel_level3', enable_events=True),
-     sg.Radio('A+ E4', '1', key='generate_ai_excel_level4', enable_events=True)],
-    [sg.Text('', size=(4, 1), font=font)],
+    [sg.Radio('A+W1', '1', key='generate_ai_word_level1', enable_events=True),
+     sg.Radio('A+W2', '1', key='generate_ai_word_level2', enable_events=True),
+     sg.Radio('A+W3', '1', key='generate_ai_word_level3', enable_events=True),
+     sg.Radio('A+W4', '1', key='generate_ai_word_level4', enable_events=True),
+     sg.Radio('A+E1', '1', key='generate_ai_excel_level1', enable_events=True),
+     sg.Radio('A+E2', '1', key='generate_ai_excel_level2', enable_events=True)],
+    [sg.Radio('A+E3', '1', key='generate_ai_excel_level3', enable_events=True),
+     sg.Radio('A+E4', '1', key='generate_ai_excel_level4', enable_events=True),
+     sg.Radio('A+PP1', '1', key='generate_ai_powerpoint_level1', enable_events=True),
+     sg.Radio('A+PP2', '1', key='generate_ai_powerpoint_level2', enable_events=True),
+     sg.Radio('A+PP3', '1', key='generate_ai_powerpoint_level3', enable_events=True),
+     sg.Radio('A+PP4', '1', key='generate_ai_powerpoint_level4', enable_events=True)],    
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetailFourth', font=font)]
 ]
@@ -309,7 +316,7 @@ col2 =[
 # メインタブ
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('ACTION', tabAction), sg.Tab('OF①', tabOffice), sg.Tab('OF②', tabOfficeSecond), sg.Tab('OF③', tabOfficeThird), sg.Tab('AI+', tabOfficeFourth), 
+    [sg.TabGroup([[sg.Tab('ACTION', tabAction), sg.Tab('OF①', tabOffice), sg.Tab('OF②', tabOfficeSecond), sg.Tab('OF③', tabOfficeThird), sg.Tab('A+', tabOfficeFourth), 
                    sg.Tab('CR①', tabCreative), sg.Tab('CR②', tabCreativeSecond), sg.Tab('CR③', tabCreativeThird), sg.Tab('CD①', tabCad), sg.Tab('CD②', tabCadSecond),
                    sg.Tab('GO', tabGoogle), sg.Tab('PG', tabProgramming), sg.Tab('JV', tabJava), sg.Tab('TR', tabTrouble)]],
                  key="tabgroup", enable_events=True)],
@@ -326,7 +333,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_San v2412.02', layout, keep_on_top=True, size=(585, 305), resizable=True, icon=icon_path)
+window = sg.Window('K_San v2412.04', layout, keep_on_top=True, size=(575, 305), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -417,7 +424,10 @@ while True:
                  'access_business', 'proposal', 'proposal_drill', 'basic_function', 'advance_function', 'skill_function',
                  'business_knowledge_word', 'business_knowledge_excel', 'business_knowledge_powerpoint', 'data_analysis',
                  'work_basic', 'work_application', 'work_accounting', 'work_administrator','business_drill_word',
-                 'business_drill_excel', 'business_drill_powerpoint', 'generate_ai_excel_level1', 'generate_ai_excel_level2', 'generate_ai_excel_level3', 'generate_ai_excel_level4'):
+                 'business_drill_excel', 'business_drill_powerpoint',
+                 'generate_ai_excel_level1', 'generate_ai_excel_level2', 'generate_ai_excel_level3', 'generate_ai_excel_level4',
+                 'generate_ai_word_level1', 'generate_ai_word_level2', 'generate_ai_word_level3', 'generate_ai_word_level4',
+                 'generate_ai_powerpoint_level1', 'generate_ai_powerpoint_level2', 'generate_ai_powerpoint_level3', 'generate_ai_powerpoint_level4'):
         selected_type = event
         window['officeDetail'].update(values=office_course_options[selected_type])
         window['officeDetailSecond'].update(values=office_course_options[selected_type])
@@ -603,7 +613,15 @@ while True:
         elif values['work_administrator']:
             data = get_course_data(values, 'Excel仕事術≪管理者実務編≫', 'officeDetailThird')
             
-        # AIタブ作成     
+        # AIタブ作成 
+        elif values['generate_ai_word_level1']:
+            data = get_course_data(values, '生成AI活用 Word Lv1', 'officeDetailFourth')            
+        elif values['generate_ai_word_level2']:
+            data = get_course_data(values, '生成AI活用 Word Lv2', 'officeDetailFourth')
+        elif values['generate_ai_word_level3']:
+            data = get_course_data(values, '生成AI活用 Word Lv3', 'officeDetailFourth')
+        elif values['generate_ai_word_level4']:
+            data = get_course_data(values, '生成AI活用 Word Lv4', 'officeDetailFourth')
         elif values['generate_ai_excel_level1']:
             data = get_course_data(values, '生成AI活用 Excel Lv1', 'officeDetailFourth')            
         elif values['generate_ai_excel_level2']:
@@ -611,7 +629,15 @@ while True:
         elif values['generate_ai_excel_level3']:
             data = get_course_data(values, '生成AI活用 Excel Lv3', 'officeDetailFourth')
         elif values['generate_ai_excel_level4']:
-            data = get_course_data(values, '生成AI活用 Excel Lv4', 'officeDetailFourth')                 
+            data = get_course_data(values, '生成AI活用 Excel Lv4', 'officeDetailFourth')                            
+        elif values['generate_ai_powerpoint_level1']:
+            data = get_course_data(values, '生成AI活用 PowerPoint Lv1', 'officeDetailFourth')            
+        elif values['generate_ai_powerpoint_level2']:
+            data = get_course_data(values, '生成AI活用 PowerPoint Lv2', 'officeDetailFourth')
+        elif values['generate_ai_powerpoint_level3']:
+            data = get_course_data(values, '生成AI活用 PowerPoint Lv3', 'officeDetailFourth')
+        elif values['generate_ai_powerpoint_level4']:
+            data = get_course_data(values, '生成AI活用 PowerPoint Lv4', 'officeDetailFourth')                 
                         
         #　クリエイティブタブ1作成    
         elif values['html_css_basic']:
@@ -887,8 +913,10 @@ while True:
             'gas_basic', 'gas_standard', 'appsheet_trial','word_master_book', 
             'illustrator_cc2024_advanced', 'photoshop_cc2024_advanced', 'web_production_professional_basic',
             'dx_course_it_basics', 'chatgpt_basic', 'web_production_professional_standard', 'architecture_jw_cad3',
-            'revit_basic', 'web_production_professional_advanced', 'generate_ai_excel_level1', 'generate_ai_excel_level2',
-            'generate_ai_excel_level3', 'generate_ai_excel_level4'
+            'revit_basic', 'web_production_professional_advanced',
+            'generate_ai_excel_level1', 'generate_ai_excel_level2', 'generate_ai_excel_level3', 'generate_ai_excel_level4',
+            'generate_ai_word_level1', 'generate_ai_word_level2', 'generate_ai_word_level3', 'generate_ai_word_level4',
+            'generate_ai_powerpoint_level1', 'generate_ai_powerpoint_level2', 'generate_ai_powerpoint_level3', 'generate_ai_powerpoint_level4'
         )):
 
             window['fast'].update(True)
