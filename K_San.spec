@@ -5,7 +5,7 @@ a = Analysis(
     ['K_San.py'],
     pathex=[],
     binaries=[],
-    datas=[('alarm.wav', '.')],
+    datas=[],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

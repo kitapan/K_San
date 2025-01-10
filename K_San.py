@@ -19,6 +19,7 @@ sg.theme('TealMono')
 
 java_course = ['', 'ベーシック', 'スタンダード', 'アドバンスド']
 font = ('Helvetica', 12)
+curriculumFont = ('Helvetica', 9)
 bold_font = ('Helvetica', 12, 'bold')
 
 # today
@@ -87,135 +88,134 @@ tabJava = [
 
 # プログラミングタブ
 tabProgramming = [
-    [sg.Radio('PHPⒷ', '1', key='php_basic', enable_events=True),
-     sg.Radio('PHPⒶ', '1', key='php_advance', enable_events=True),
-     sg.Radio('WordPress', '1', key='wordpress', enable_events=True),
-     sg.Radio('SQL1-2', '1', key='sql', enable_events=True),
-     sg.Radio('Python', '1', key='python_basic', enable_events=True),
-     sg.Radio('RPA', '1', key='rpa', enable_events=True)],
-    [sg.Radio('Android入門', '1', key='java_android_trial', enable_events=True),
-     sg.Radio('Android基礎', '1', key='java_android', enable_events=True),
-     sg.Radio('実践Java', '1', key='java_specialist', enable_events=True)],        
+    [sg.Radio('PHPⒷ', '1', key='php_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('PHPⒶ', '1', key='php_advance', enable_events=True, font=curriculumFont),
+     sg.Radio('WordPress', '1', key='wordpress', enable_events=True, font=curriculumFont),
+     sg.Radio('SQL1-2', '1', key='sql', enable_events=True, font=curriculumFont),
+     sg.Radio('Python', '1', key='python_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('RPA', '1', key='rpa', enable_events=True, font=curriculumFont)],
+    [sg.Radio('Android入門', '1', key='java_android_trial', enable_events=True, font=curriculumFont),
+     sg.Radio('Android基礎', '1', key='java_android', enable_events=True, font=curriculumFont),
+     sg.Radio('実践Java', '1', key='java_specialist', enable_events=True, font=curriculumFont)],        
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='programmingDetail', font=font)]
 ]
 
 # オフィスタブ1
 tabOffice = [
-    [sg.Radio('W1-2', '1', key='word_basic', enable_events=True),
-     sg.Radio('W3-4', '1', key='word_advance', enable_events=True),
-     sg.Radio('E1-2', '1', key='excel_basic', enable_events=True),
-     sg.Radio('E3-4', '1', key='excel_advance', enable_events=True),
-     sg.Radio('PP1-2', '1', key='powerpoint_basic', enable_events=True),
-     sg.Radio('PP3-4', '1', key='powerpoint_advance', enable_events=True),
-     sg.Radio('AC1-2', '1', key='access_basic', enable_events=True)],
-    [sg.Radio('AC3-4', '1', key='access_advance', enable_events=True),
-     sg.Radio('Wﾏｽﾀ', '1', key='word_master_book', enable_events=True),
-     sg.Radio('ACｸｴﾘ', '1', key='access_query_utilization', enable_events=True),
-     sg.Radio('ACﾋﾞｼﾞ', '1', key='access_business', enable_events=True),
-     sg.Radio('伝提', '1', key='proposal', enable_events=True),
-     sg.Radio('伝提ﾄﾞﾘ', '1', key='proposal_drill', enable_events=True)],
+    [sg.Radio('W1-2', '1', key='word_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('W3-4', '1', key='word_advance', enable_events=True, font=curriculumFont),
+     sg.Radio('E1-2', '1', key='excel_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('E3-4', '1', key='excel_advance', enable_events=True, font=curriculumFont),
+     sg.Radio('PP1-2', '1', key='powerpoint_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('PP3-4', '1', key='powerpoint_advance', enable_events=True, font=curriculumFont),
+     sg.Radio('AC1-2', '1', key='access_basic', enable_events=True, font=curriculumFont)],
+    [sg.Radio('AC3-4', '1', key='access_advance', enable_events=True, font=curriculumFont),
+     sg.Radio('Wﾏｽﾀ', '1', key='word_master_book', enable_events=True, font=curriculumFont),
+     sg.Radio('ACｸｴﾘ', '1', key='access_query_utilization', enable_events=True, font=curriculumFont),
+     sg.Radio('ACﾋﾞｼﾞ', '1', key='access_business', enable_events=True, font=curriculumFont),
+     sg.Radio('伝提', '1', key='proposal', enable_events=True, font=curriculumFont),
+     sg.Radio('伝提ﾄﾞﾘ', '1', key='proposal_drill', enable_events=True, font=curriculumFont)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetail', font=font)]
 ]
 
 # オフィスタブ2
 tabOfficeSecond = [
-    [sg.Radio('ﾋﾟﾎﾞ実践', '1', key='pivot_tables', enable_events=True),
-     sg.Radio('Eﾏｽﾀ', '1', key='excel_master_book', enable_events=True),
-     sg.Radio('VBA', '1', key='skills_up_vba', enable_events=True),
-     sg.Radio('VBAⒶ', '1', key='vba_advanced', enable_events=True),
-     sg.Radio('ﾏｸﾛ実践', '1', key='macro_practice', enable_events=True),
-     sg.Radio('VBA実践', '1', key='vba_practice', enable_events=True)],
-    [sg.Radio('ﾊﾟﾜｰｸｴﾘ', '1', key='excel_power_query', enable_events=True),
-     sg.Radio('ﾊﾟﾜｰﾋﾟﾎﾞｯﾄ', '1', key='excel_power_pivot', enable_events=True),
-     sg.Radio('関2', '1', key='basic_function', enable_events=True),
-     sg.Radio('関3', '1', key='advance_function', enable_events=True),
-     sg.Radio('ｽｷﾙ関', '1', key='skill_function', enable_events=True)],
+    [sg.Radio('ﾋﾟﾎﾞ実践', '1', key='pivot_tables', enable_events=True, font=curriculumFont),
+     sg.Radio('Eﾏｽﾀ', '1', key='excel_master_book', enable_events=True, font=curriculumFont),
+     sg.Radio('VBA', '1', key='skills_up_vba', enable_events=True, font=curriculumFont),
+     sg.Radio('VBAⒶ', '1', key='vba_advanced', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾏｸﾛ実践', '1', key='macro_practice', enable_events=True, font=curriculumFont),
+     sg.Radio('VBA実践', '1', key='vba_practice', enable_events=True, font=curriculumFont)],
+    [sg.Radio('ﾊﾟﾜｰｸｴﾘ', '1', key='excel_power_query', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾊﾟﾜｰﾋﾟﾎﾞｯﾄ', '1', key='excel_power_pivot', enable_events=True, font=curriculumFont),
+     sg.Radio('関2', '1', key='basic_function', enable_events=True, font=curriculumFont),
+     sg.Radio('関3', '1', key='advance_function', enable_events=True, font=curriculumFont),
+     sg.Radio('ｽｷﾙ関', '1', key='skill_function', enable_events=True, font=curriculumFont)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetailSecond', font=font)]
 ]
 
 # オフィスタブ3
 tabOfficeThird = [
-    [sg.Radio('ﾃﾞｰﾀ分析', '1', key='data_analysis', enable_events=True),        
-     sg.Radio('仕事術(基)', '1', key='work_basic', enable_events=True),
-     sg.Radio('仕事術(応)', '1', key='work_application', enable_events=True),
-     sg.Radio('仕事術(経)', '1', key='work_accounting', enable_events=True),
-     sg.Radio('仕事術(管)', '1', key='work_administrator', enable_events=True)],    
-    [sg.Radio('ﾅﾚｯｼﾞW', '1', key='business_knowledge_word', enable_events=True),
-     sg.Radio('ﾅﾚｯｼﾞE', '1', key='business_knowledge_excel', enable_events=True),
-     sg.Radio('ﾅﾚｯｼﾞP', '1', key='business_knowledge_powerpoint', enable_events=True),
-     sg.Radio('ﾜｰｸW', '1', key='business_drill_word', enable_events=True),
-     sg.Radio('ﾜｰｸE', '1', key='business_drill_excel', enable_events=True),
-     sg.Radio('ﾜｰｸP', '1', key='business_drill_powerpoint', enable_events=True)],
+    [sg.Radio('ﾃﾞｰﾀ分析', '1', key='data_analysis', enable_events=True, font=curriculumFont),        
+     sg.Radio('仕事術(基)', '1', key='work_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('仕事術(応)', '1', key='work_application', enable_events=True, font=curriculumFont),
+     sg.Radio('仕事術(経)', '1', key='work_accounting', enable_events=True, font=curriculumFont),
+     sg.Radio('仕事術(管)', '1', key='work_administrator', enable_events=True, font=curriculumFont)],    
+    [sg.Radio('ﾅﾚｯｼﾞW', '1', key='business_knowledge_word', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾅﾚｯｼﾞE', '1', key='business_knowledge_excel', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾅﾚｯｼﾞP', '1', key='business_knowledge_powerpoint', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾜｰｸW', '1', key='business_drill_word', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾜｰｸE', '1', key='business_drill_excel', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾜｰｸP', '1', key='business_drill_powerpoint', enable_events=True, font=curriculumFont)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetailThird', font=font)]
 ]
 
 # オフィスタブ4
 tabOfficeFourth = [
-    [sg.Radio('A+W1', '1', key='generate_ai_word_level1', enable_events=True),
-     sg.Radio('A+W2', '1', key='generate_ai_word_level2', enable_events=True),
-     sg.Radio('A+W3', '1', key='generate_ai_word_level3', enable_events=True),
-     sg.Radio('A+W4', '1', key='generate_ai_word_level4', enable_events=True),
-     sg.Radio('A+E1', '1', key='generate_ai_excel_level1', enable_events=True),
-     sg.Radio('A+E2', '1', key='generate_ai_excel_level2', enable_events=True)],
-    [sg.Radio('A+E3', '1', key='generate_ai_excel_level3', enable_events=True),
-     sg.Radio('A+E4', '1', key='generate_ai_excel_level4', enable_events=True),
-     sg.Radio('A+PP1', '1', key='generate_ai_powerpoint_level1', enable_events=True),
-     sg.Radio('A+PP2', '1', key='generate_ai_powerpoint_level2', enable_events=True),
-     sg.Radio('A+PP3', '1', key='generate_ai_powerpoint_level3', enable_events=True),
-     sg.Radio('A+PP4', '1', key='generate_ai_powerpoint_level4', enable_events=True)],    
+    [sg.Radio('W1', '1', key='generate_ai_word_level1', enable_events=True, font=curriculumFont),
+     sg.Radio('W2', '1', key='generate_ai_word_level2', enable_events=True, font=curriculumFont),
+     sg.Radio('W3', '1', key='generate_ai_word_level3', enable_events=True, font=curriculumFont),
+     sg.Radio('W4', '1', key='generate_ai_word_level4', enable_events=True, font=curriculumFont),
+     sg.Radio('E1', '1', key='generate_ai_excel_level1', enable_events=True, font=curriculumFont),
+     sg.Radio('E2', '1', key='generate_ai_excel_level2', enable_events=True, font=curriculumFont),
+     sg.Radio('E3', '1', key='generate_ai_excel_level3', enable_events=True, font=curriculumFont),
+     sg.Radio('E4', '1', key='generate_ai_excel_level4', enable_events=True, font=curriculumFont)],
+     [sg.Radio('PP1', '1', key='generate_ai_powerpoint_level1', enable_events=True, font=curriculumFont),
+     sg.Radio('PP2', '1', key='generate_ai_powerpoint_level2', enable_events=True, font=curriculumFont),
+     sg.Radio('PP3', '1', key='generate_ai_powerpoint_level3', enable_events=True, font=curriculumFont),
+     sg.Radio('PP4', '1', key='generate_ai_powerpoint_level4', enable_events=True, font=curriculumFont)],    
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetailFourth', font=font)]
 ]
 
-
 # クリエイティブタブ1
 tabCreative = [
-    [sg.Radio('HTMLⒷ', '1', key='html_css_basic', enable_events=True),
-     sg.Radio('MEB1', '1', key='web_coding', enable_events=True),
-     sg.Radio('MEB2', '1', key='responsive_web_design', enable_events=True),
-     sg.Radio('HTMLﾄﾚｰﾆﾝｸﾞ', '1', key='html_css_training', enable_events=True),
-     sg.Radio('JSB', '1', key='java_script', enable_events=True),
-     sg.Radio('MEA', '1', key='web_coding_advance', enable_events=True)],
-    [sg.Radio('Ai1', '1', key='illustrator_cc2021_basic1', enable_events=True),
-     sg.Radio('Ai2', '1', key='illustrator_cc2021_basic2', enable_events=True),
-     sg.Radio('Ai3', '1', key='illustrator_cc2021_advance', enable_events=True),
-     sg.Radio('Ps1', '1', key='photoshop_cc2021_basic1', enable_events=True),
-     sg.Radio('Ps2', '1', key='photoshop_cc2021_basic2', enable_events=True),
-     sg.Radio('Ps3', '1', key='photoshop_cc2021_advanced', enable_events=True),
-     sg.Radio('ﾄﾞｷｭ', '1', key='design_document', enable_events=True),
-     sg.Radio('ﾊﾟｰﾂ', '1', key='parts_web', enable_events=True)],
+    [sg.Radio('HTMLⒷ', '1', key='html_css_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('MEB1', '1', key='web_coding', enable_events=True, font=curriculumFont),
+     sg.Radio('MEB2', '1', key='responsive_web_design', enable_events=True, font=curriculumFont),
+     sg.Radio('HTMLﾄﾚｰﾆﾝｸﾞ', '1', key='html_css_training', enable_events=True, font=curriculumFont),
+     sg.Radio('JSB', '1', key='java_script', enable_events=True, font=curriculumFont),
+     sg.Radio('MEA', '1', key='web_coding_advance', enable_events=True, font=curriculumFont)],
+    [sg.Radio('Ai1', '1', key='illustrator_cc2021_basic1', enable_events=True, font=curriculumFont),
+     sg.Radio('Ai2', '1', key='illustrator_cc2021_basic2', enable_events=True, font=curriculumFont),
+     sg.Radio('Ai3', '1', key='illustrator_cc2021_advance', enable_events=True, font=curriculumFont),
+     sg.Radio('Ps1', '1', key='photoshop_cc2021_basic1', enable_events=True, font=curriculumFont),
+     sg.Radio('Ps2', '1', key='photoshop_cc2021_basic2', enable_events=True, font=curriculumFont),
+     sg.Radio('Ps3', '1', key='photoshop_cc2021_advanced', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾄﾞｷｭ', '1', key='design_document', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾊﾟｰﾂ', '1', key='parts_web', enable_events=True, font=curriculumFont)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='creativeDetail', font=font)]
 ]
 
 # クリエイティブタブ2
 tabCreativeSecond = [
-    [sg.Radio('PrⒷ', '1', key='premiere_pro_basic', enable_events=True),
-     sg.Radio('AeⒷ', '1', key='after_effects_basic', enable_events=True),
-     sg.Radio('PrⓈ', '1', key='premiere_pro_standard', enable_events=True),
-     sg.Radio('PrⒺ', '1', key='effect_variations', enable_events=True),
-     sg.Radio('FireFly', '1', key='firefly', enable_events=True),
-     sg.Radio('ﾃﾞｻﾞｲﾝ', '1', key='create_design', enable_events=True),
-     sg.Radio('ﾚﾀｯﾁ', '1', key='retouching_processing', enable_events=True)],
-    [sg.Radio('Ai1(24)', '1', key='illustrator_cc2024_basic1', enable_events=True),
-     sg.Radio('Ai2(24)', '1', key='illustrator_cc2024_basic2', enable_events=True),
-     sg.Radio('Ai3(24)', '1', key='illustrator_cc2024_advanced', enable_events=True),     
-     sg.Radio('Ps1(24)', '1', key='photoshop_cc2024_basic1', enable_events=True),
-     sg.Radio('Ps2(24)', '1', key='photoshop_cc2024_basic2', enable_events=True),
-     sg.Radio('Ps3(24)', '1', key='photoshop_cc2024_advanced', enable_events=True)],         
+    [sg.Radio('PrⒷ', '1', key='premiere_pro_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('AeⒷ', '1', key='after_effects_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('PrⓈ', '1', key='premiere_pro_standard', enable_events=True, font=curriculumFont),
+     sg.Radio('PrⒺ', '1', key='effect_variations', enable_events=True, font=curriculumFont),
+     sg.Radio('FireFly', '1', key='firefly', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾃﾞｻﾞｲﾝ', '1', key='create_design', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾚﾀｯﾁ', '1', key='retouching_processing', enable_events=True, font=curriculumFont)],
+    [sg.Radio('Ai1(24)', '1', key='illustrator_cc2024_basic1', enable_events=True, font=curriculumFont),
+     sg.Radio('Ai2(24)', '1', key='illustrator_cc2024_basic2', enable_events=True, font=curriculumFont),
+     sg.Radio('Ai3(24)', '1', key='illustrator_cc2024_advanced', enable_events=True, font=curriculumFont),     
+     sg.Radio('Ps1(24)', '1', key='photoshop_cc2024_basic1', enable_events=True, font=curriculumFont),
+     sg.Radio('Ps2(24)', '1', key='photoshop_cc2024_basic2', enable_events=True, font=curriculumFont),
+     sg.Radio('Ps3(24)', '1', key='photoshop_cc2024_advanced', enable_events=True, font=curriculumFont)],         
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='creativeDetailSecond', font=font)]
 ]
 
 # クリエイティブタブ3
 tabCreativeThird = [
-    [sg.Radio('WebﾌﾟﾛⒷ', '1', key='web_production_professional_basic', enable_events=True),
-     sg.Radio('WebﾌﾟﾛⓈ', '1', key='web_production_professional_standard', enable_events=True),
-     sg.Radio('WebﾌﾟﾛⒶ', '1', key='web_production_professional_advanced', enable_events=True)],    
+    [sg.Radio('ﾍﾞｰｼｯｸ', '1', key='web_production_professional_basic', enable_events=True),
+     sg.Radio('ｽﾀﾝﾀﾞｰﾄﾞ', '1', key='web_production_professional_standard', enable_events=True),
+     sg.Radio('ｱﾄﾞﾊﾞﾝｽﾄﾞ', '1', key='web_production_professional_advanced', enable_events=True)],    
     [sg.Text('', size=(4, 1), font=font)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='creativeDetailThird', font=font)]
@@ -223,51 +223,51 @@ tabCreativeThird = [
 
 # CADタブ1
 tabCad = [
-    [sg.Radio('Auto1-2', '1', key='auto_cad_basic', enable_events=True),
-     sg.Radio('Auto3-4(建)', '1', key='auto_cad_advanced_architecture', enable_events=True),
-     sg.Radio('Auto3-4(機)', '1', key='auto_cad_advanced_mechanical', enable_events=True),
-     sg.Radio('Jw1-2', '1', key='jw_cad_basic', enable_events=True),
-     sg.Radio('Jw3-4', '1', key='jw_cad_advanced', enable_events=True)],
-    [sg.Radio('FusionⒷ', '1', key='fusion_basic', enable_events=True),
-     sg.Radio('FusionⒶ', '1', key='fusion_advance', enable_events=True),
-     sg.Radio('Auto建築製図', '1', key='architectural_draft', enable_events=True),
-     sg.Radio('Auto土木', '1', key='civil_engineering', enable_events=True),
-     sg.Radio('Revit', '1', key='revit_basic', enable_events=True)],    
+    [sg.Radio('Auto1-2', '1', key='auto_cad_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('Auto3-4(建)', '1', key='auto_cad_advanced_architecture', enable_events=True, font=curriculumFont),
+     sg.Radio('Auto3-4(機)', '1', key='auto_cad_advanced_mechanical', enable_events=True, font=curriculumFont),
+     sg.Radio('Jw1-2', '1', key='jw_cad_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('Jw3-4', '1', key='jw_cad_advanced', enable_events=True, font=curriculumFont)],
+    [sg.Radio('FusionⒷ', '1', key='fusion_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('FusionⒶ', '1', key='fusion_advance', enable_events=True, font=curriculumFont),
+     sg.Radio('Auto建築製図', '1', key='architectural_draft', enable_events=True, font=curriculumFont),
+     sg.Radio('Auto土木', '1', key='civil_engineering', enable_events=True, font=curriculumFont),
+     sg.Radio('Revit', '1', key='revit_basic', enable_events=True, font=curriculumFont)],    
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='cadDetail', font=font)]
 ]
 
 # CADタブ2
 tabCadSecond = [
-    [sg.Radio('AutoCADﾄﾚ', '1', key='auto_cad_basic_training', enable_events=True),
-     sg.Radio('建CAD3級(Auto)', '1', key='architecture_cad3', enable_events=True),
-     sg.Radio('建CAD3級(Jw)', '1', key='architecture_jw_cad3', enable_events=True),
-     sg.Radio('ﾕｰｻﾞ試験', '1', key='auto_cad_user', enable_events=True)],
+    [sg.Radio('AutoCADﾄﾚ', '1', key='auto_cad_basic_training', enable_events=True, font=curriculumFont),
+     sg.Radio('建CAD3級(Auto)', '1', key='architecture_cad3', enable_events=True, font=curriculumFont),
+     sg.Radio('建CAD3級(Jw)', '1', key='architecture_jw_cad3', enable_events=True, font=curriculumFont),
+     sg.Radio('ﾕｰｻﾞ試験', '1', key='auto_cad_user', enable_events=True, font=curriculumFont)],
     [sg.Radio('CAD利用2級', '1', key='cad_engineer_2', enable_events=True),
-     sg.Radio('建CAD2級(Auto)', '1', key='architecture_cad2', enable_events=True),
-     sg.Radio('建CAD2級(Jw)', '1', key='architecture_jw_cad2', enable_events=True)],   
+     sg.Radio('建CAD2級(Auto)', '1', key='architecture_cad2', enable_events=True, font=curriculumFont),
+     sg.Radio('建CAD2級(Jw)', '1', key='architecture_jw_cad2', enable_events=True, font=curriculumFont)],   
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='cadDetailSecond', font=font)]
 ]
 
 # googleタブ
 tabGoogle = [
-    [sg.Radio('ChatGPTⓉ', '1', key='chatgpt_trial', enable_events=True),
-     sg.Radio('ChatGPTⒷ', '1', key='chatgpt_basic', enable_events=True),
-     sg.Radio('GAT', '1', key='gat', enable_events=True),
-     sg.Radio('GSS', '1', key='gss', enable_events=True)], 
-    [sg.Radio('GASⓉ', '1', key='gas_trial', enable_events=True),
-     sg.Radio('GASⒷ', '1', key='gas_basic', enable_events=True),
-     sg.Radio('GASⓈ', '1', key='gas_standard', enable_events=True),
-     sg.Radio('AppSheet', '1', key='appsheet_trial', enable_events=True),
-     sg.Radio('SaaS', '1', key='dx_course_it_basics', enable_events=True)],
+    [sg.Radio('ChatGPTⓉ', '1', key='chatgpt_trial', enable_events=True, font=curriculumFont),
+     sg.Radio('ChatGPTⒷ', '1', key='chatgpt_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('GAT', '1', key='gat', enable_events=True, font=curriculumFont),
+     sg.Radio('GSS', '1', key='gss', enable_events=True, font=curriculumFont)], 
+    [sg.Radio('GASⓉ', '1', key='gas_trial', enable_events=True, font=curriculumFont),
+     sg.Radio('GASⒷ', '1', key='gas_basic', enable_events=True, font=curriculumFont),
+     sg.Radio('GASⓈ', '1', key='gas_standard', enable_events=True, font=curriculumFont),
+     sg.Radio('AppSheet', '1', key='appsheet_trial', enable_events=True, font=curriculumFont),
+     sg.Radio('SaaS', '1', key='dx_course_it_basics', enable_events=True, font=curriculumFont)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='googleDetail', font=font)]
 ]
 
 # トラブルタブ
 tabTrouble = [
-    [sg.Text('ユニット', size=(7, 1)),
+    [sg.Text('カンパニー', size=(9, 1)),
      sg.Combo(list(school_options.keys()),size=(10, 1), key='unit', enable_events=True),
      sg.Text('校舎名', size=(5, 1)),
      sg.Combo([], size=(27, 1), key='schoolDetail')],
@@ -285,19 +285,33 @@ tabTrouble = [
      sg.Radio('5分前', '1', key='fiveMinutes', enable_events=True),
      sg.Radio('2分前', '1', key='twoMinutes', enable_events=True)]
 ]
+# 設定
+def createSettingLayout():
+    return[
+        [sg.Checkbox('ｸﾘｴｲﾃｨﾌﾞ', key='chk_CR', enable_events=True),
+         sg.Checkbox('Webﾌﾟﾛ', key='chk_WEB', enable_events=True),
+        sg.Checkbox('CAD', key='chk_CD', enable_events=True)],
+        [sg.Checkbox('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', key='chk_PG', enable_events=True),
+        sg.Checkbox('Java', key='chk_JV', enable_events=True)],
+        [sg.Button('OK', size=(10, 1), button_color=('white', '#001480')),
+         sg.Button('CLEAR', size=(10, 1), button_color=('white', '#dc143c'))], 
+    ]
 
 col1 = [
     [sg.Checkbox('わかばROOM', key='wakaba', default=False),
     sg.Checkbox('初VU期間サポート対象', key='subject', default=False),
     sg.Spin(period, size=(2, 1), font=font, key='seven'),
-    sg.Checkbox('アラーム分', key='alarmCheck', default=True),
-    sg.Spin(timerSet, size=(2, 1), font=font, key='alarmSet', initial_value=3)],
+    sg.Text('', size=(10, 1), font=font),
+    sg.Text('Setting', key='openSetting', enable_events=True, text_color=sg.theme_text_color(), background_color=sg.theme_background_color())],
     [sg.Text('授業', size=(4, 1), font=font),
     sg.Spin(lis, size=(2, 1), font=font, key='jyugyou'),
     sg.Text('時限', size=(4, 1), font=font),
     sg.Spin(period, size=(2, 1), font=font, key='jigen'),
     sg.Text('Room', size=(5, 1), font=font),
-    sg.Spin(lis, size=(3, 1), font=font, key='room')],
+    sg.Spin(lis, size=(3, 1), font=font, key='room'),
+    sg.Text('', size=(1, 1), font=font),
+    sg.Checkbox('アラーム分', key='alarmCheck', default=True),
+    sg.Spin(timerSet, size=(2, 1), font=font, key='alarmSet', initial_value=3)],
     [sg.Checkbox('受講促進○', key='promotionTrue', default=False, size=(9, 1), font=font),
      sg.Checkbox('受講促進×', key='promotionFalse', default=False, size=(9, 1), font=font),
      sg.Checkbox('巡回不要', key='noFollow', default=False, size=(9, 1), font=font),
@@ -316,10 +330,23 @@ col2 =[
 # メインタブ
 layout = [
     [col1],
-    [sg.TabGroup([[sg.Tab('ACTION', tabAction), sg.Tab('OF①', tabOffice), sg.Tab('OF②', tabOfficeSecond), sg.Tab('OF③', tabOfficeThird), sg.Tab('A+', tabOfficeFourth), 
-                   sg.Tab('CR①', tabCreative), sg.Tab('CR②', tabCreativeSecond), sg.Tab('CR③', tabCreativeThird), sg.Tab('CD①', tabCad), sg.Tab('CD②', tabCadSecond),
-                   sg.Tab('GO', tabGoogle), sg.Tab('PG', tabProgramming), sg.Tab('JV', tabJava), sg.Tab('TR', tabTrouble)]],
-                 key="tabgroup", enable_events=True)],
+    [sg.TabGroup([
+        [sg.Tab('ACTION', tabAction, key='ACTION'), 
+        sg.Tab('OF①', tabOffice, key='OF1'), 
+        sg.Tab('OF②', tabOfficeSecond, key='OF2'),
+        sg.Tab('OF③', tabOfficeThird, key='OF3'),
+        sg.Tab('AI+', tabOfficeFourth, key='OF4'),
+        sg.Tab('CR①', tabCreative, key='CR1', visible=False),
+        sg.Tab('CR②', tabCreativeSecond, key='CR2', visible=False),
+        sg.Tab('WEB+', tabCreativeThird, key='CR3', visible=False),
+        sg.Tab('CD①', tabCad, key='CD1', visible=False),
+        sg.Tab('CD②', tabCadSecond, key='CD2', visible=False),
+        sg.Tab('GO', tabGoogle, key='GO'),
+        sg.Tab('PG', tabProgramming, key='PG', visible=False),
+        sg.Tab('JV', tabJava, key='JV', visible=False),
+        sg.Tab('TR', tabTrouble, key='TR'),
+        ]],
+        key="tabgroup", enable_events=True, font=('Helvetica', 9))],
     [sg.Text('備考', size=(4, 1), font=font),sg.Multiline(size=(150, 2), key='remarks', font=font)],
     [col2]
 ]
@@ -333,7 +360,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_San v2412.04', layout, keep_on_top=True, size=(575, 305), resizable=True, icon=icon_path)
+window = sg.Window('K_San v2501.01', layout, keep_on_top=True, size=(534, 304), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -346,11 +373,9 @@ def get_greeting_data(values):
     if values['noFollow']:
         data += '★巡回不要　'
     if values['promotionTrue']:
-        data += f'受講促進○ {now} {values["jigen"]}限　'
+        data += f'受講促進○ {now} {values["jigen"]}限'
     if values['promotionFalse']:
-        data += '受講促進×　'
-    if values['vuTarget']:
-        data += '■VUサポート対象者'           
+        data += '受講促進×'
  
     data += f"\n{values['remarks']}" if values['noFollow'] or values['promotionTrue'] or values['promotionFalse'] else values['remarks']
        
@@ -367,11 +392,9 @@ def get_course_data(values, course_name, detail):
     if values['noFollow']:
         data += '★巡回不要　'
     if values['promotionTrue']:
-        data += f'受講促進○ {now} {values["jigen"]}限　'
+        data += f'受講促進○ {now} {values["jigen"]}限'
     if values['promotionFalse']:
-        data += '受講促進×　'
-    if values['vuTarget']:
-        data += '■VUサポート対象者'        
+        data += '受講促進×'
         
     data += f"\n{values['remarks']}" if values['noFollow'] or values['promotionTrue'] or values['promotionFalse'] else values['remarks']
 
@@ -389,6 +412,55 @@ def play_alarm():
         print(f"Error playing sound: {e}")
         sg.popup('アラーム音の再生に失敗しました。PCのサウンド機能を確認してください。', button_type=sg.POPUP_BUTTONS_NO_BUTTONS)
 
+def open_setting_window(window):
+    """設定タブを別ウィンドウで開く関数"""
+    window_x, window_y = window.current_location()
+    tabSetting = createSettingLayout()
+    setting_window = sg.Window('Setting', tabSetting, location=(window_x+137, window_y+100), modal=True, keep_on_top=True, finalize=True, size=(260, 104),
+                               resizable=True, icon=icon_path)
+    
+    if window['CR1'].visible:
+        setting_window['chk_CR'].update(True)
+    if window['CR3'].visible:
+        setting_window['chk_WEB'].update(True)        
+    if window['CD1'].visible:
+        setting_window['chk_CD'].update(True)
+    if window['PG'].visible:
+        setting_window['chk_PG'].update(True)
+    if window['JV'].visible:
+        setting_window['chk_JV'].update(True)
+
+    while True:
+        event, values = setting_window.read()
+        if event in (sg.WIN_CLOSED, 'OK'):
+            break
+        # タブとチェックボックスの対応関係を辞書で定義
+        tab_visibility_mapping = {
+            'chk_CR': ['CR1', 'CR2'],
+            'chk_WEB': ['CR3'],
+            'chk_CD': ['CD1', 'CD2'],
+            'chk_PG': ['PG'],
+            'chk_JV': ['JV']
+        }
+
+        # ループでタブの表示/非表示を更新
+        for chk, tabs in tab_visibility_mapping.items():
+            for tab in tabs:
+                window[tab].update(visible=values[chk])
+
+        # "CLEAR"ボタンがクリックされたとき
+        if event == 'CLEAR':
+            setting_window['chk_CR'].update(False)
+            setting_window['chk_WEB'].update(False)
+            setting_window['chk_CD'].update(False)
+            setting_window['chk_PG'].update(False)
+            setting_window['chk_JV'].update(False)
+            
+            # チェックボックスの状態に基づいて可視性を更新
+            for key in ['CR1', 'CR2', 'CR3', 'CD1', 'CD2', 'PG', 'JV']:
+                window[key].update(visible=False)
+   
+    setting_window.close()
 
 def stop_alarm():
     pygame.mixer.music.stop()
@@ -399,6 +471,11 @@ initialize_pygame()
 # メイン処理
 while True:
     event, values = window.read(timeout=10)
+    if event == sg.WIN_CLOSED:
+        break
+    
+    if event == 'openSetting':
+        open_setting_window(window)
     
     # タブの選択イベント処理
     if event == 'tabgroup':
@@ -921,10 +998,6 @@ while True:
 
             window['fast'].update(True)
             window['tabgroup'].Widget.select(0)
-
-    # ウィンドウ終了処理
-    if event == sg.WINDOW_CLOSED:
-        break
 
 window.close()
 pygame.mixer.quit()
