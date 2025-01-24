@@ -13,6 +13,8 @@ from creative_courses import creative_course_options
 from cad_courses import cad_course_options
 from google_courses import google_course_options
 from school_number import school_options
+from experience_tickets import experience_ticket
+from experience_supports import experience_support
 
 # ウィンドウテーマ
 sg.theme('TealMono')
@@ -265,6 +267,19 @@ tabGoogle = [
      sg.Combo([], size=(150, 1), key='googleDetail', font=font)]
 ]
 
+# エクスペアリンスタブ
+tabExperience = [
+    [sg.Radio('Illustrator', '1', key='illustrator_ex', enable_events=True, font=curriculumFont),
+     sg.Radio('PhotoShop', '1', key='photoshop_ex', enable_events=True, font=curriculumFont),
+     sg.Radio('AutoCAD', '1', key='autocad_ex', enable_events=True, font=curriculumFont),
+     sg.Radio('jw_cad', '1', key='jw_cad_ex', enable_events=True, font=curriculumFont), 
+     sg.Radio('Javaエンジニア', '1', key='java_ex', enable_events=True, font=curriculumFont)],
+     [sg.Radio('Web制作プロ', '1', key='web_ex', enable_events=True, font=curriculumFont),
+     sg.Radio('Excel', '1', key='excel_ex', enable_events=True, font=curriculumFont)],
+    [sg.Text('挨拶', size=(4, 1), font=font),
+     sg.Combo([], size=(150, 1), key='experienceDetail', font=font)]
+]
+
 # トラブルタブ
 tabTrouble = [
     [sg.Text('カンパニー', size=(9, 1)),
@@ -292,7 +307,8 @@ def createSettingLayout():
          sg.Checkbox('Webﾌﾟﾛ', key='chk_WEB', enable_events=True),
         sg.Checkbox('CAD', key='chk_CD', enable_events=True)],
         [sg.Checkbox('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', key='chk_PG', enable_events=True),
-        sg.Checkbox('Java', key='chk_JV', enable_events=True)],
+         sg.Checkbox('Java', key='chk_JV', enable_events=True)],
+        [sg.Checkbox('ｴｸｽﾍﾟﾘｴﾝｽ', key='chk_EX', enable_events=True)],
         [sg.Button('OK', size=(10, 1), button_color=('white', '#001480')),
          sg.Button('CLEAR', size=(10, 1), button_color=('white', '#dc143c'))], 
     ]
@@ -312,10 +328,11 @@ col1 = [
     sg.Text('', size=(1, 1), font=font),
     sg.Checkbox('アラーム分', key='alarmCheck', default=True),
     sg.Spin(timerSet, size=(2, 1), font=font, key='alarmSet', initial_value=3)],
-    [sg.Checkbox('受講促進○', key='promotionTrue', default=False, size=(9, 1), font=font),
-     sg.Checkbox('受講促進×', key='promotionFalse', default=False, size=(9, 1), font=font),
-     sg.Checkbox('巡回不要', key='noFollow', default=False, size=(9, 1), font=font),
-     sg.Checkbox('VUサポ対象者', key='vuTarget', default=False, size=(9, 1), font=font)],
+    [sg.Checkbox('受講促進○', key='promotionTrue', default=False, size=(8, 1), font=font),
+     sg.Checkbox('受講促進×', key='promotionFalse', default=False, size=(8, 1), font=font),
+     sg.Checkbox('巡回不要', key='noFollow', default=False, size=(7, 1), font=font),
+     sg.Checkbox('VUサポ対象者', key='vuTarget', default=False, size=(9, 1), font=font),
+     sg.Checkbox('ExpS', key='experienceSupport', default=False, size=(9, 1), font=font)],
 ]
 
 col2 =[
@@ -344,6 +361,7 @@ layout = [
         sg.Tab('GO', tabGoogle, key='GO'),
         sg.Tab('PG', tabProgramming, key='PG', visible=False),
         sg.Tab('JV', tabJava, key='JV', visible=False),
+        sg.Tab('EX', tabExperience, key='EX', visible=False),
         sg.Tab('TR', tabTrouble, key='TR'),
         ]],
         key="tabgroup", enable_events=True, font=('Helvetica', 9))],
@@ -360,7 +378,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_San v2501.01', layout, keep_on_top=True, size=(534, 304), resizable=True, icon=icon_path)
+window = sg.Window('K_San v2501.04', layout, keep_on_top=True, size=(534, 304), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -373,9 +391,11 @@ def get_greeting_data(values):
     if values['noFollow']:
         data += '★巡回不要　'
     if values['promotionTrue']:
-        data += f'受講促進○ {now} {values["jigen"]}限'
+        data += f'受講促進○ {now} {values["jigen"]}限　'
     if values['promotionFalse']:
-        data += '受講促進×'
+        data += '受講促進×　'
+    if values['vuTarget']:
+        data += '■VUサポート対象者　'  
  
     data += f"\n{values['remarks']}" if values['noFollow'] or values['promotionTrue'] or values['promotionFalse'] else values['remarks']
        
@@ -392,9 +412,11 @@ def get_course_data(values, course_name, detail):
     if values['noFollow']:
         data += '★巡回不要　'
     if values['promotionTrue']:
-        data += f'受講促進○ {now} {values["jigen"]}限'
+        data += f'受講促進○ {now} {values["jigen"]}限　'
     if values['promotionFalse']:
-        data += '受講促進×'
+        data += '受講促進×　'
+    if values['vuTarget']:
+        data += '■VUサポート対象者　'  
         
     data += f"\n{values['remarks']}" if values['noFollow'] or values['promotionTrue'] or values['promotionFalse'] else values['remarks']
 
@@ -416,7 +438,7 @@ def open_setting_window(window):
     """設定タブを別ウィンドウで開く関数"""
     window_x, window_y = window.current_location()
     tabSetting = createSettingLayout()
-    setting_window = sg.Window('Setting', tabSetting, location=(window_x+137, window_y+100), modal=True, keep_on_top=True, finalize=True, size=(260, 104),
+    setting_window = sg.Window('Setting', tabSetting, location=(window_x+137, window_y+100), modal=True, keep_on_top=True, finalize=True, size=(260, 138),
                                resizable=True, icon=icon_path)
     
     if window['CR1'].visible:
@@ -429,6 +451,8 @@ def open_setting_window(window):
         setting_window['chk_PG'].update(True)
     if window['JV'].visible:
         setting_window['chk_JV'].update(True)
+    if window['EX'].visible:
+        setting_window['chk_EX'].update(True)
 
     while True:
         event, values = setting_window.read()
@@ -440,7 +464,8 @@ def open_setting_window(window):
             'chk_WEB': ['CR3'],
             'chk_CD': ['CD1', 'CD2'],
             'chk_PG': ['PG'],
-            'chk_JV': ['JV']
+            'chk_JV': ['JV'],
+            'chk_EX': ['EX']
         }
 
         # ループでタブの表示/非表示を更新
@@ -455,9 +480,10 @@ def open_setting_window(window):
             setting_window['chk_CD'].update(False)
             setting_window['chk_PG'].update(False)
             setting_window['chk_JV'].update(False)
+            setting_window['chk_EX'].update(False)
             
             # チェックボックスの状態に基づいて可視性を更新
-            for key in ['CR1', 'CR2', 'CR3', 'CD1', 'CD2', 'PG', 'JV']:
+            for key in ['CR1', 'CR2', 'CR3', 'CD1', 'CD2', 'PG', 'JV', 'EX']:
                 window[key].update(visible=False)
    
     setting_window.close()
@@ -536,6 +562,11 @@ while True:
                  'chatgpt_basic'):
         selected_type = event
         window['googleDetail'].update(values=google_course_options[selected_type])
+        
+    # エクスペリエンスチケット コースの選択イベント
+    if event in ('illustrator_ex', 'photoshop_ex', 'autocad_ex', 'jw_cad_ex', 'java_ex', 'web_ex', 'excel_ex'):
+        selected_type = event
+        window['experienceDetail'].update(values=experience_ticket[selected_type])        
     
     # トラブル 校舎選択イベント
     if event == 'unit':
@@ -841,8 +872,58 @@ while True:
         elif values['dx_course_it_basics']:
             data = get_course_data(values, 'DX推進講座～Salesforce IT基礎編～', 'googleDetail')
             
+        # EXタブ作成    
+        elif values['illustrator_ex']:
+            data = get_course_data(values, 'Illustrator エクスペリエンスチケット', 'experienceDetail')
+            if values['experienceSupport']:
+                selected_session = values['experienceDetail']
+                if selected_session and selected_session in experience_support['illustrator_ex']:
+                    data = f"【VUサポート】\n内容：{experience_support['illustrator_ex'][selected_session]}"
+                    
+        elif values['photoshop_ex']:
+            data = get_course_data(values, 'Photoshop エクスペリエンスチケット', 'experienceDetail')
+            if values['experienceSupport']:
+                selected_session = values['experienceDetail']
+                if selected_session and selected_session in experience_support['photoshop_ex']:
+                    data = f"【VUサポート】\n内容：{experience_support['photoshop_ex'][selected_session]}"
+                    
+        elif values['autocad_ex']:
+            data = get_course_data(values, 'AutoCAD エクスペリエンスチケット', 'experienceDetail')
+            if values['experienceSupport']:
+                selected_session = values['experienceDetail']
+                if selected_session and selected_session in experience_support['autocad_ex']:
+                    data = f"【VUサポート】\n内容：{experience_support['autocad_ex'][selected_session]}"
+                          
+        elif values['jw_cad_ex']:
+            data = get_course_data(values, 'Jw_cad エクスペリエンスチケット', 'experienceDetail')
+            if values['experienceSupport']:
+                selected_session = values['experienceDetail']
+                if selected_session and selected_session in experience_support['jw_cad_ex']:
+                    data = f"【VUサポート】\n内容：{experience_support['jw_cad_ex'][selected_session]}"
+                    
+        elif values['java_ex']:
+            data = get_course_data(values, 'Javaエンジニア エクスペリエンスチケット', 'experienceDetail')
+            if values['experienceSupport']:
+                selected_session = values['experienceDetail']
+                if selected_session and selected_session in experience_support['java_ex']:
+                    data = f"【VUサポート】\n内容：{experience_support['java_ex'][selected_session]}"
+                    
+        elif values['web_ex']:
+            data = get_course_data(values, 'Web制作プロフェッショナル エクスペリエンスチケット', 'experienceDetail')  
+            if values['experienceSupport']:
+                selected_session = values['experienceDetail']
+                if selected_session and selected_session in experience_support['web_ex']:
+                    data = f"【VUサポート】\n内容：{experience_support['web_ex'][selected_session]}"
+                    
+        elif values['excel_ex']:
+            data = get_course_data(values, 'Excel エクスペリエンスチケット', 'experienceDetail')
+            if values['experienceSupport']:
+                selected_session = values['experienceDetail']
+                if selected_session and selected_session in experience_support['excel_ex']:
+                    data = f"【VUサポート】\n内容：{experience_support['excel_ex'][selected_session]}" 
+  
+                   
         #　トラブルタブ作成
-        
         elif values['roomChange']:
             data = f"【Room移動依頼】\n{values['studentId']}　{values['studentName']} 様\n科目が{values['studentCourse']}です。Room移動許可をお願いします。"
         elif values['audioFollow']:
@@ -913,6 +994,7 @@ while True:
         window['promotionTrue'].update(False)
         window['promotionFalse'].update(False)
         window['vuTarget'].update(False)
+        window['experienceSupport'].update(False)
         
         if values['wakaba']:
             window['javaDetail'].update('')
@@ -993,7 +1075,8 @@ while True:
             'revit_basic', 'web_production_professional_advanced',
             'generate_ai_excel_level1', 'generate_ai_excel_level2', 'generate_ai_excel_level3', 'generate_ai_excel_level4',
             'generate_ai_word_level1', 'generate_ai_word_level2', 'generate_ai_word_level3', 'generate_ai_word_level4',
-            'generate_ai_powerpoint_level1', 'generate_ai_powerpoint_level2', 'generate_ai_powerpoint_level3', 'generate_ai_powerpoint_level4'
+            'generate_ai_powerpoint_level1', 'generate_ai_powerpoint_level2', 'generate_ai_powerpoint_level3', 'generate_ai_powerpoint_level4',
+            'illustrator_ex', 'photoshop_ex', 'autocad_ex', 'jw_cad_ex', 'java_ex', 'web_ex', 'excel_ex'
         )):
 
             window['fast'].update(True)
