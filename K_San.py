@@ -19,7 +19,6 @@ from experience_supports import experience_support
 # ウィンドウテーマ
 sg.theme('TealMono')
 
-java_course = ['', 'ベーシック', 'スタンダード', 'アドバンスド']
 font = ('Helvetica', 12)
 curriculumFont = ('Helvetica', 9)
 bold_font = ('Helvetica', 12, 'bold')
@@ -49,9 +48,6 @@ lis = ['{:02d}'.format(i + 1) for i in range(70)]
 # 1~8
 period = [str(p + 1) for p in range(8)]
 
-# 1on1
-one_on_one_numbers = ['', '1', '2', '3', '4', '5', '6', '7']
-
 # タイマー時間
 timerSet = [1, 2, 3, 4, 5]
 
@@ -74,16 +70,13 @@ tabAction = [
 
 # Javaタブ
 tabJava = [
-    [sg.Radio('ﾍﾞｰｼｯｸ', '1', key='java_basic', enable_events=True),
-     sg.Radio('旧ﾍﾞｰｼｯｸ', '1', key='old_java_basic', enable_events=True),
-     sg.Radio('ｽﾀﾝﾀﾞｰﾄﾞ', '1', key='java_standard', enable_events=True),
-     sg.Radio('ｱﾄﾞﾊﾞﾝｽﾄﾞ', '1', key='java_advance', enable_events=True)],
-    [sg.Radio('Discord', '1', key='Discord', enable_events=True, size=(5, 1)),
-     sg.InputText(size=(9, 1), font=font, key='DiscordInput'),
-     sg.Radio('1on1', '1', key='1on1', enable_events=True, size=(3, 1)),
-     sg.Spin(java_course, size=(11, 1), key='1on1Course', font=font),
-     sg.Spin(one_on_one_numbers, size=(2, 1), key='1on1Input', font=font),
-     sg.Radio('BuildUp', '1', key='BuildUp', enable_events=True)],
+    [sg.Radio('Javaﾍﾞｰｼｯｸ', '1', key='java_basic', enable_events=True),
+     sg.Radio('旧Javaﾍﾞｰｼｯｸ', '1', key='old_java_basic', enable_events=True),
+     sg.Radio('Javaｽﾀﾝﾀﾞｰﾄﾞ', '1', key='java_standard', enable_events=True),
+     sg.Radio('Javaｱﾄﾞﾊﾞﾝｽﾄﾞ', '1', key='java_advance', enable_events=True)],
+    [sg.Radio('AWSﾍﾞｰｼｯｸ', '1', key='aws_basic', enable_events=True),
+     sg.Radio('AWSｽﾀﾝﾀﾞｰﾄﾞ', '1', key='aws_standard', enable_events=True),
+     sg.Radio('AWSｱﾄﾞﾊﾞﾝｽﾄﾞ', '1', key='aws_advanced', enable_events=True)],
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='javaDetail', font=font)]
 ]
@@ -307,7 +300,7 @@ def createSettingLayout():
          sg.Checkbox('Webﾌﾟﾛ', key='chk_WEB', enable_events=True),
         sg.Checkbox('CAD', key='chk_CD', enable_events=True)],
         [sg.Checkbox('ﾌﾟﾛｸﾞﾗﾐﾝｸﾞ', key='chk_PG', enable_events=True),
-         sg.Checkbox('Java', key='chk_JV', enable_events=True)],
+         sg.Checkbox('RaiseTech', key='chk_RT', enable_events=True)],
         [sg.Checkbox('ｴｸｽﾍﾟﾘｴﾝｽ', key='chk_EX', enable_events=True)],
         [sg.Button('OK', size=(10, 1), button_color=('white', '#001480')),
          sg.Button('CLEAR', size=(10, 1), button_color=('white', '#dc143c'))], 
@@ -360,7 +353,7 @@ layout = [
         sg.Tab('CD②', tabCadSecond, key='CD2', visible=False),
         sg.Tab('GO', tabGoogle, key='GO'),
         sg.Tab('PG', tabProgramming, key='PG', visible=False),
-        sg.Tab('JV', tabJava, key='JV', visible=False),
+        sg.Tab('RT', tabJava, key='RT', visible=False),
         sg.Tab('EX', tabExperience, key='EX', visible=False),
         sg.Tab('TR', tabTrouble, key='TR'),
         ]],
@@ -378,7 +371,7 @@ def resource_path(relative):
 icon_path = resource_path("128_04.ico")
 
 # ウィンドウの生成
-window = sg.Window('K_San v2501.04', layout, keep_on_top=True, size=(534, 304), resizable=True, icon=icon_path)
+window = sg.Window('K_San v2504.02', layout, keep_on_top=True, size=(534, 304), resizable=True, icon=icon_path)
 
 def get_greeting_data(values):
     data = ""
@@ -449,8 +442,8 @@ def open_setting_window(window):
         setting_window['chk_CD'].update(True)
     if window['PG'].visible:
         setting_window['chk_PG'].update(True)
-    if window['JV'].visible:
-        setting_window['chk_JV'].update(True)
+    if window['RT'].visible:
+        setting_window['chk_RT'].update(True)
     if window['EX'].visible:
         setting_window['chk_EX'].update(True)
 
@@ -464,7 +457,7 @@ def open_setting_window(window):
             'chk_WEB': ['CR3'],
             'chk_CD': ['CD1', 'CD2'],
             'chk_PG': ['PG'],
-            'chk_JV': ['JV'],
+            'chk_RT': ['RT'],
             'chk_EX': ['EX']
         }
 
@@ -479,11 +472,11 @@ def open_setting_window(window):
             setting_window['chk_WEB'].update(False)
             setting_window['chk_CD'].update(False)
             setting_window['chk_PG'].update(False)
-            setting_window['chk_JV'].update(False)
+            setting_window['chk_RT'].update(False)
             setting_window['chk_EX'].update(False)
             
             # チェックボックスの状態に基づいて可視性を更新
-            for key in ['CR1', 'CR2', 'CR3', 'CD1', 'CD2', 'PG', 'JV', 'EX']:
+            for key in ['CR1', 'CR2', 'CR3', 'CD1', 'CD2', 'PG', 'RT', 'EX']:
                 window[key].update(visible=False)
    
     setting_window.close()
@@ -510,7 +503,7 @@ while True:
             window['fast'].update(value=True)
             
     # Java コースの選択イベント
-    if event in ('java_basic', 'old_java_basic', 'java_standard', 'java_advance'):
+    if event in ('java_basic', 'old_java_basic', 'java_standard', 'java_advance', 'aws_basic', 'aws_standard', 'aws_advanced'):
         selected_type = event
         window['javaDetail'].update(values=java_course_options[selected_type])
         
@@ -607,12 +600,6 @@ while True:
             data = "【次回定着テスト】"
         elif values['testExecution']:
             data = "【定着テスト実施】"              
-        elif values['BuildUp']:
-            data = "BuildUp済"
-        elif values['Discord']:
-            data = f"Discord名：{values['DiscordInput']}"
-        elif values['1on1']:
-            data = f"1on1:{values['1on1Course']} {values['1on1Input']}回"
             
         # Javaエンジニアタブ作成
         if values['java_basic']:
@@ -623,6 +610,12 @@ while True:
             data = get_course_data(values, 'Javaエンジニア スタンダード', 'javaDetail')
         elif values['java_advance']:
             data = get_course_data(values, 'Javaエンジニア アドバンスド', 'javaDetail')
+        elif values['aws_basic']:
+            data = get_course_data(values, 'AWS ベーシック', 'javaDetail')
+        elif values['aws_standard']:
+            data = get_course_data(values, 'AWS スタンダード', 'javaDetail')
+        elif values['aws_advanced']:
+            data = get_course_data(values, 'AWS アドバンスド', 'javaDetail')                        
             
         # プログラミングタブ作成    
         elif values['php_basic']:
@@ -1013,9 +1006,7 @@ while True:
             window['studentId'].update('')
             window['studentName'].update('')
             window['studentCourse'].update('')            
-            window['DiscordInput'].update('')
-            window['1on1Input'].update('')
-            window['1on1Course'].update('')
+
             
         else:
             window['javaDetail'].update('')
@@ -1034,13 +1025,10 @@ while True:
             window['studentId'].update('')
             window['studentName'].update('')
             window['studentCourse'].update('')            
-            window['DiscordInput'].update('')
-            window['1on1Input'].update('')
-            window['1on1Course'].update('')
             window['subject'].update(False)
 
         if any(values[key] for key in (
-            'java_basic', 'old_java_basic', 'java_standard', 'java_advance', 'BuildUp', '1on1', 'Discord',
+            'java_basic', 'old_java_basic', 'java_standard', 'java_advance',
             'php_basic', 'php_advance', 'wordpress', 'python_basic', 'java_android', 
             'java_android_trial', 'sql', 'rpa', 'java_specialist', 'word_basic', 
             'word_advance', 'excel_basic', 'excel_advance', 'powerpoint_basic', 
@@ -1076,7 +1064,7 @@ while True:
             'generate_ai_excel_level1', 'generate_ai_excel_level2', 'generate_ai_excel_level3', 'generate_ai_excel_level4',
             'generate_ai_word_level1', 'generate_ai_word_level2', 'generate_ai_word_level3', 'generate_ai_word_level4',
             'generate_ai_powerpoint_level1', 'generate_ai_powerpoint_level2', 'generate_ai_powerpoint_level3', 'generate_ai_powerpoint_level4',
-            'illustrator_ex', 'photoshop_ex', 'autocad_ex', 'jw_cad_ex', 'java_ex', 'web_ex', 'excel_ex'
+            'illustrator_ex', 'photoshop_ex', 'autocad_ex', 'jw_cad_ex', 'java_ex', 'web_ex', 'excel_ex', 'aws_basic', 'aws_standard', 'aws_advanced'
         )):
 
             window['fast'].update(True)
