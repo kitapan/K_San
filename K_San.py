@@ -56,8 +56,8 @@ tabAction = [
     [sg.Radio('挨拶', '1', default=True, key='fast'),
      sg.Radio('ヘルプ', '1', key='help'),
      sg.Radio('フォロー', '1', key='follow'),
-     sg.Radio('Aヘルプ', '1', key='adviceHelp'),
-     sg.Radio('Aフォロー', '1', key='adviceFollow')
+    #  sg.Radio('Aヘルプ', '1', key='adviceHelp'),
+    #  sg.Radio('Aフォロー', '1', key='adviceFollow')
      ],
     [sg.Radio('面談', '1', key='cs'),
      sg.Radio('VUサポ', '1', key='vu'),
@@ -162,7 +162,8 @@ tabOfficeFourth = [
      [sg.Radio('PP1', '1', key='generate_ai_powerpoint_level1', enable_events=True, font=curriculumFont),
      sg.Radio('PP2', '1', key='generate_ai_powerpoint_level2', enable_events=True, font=curriculumFont),
      sg.Radio('PP3', '1', key='generate_ai_powerpoint_level3', enable_events=True, font=curriculumFont),
-     sg.Radio('PP4', '1', key='generate_ai_powerpoint_level4', enable_events=True, font=curriculumFont)],    
+     sg.Radio('PP4', '1', key='generate_ai_powerpoint_level4', enable_events=True, font=curriculumFont),
+     sg.Radio('forE', '1', key='ai_sw_for_excel_pw', enable_events=True, font=curriculumFont)],    
     [sg.Text('挨拶', size=(4, 1), font=font),
      sg.Combo([], size=(150, 1), key='officeDetailFourth', font=font)]
 ]
@@ -523,7 +524,8 @@ while True:
                  'business_drill_excel', 'business_drill_powerpoint',
                  'generate_ai_excel_level1', 'generate_ai_excel_level2', 'generate_ai_excel_level3', 'generate_ai_excel_level4',
                  'generate_ai_word_level1', 'generate_ai_word_level2', 'generate_ai_word_level3', 'generate_ai_word_level4',
-                 'generate_ai_powerpoint_level1', 'generate_ai_powerpoint_level2', 'generate_ai_powerpoint_level3', 'generate_ai_powerpoint_level4'):
+                 'generate_ai_powerpoint_level1', 'generate_ai_powerpoint_level2', 'generate_ai_powerpoint_level3', 'generate_ai_powerpoint_level4',
+                 'ai_sw_for_excel_pw'):
         selected_type = event
         window['officeDetail'].update(values=office_course_options[selected_type])
         window['officeDetailSecond'].update(values=office_course_options[selected_type])
@@ -582,12 +584,12 @@ while True:
             
             
         # G3専用アドバイスコマンド    
-        elif values['adviceHelp'] and values['alarmCheck']:
-            data = f"ヘルプ対応:所要時間：{window['timer'].get()} !▲ {values['remarks']} ▲!"
-        elif values['adviceHelp']:
-            data = f"ヘルプ対応:!▲ {values['remarks']} ▲!"               
-        elif values['adviceFollow']:
-            data = f"フォロー対応:!▲ {values['remarks']} ▲!"
+        # elif values['adviceHelp'] and values['alarmCheck']:
+        #     data = f"ヘルプ対応:所要時間：{window['timer'].get()} !▲ {values['remarks']} ▲!"
+        # elif values['adviceHelp']:
+        #     data = f"ヘルプ対応:!▲ {values['remarks']} ▲!"               
+        # elif values['adviceFollow']:
+        #     data = f"フォロー対応:!▲ {values['remarks']} ▲!"
             
                         
         elif values['cs']:
@@ -738,7 +740,10 @@ while True:
         elif values['generate_ai_powerpoint_level3']:
             data = get_course_data(values, '生成AI活用 PowerPoint Lv3', 'officeDetailFourth')
         elif values['generate_ai_powerpoint_level4']:
-            data = get_course_data(values, '生成AI活用 PowerPoint Lv4', 'officeDetailFourth')                 
+            data = get_course_data(values, '生成AI活用 PowerPoint Lv4', 'officeDetailFourth')
+        elif values['ai_sw_for_excel_pw']:
+            data = get_course_data(values, 'AI for Excel＜プロワーカー編＞', 'officeDetailFourth')
+                             
                         
         #　クリエイティブタブ1作成    
         elif values['html_css_basic']:
@@ -1064,7 +1069,8 @@ while True:
             'generate_ai_excel_level1', 'generate_ai_excel_level2', 'generate_ai_excel_level3', 'generate_ai_excel_level4',
             'generate_ai_word_level1', 'generate_ai_word_level2', 'generate_ai_word_level3', 'generate_ai_word_level4',
             'generate_ai_powerpoint_level1', 'generate_ai_powerpoint_level2', 'generate_ai_powerpoint_level3', 'generate_ai_powerpoint_level4',
-            'illustrator_ex', 'photoshop_ex', 'autocad_ex', 'jw_cad_ex', 'java_ex', 'web_ex', 'excel_ex', 'aws_basic', 'aws_standard', 'aws_advanced'
+            'illustrator_ex', 'photoshop_ex', 'autocad_ex', 'jw_cad_ex', 'java_ex', 'web_ex', 'excel_ex', 'aws_basic', 'aws_standard', 'aws_advanced',
+            'ai_sw_for_excel_pw'
         )):
 
             window['fast'].update(True)
